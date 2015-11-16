@@ -1,0 +1,8 @@
+include setup.py
+include MANIFEST.in
+include README.md
+include README.rst
+include LICENSE
+include ChangeLog
+include .vimrc
+recursive-include VirtualEnvOnDemand *.py
