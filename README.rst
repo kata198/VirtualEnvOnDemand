@@ -4,7 +4,7 @@ VirtualEnvOnDemand
 VirtualEnvOnDemand provides a simple means for an application, without restarting, to temporarily install and use its runtime requirements
 
 
-*How it works*
+**How it works**
 
 When you call createEnv, A virtualenv is created (and by default will be removed upon application termination) in a temporary location, 
 
@@ -13,7 +13,7 @@ the given packages (and optionally specific versions) are installed therein, and
 to your running python module search-path.
 
 
-*Documentation*
+**Documentation**
 
 Can be found at:
 
