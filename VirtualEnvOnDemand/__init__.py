@@ -15,8 +15,8 @@ from .exceptions import PipInstallFailed
 
 __all__ = ('createEnv', '__version__', '__version_tuple__', 'PipInstallFailed')
 
-__version__ = '1.0.0'
-__version_tuple__ = (1, 0, 0)
+__version__ = '1.0.1'
+__version_tuple__ = (1, 0, 1)
 
 def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True):
     '''

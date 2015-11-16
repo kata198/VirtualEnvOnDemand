@@ -15,7 +15,7 @@ if __name__ == '__main__':
     if dirName and os.getcwd() != dirName:
         os.chdir(dirName)
 
-    summary = 'Module which supports installing and using dependencies within a live python application'
+    summary = 'Provides a simple means for an application, without restarting, to temporarily install and use its runtime requirements'
 
     try:
         with open('README.rst', 'r') as f:
@@ -25,7 +25,7 @@ if __name__ == '__main__':
         long_description = summary
 
     setup(name='VirtualEnvOnDemand',
-            version='1.0.0',
+            version='1.0.1',
             packages=['VirtualEnvOnDemand'],
             author='Tim Savannah',
             author_email='kata198@gmail.com',

@@ -6,3 +6,4 @@ include LICENSE
 include ChangeLog
 include .vimrc
 recursive-include VirtualEnvOnDemand *.py
+recursive-include doc *.html
