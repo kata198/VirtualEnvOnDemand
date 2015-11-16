@@ -1,0 +1,144 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package VirtualEnvOnDemand</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>VirtualEnvOnDemand</strong></big></big> (version 1.0.0)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a></font></td></tr></table>
+    <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"<br>
+#<br>
+#&nbsp;&nbsp;VirtualEnvOnDemand&nbsp;provides&nbsp;a&nbsp;simple&nbsp;means&nbsp;for&nbsp;an&nbsp;application,&nbsp;without&nbsp;restarting,&nbsp;to&nbsp;temporarily&nbsp;install&nbsp;and&nbsp;use&nbsp;its&nbsp;runtime&nbsp;requirements</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="VirtualEnvOnDemand.exceptions.html">exceptions</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="VirtualEnvOnDemand.exceptions.html#PipInstallFailed">VirtualEnvOnDemand.exceptions.PipInstallFailed</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PipInstallFailed">class <strong>PipInstallFailed</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;<a href="exceptions.html#Exception">Exception</a>&nbsp;raised&nbsp;when&nbsp;pip&nbsp;fails&nbsp;to&nbsp;install&nbsp;a&nbsp;list&nbsp;of&nbsp;packages<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="VirtualEnvOnDemand.exceptions.html#PipInstallFailed">PipInstallFailed</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PipInstallFailed-__init__"><strong>__init__</strong></a>(self, returnCode<font color="#909090">=None</font>, reqFileContents<font color="#909090">=''</font>)</dt><dd><tt>Create&nbsp;a&nbsp;<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;exception,&nbsp;building&nbsp;a&nbsp;message&nbsp;from&nbsp;some&nbsp;pieces&nbsp;of&nbsp;information<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;returnCode&nbsp;&lt;int&gt;&nbsp;-&nbsp;Return&nbsp;code&nbsp;of&nbsp;subprocess,&nbsp;or&nbsp;None&nbsp;if&nbsp;undetermined<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;reqFileContents&nbsp;&lt;str&gt;&nbsp;-&nbsp;String&nbsp;of&nbsp;requirements&nbsp;file&nbsp;to&nbsp;reproduce&nbsp;error</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#PipInstallFailed-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="PipInstallFailed-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="PipInstallFailed-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="PipInstallFailed-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="PipInstallFailed-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="PipInstallFailed-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="PipInstallFailed-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="PipInstallFailed-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PipInstallFailed-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="PipInstallFailed-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<dl><dt><a name="PipInstallFailed-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-createEnv"><strong>createEnv</strong></a>(packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=True</font>)</dt><dd><tt>createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this,&nbsp;for&nbsp;example,&nbsp;to&nbsp;"recover"&nbsp;from&nbsp;a&nbsp;failed&nbsp;import&nbsp;by&nbsp;installing&nbsp;the&nbsp;software&nbsp;on&nbsp;demand.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;parentDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;Parent&nbsp;directory&nbsp;of&nbsp;the&nbsp;directory&nbsp;which&nbsp;will&nbsp;be&nbsp;created&nbsp;to&nbsp;hold&nbsp;the&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages.&nbsp;Defaults&nbsp;to&nbsp;tempfile.tempdir<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stdout&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stdout&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stdout.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stderr&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stderr&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stderr.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;deleteOnClose&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(Default),&nbsp;this&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages&nbsp;will&nbsp;be&nbsp;erased&nbsp;after&nbsp;program&nbsp;terminates.&nbsp;Note,&nbsp;this&nbsp;cannot&nbsp;trap&nbsp;everything&nbsp;(e.x.&nbsp;SIGKILL).<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;following&nbsp;dict:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'virtualenvDirectory'&nbsp;&nbsp;&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;virtualenv&nbsp;directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sitePackagesDirectory'&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;site-packages&nbsp;directory&nbsp;within<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'requirements.txt'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Full&nbsp;generated&nbsp;requirements.txt&nbsp;file&nbsp;used&nbsp;for&nbsp;pip&nbsp;installation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="exceptions.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__all__</strong> = ('createEnv', '__version__', '__version_tuple__', 'PipInstallFailed')<br>
+<strong>__version__</strong> = '1.0.0'<br>
+<strong>__version_tuple__</strong> = (1, 0, 0)</td></tr></table>
+</body></html>
