@@ -5,5 +5,7 @@ include README.rst
 include LICENSE
 include ChangeLog
 include .vimrc
+include example.py
+include example_explicit.py
 recursive-include VirtualEnvOnDemand *.py
 recursive-include doc *.html

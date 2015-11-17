@@ -1,16 +1,11 @@
 VirtualEnvOnDemand
 ==================
 
-VirtualEnvOnDemand provides a simple means for an application, without restarting, to temporarily install and use its runtime requirements
+VirtualEnvOnDemand provides a simple means for an application, without restarting, to temporarily install and use its runtime requirements.
 
+The primary means to accomplish this is to call "VirtualEnvOnDemand.enableOnDemandImporter()" which will load the hook into the importer. If an import fails, it will attempt to fetch the corrosponding module and install into current runtime.
 
-**How it works**
-
-When you call createEnv, A virtualenv is created (and by default will be removed upon application termination) in a temporary location, 
-the given packages (and optionally specific versions) are installed therein, and that additional site-packages directory is prepended 
-to your running python module search-path.
-
-
+You can also explicitly create environments and install packages into them (adding to current runtime). See documentation for more details.
 
 **Documentation**
 
@@ -23,23 +18,20 @@ https://htmlpreview.github.io/?https://raw.githubusercontent.com/kata198/Virtual
 Example:
 --------
 
-	#!/usr/bin/env python
+The following example shows using "enableOnDemandImporter" to automatically fetch and install to current runtime any unavailable imports.
 
 	import sys
-	import VirtualEnvOnDemand
+	from VirtualEnvOnDemand import enableOnDemandImporter
 
-	# Install module when import error. Automatically added to path for current runtime.
-	try:
-		import IndexedRedis
-	except ImportError:
-		VirtualEnvOnDemand.createEnv(['IndexedRedis', 'redis'], parentDirectory='/tmp', stdout=None, stderr=None)
-		import IndexedRedis
+    # Activate the hook
+	enableOnDemandImporter()
 
+    # The following imports are not available, and will be installed into current runtime
+	import IndexedRedis
+	from AdvancedHTMLParser.exceptions import *
 
 	if __name__ == '__main__':
 		sys.stdout.write('IndexedRedis version: ' + IndexedRedis.__version__ + '\n')
-
-		# Use convenience function for checking import otherwise installing module
-		VirtualEnvOnDemand.createEnvIfCannotImport('AdvancedHTMLParser', ['AdvancedHTMLParser'], parentDirectory='/tmp', stdout=None)
 		import AdvancedHTMLParser
 		sys.stdout.write('AdvancedHTMLParser version: ' + AdvancedHTMLParser.__version__ + '\n')
+

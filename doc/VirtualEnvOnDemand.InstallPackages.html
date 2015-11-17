@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module VirtualEnvOnDemand.InstallPackages</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="VirtualEnvOnDemand.html"><font color="#ffffff">VirtualEnvOnDemand</font></a>.InstallPackages</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a></font></td></tr></table>
+    <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"<br>
+#<br>
+#&nbsp;&nbsp;Package&nbsp;installation&nbsp;methods</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="subprocess.html">subprocess</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="tempfile.html">tempfile</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-generateRequirementsTxt"><strong>generateRequirementsTxt</strong></a>(packages)</dt><dd><tt>generateRequirementsTxt&nbsp;-&nbsp;Generates&nbsp;a&nbsp;requirements.txt&nbsp;suitable&nbsp;for&nbsp;pip&nbsp;to&nbsp;ingest&nbsp;based&nbsp;on&nbsp;packages&nbsp;param.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;&lt;str&gt;&nbsp;-&nbsp;generated&nbsp;requirements.txt&nbsp;file&nbsp;contents</tt></dd></dl>
+ <dl><dt><a name="-installPackages"><strong>installPackages</strong></a>(packages, venvDir, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>)</dt><dd><tt>installPackages&nbsp;-&nbsp;Installs&nbsp;packages&nbsp;into&nbsp;a&nbsp;created&nbsp;virtual&nbsp;environment<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;venvDir&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;a&nbsp;created&nbsp;virtualenv&nbsp;directory.&nbsp;This&nbsp;should&nbsp;be&nbsp;the&nbsp;'virtualenvDirectory'&nbsp;key&nbsp;from&nbsp;the&nbsp;return&nbsp;of&nbsp;createEnv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stdout&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stdout&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stdout.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stderr&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stderr&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stderr.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;The&nbsp;generated&nbsp;requirements.txt&nbsp;used&nbsp;to&nbsp;install&nbsp;packages.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@raises&nbsp;-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.PipInstallFailed&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(Exception,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module VirtualEnvOnDemand.GlobalEnv</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="VirtualEnvOnDemand.html"><font color="#ffffff">VirtualEnvOnDemand</font></a>.GlobalEnv</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a></font></td></tr></table>
+    <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"<br>
+#&nbsp;<br>
+#&nbsp;&nbsp;This&nbsp;file&nbsp;contains&nbsp;things&nbsp;related&nbsp;to&nbsp;the&nbsp;"global"&nbsp;env,&nbsp;used&nbsp;for&nbsp;auto-importing.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="imp.html">imp</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="VirtualEnvOnDemand.GlobalEnv.html#VirtualEnvOnDemandImporter">VirtualEnvOnDemandImporter</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="VirtualEnvOnDemandImporter">class <strong>VirtualEnvOnDemandImporter</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#VirtualEnvOnDemandImporter">VirtualEnvOnDemandImporter</a>&nbsp;-&nbsp;The&nbsp;workhouse&nbsp;of&nbsp;auto-importing.&nbsp;Upon&nbsp;an&nbsp;import&nbsp;that&nbsp;wouldn't&nbsp;resolve,&nbsp;it&nbsp;will&nbsp;try&nbsp;to&nbsp;install&nbsp;the&nbsp;leading&nbsp;package&nbsp;name&nbsp;using&nbsp;pip.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Failure&nbsp;will&nbsp;still&nbsp;cause&nbsp;a&nbsp;"cannot&nbsp;import"&nbsp;error,&nbsp;but&nbsp;otherwise&nbsp;things&nbsp;will&nbsp;be&nbsp;installed&nbsp;on-demand.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="VirtualEnvOnDemandImporter-find_module"><strong>find_module</strong></a>(self, fullname, path<font color="#909090">=None</font>)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-enableOnDemandImporter"><strong>enableOnDemandImporter</strong></a>()</dt><dd><tt>enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>globalOnDemandVirtualEnv</strong> = None<br>
+<strong>isOnDemandImporterEnabled</strong> = False</td></tr></table>
+</body></html>

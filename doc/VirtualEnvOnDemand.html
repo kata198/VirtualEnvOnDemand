@@ -7,7 +7,7 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>VirtualEnvOnDemand</strong></big></big> (version 1.0.0)</font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>VirtualEnvOnDemand</strong></big></big> (version 2.0.0)</font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a></font></td></tr></table>
     <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"<br>
@@ -20,8 +20,11 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="VirtualEnvOnDemand.exceptions.html">exceptions</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="VirtualEnvOnDemand.CreateEnv.html">CreateEnv</a><br>
+</td><td width="25%" valign=top><a href="VirtualEnvOnDemand.GlobalEnv.html">GlobalEnv</a><br>
+</td><td width="25%" valign=top><a href="VirtualEnvOnDemand.InstallPackages.html">InstallPackages</a><br>
+</td><td width="25%" valign=top><a href="VirtualEnvOnDemand.exceptions.html">exceptions</a><br>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -106,7 +109,7 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-createEnv"><strong>createEnv</strong></a>(packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=True</font>)</dt><dd><tt>createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br>
+<td width="100%"><dl><dt><a name="-createEnv"><strong>createEnv</strong></a>(packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=False</font>)</dt><dd><tt>createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this,&nbsp;for&nbsp;example,&nbsp;to&nbsp;"recover"&nbsp;from&nbsp;a&nbsp;failed&nbsp;import&nbsp;by&nbsp;installing&nbsp;the&nbsp;software&nbsp;on&nbsp;demand.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
@@ -131,6 +134,19 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 @raises&nbsp;-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="exceptions.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
+ <dl><dt><a name="-createEnvIfCannotImport"><strong>createEnvIfCannotImport</strong></a>(importName, packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=True</font>)</dt><dd><tt>createEnvIfCannotImport&nbsp;-&nbsp;Tries&nbsp;to&nbsp;import&nbsp;a&nbsp;given&nbsp;name,&nbsp;and&nbsp;if&nbsp;fails,&nbsp;creates&nbsp;a&nbsp;temporary&nbsp;env&nbsp;and&nbsp;installs&nbsp;given&nbsp;packages&nbsp;and&nbsp;tries&nbsp;again.<br>
+&nbsp;<br>
+@see&nbsp;createEnv&nbsp;for&nbsp;most&nbsp;params.<br>
+&nbsp;<br>
+@param&nbsp;importName&nbsp;-&nbsp;Name&nbsp;of&nbsp;module&nbsp;to&nbsp;import<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ImportError&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;import&nbsp;even&nbsp;after&nbsp;successful&nbsp;installation&nbsp;of&nbsp;the&nbsp;packages.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="exceptions.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;None&nbsp;if&nbsp;no&nbsp;env&nbsp;was&nbsp;created,&nbsp;otherwise&nbsp;the&nbsp;return&nbsp;dict&nbsp;from&nbsp;the&nbsp;createEnv&nbsp;call.&nbsp;@see&nbsp;createEnv</tt></dd></dl>
+ <dl><dt><a name="-enableOnDemandImporter"><strong>enableOnDemandImporter</strong></a>()</dt><dd><tt>enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -138,7 +154,7 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>__all__</strong> = ('createEnv', '__version__', '__version_tuple__', 'PipInstallFailed')<br>
-<strong>__version__</strong> = '1.0.0'<br>
-<strong>__version_tuple__</strong> = (1, 0, 0)</td></tr></table>
+<td width="100%"><strong>__all__</strong> = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'PipInstallFailed', '__version__', '__version_tuple__')<br>
+<strong>__version__</strong> = '2.0.0'<br>
+<strong>__version_tuple__</strong> = (2, 0, 0)</td></tr></table>
 </body></html>

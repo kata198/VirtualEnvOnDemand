@@ -1,0 +1,79 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module VirtualEnvOnDemand.CreateEnv</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="VirtualEnvOnDemand.html"><font color="#ffffff">VirtualEnvOnDemand</font></a>.CreateEnv</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a></font></td></tr></table>
+    <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="atexit.html">atexit</a><br>
+<a href="shutil.html">shutil</a><br>
+</td><td width="25%" valign=top><a href="subprocess.html">subprocess</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="tempfile.html">tempfile</a><br>
+<a href="virtualenv.html">virtualenv</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-createEnv"><strong>createEnv</strong></a>(packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=False</font>)</dt><dd><tt>createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this,&nbsp;for&nbsp;example,&nbsp;to&nbsp;"recover"&nbsp;from&nbsp;a&nbsp;failed&nbsp;import&nbsp;by&nbsp;installing&nbsp;the&nbsp;software&nbsp;on&nbsp;demand.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;parentDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;Parent&nbsp;directory&nbsp;of&nbsp;the&nbsp;directory&nbsp;which&nbsp;will&nbsp;be&nbsp;created&nbsp;to&nbsp;hold&nbsp;the&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages.&nbsp;Defaults&nbsp;to&nbsp;tempfile.tempdir<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stdout&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stdout&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stdout.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stderr&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stderr&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stderr.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;deleteOnClose&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(Default),&nbsp;this&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages&nbsp;will&nbsp;be&nbsp;erased&nbsp;after&nbsp;program&nbsp;terminates.&nbsp;Note,&nbsp;this&nbsp;cannot&nbsp;trap&nbsp;everything&nbsp;(e.x.&nbsp;SIGKILL).<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;following&nbsp;dict:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'virtualenvDirectory'&nbsp;&nbsp;&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;virtualenv&nbsp;directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sitePackagesDirectory'&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;site-packages&nbsp;directory&nbsp;within<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'requirements.txt'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Full&nbsp;generated&nbsp;requirements.txt&nbsp;file&nbsp;used&nbsp;for&nbsp;pip&nbsp;installation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.PipInstallFailed&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(Exception,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
+ <dl><dt><a name="-createEnvIfCannotImport"><strong>createEnvIfCannotImport</strong></a>(importName, packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=True</font>)</dt><dd><tt>createEnvIfCannotImport&nbsp;-&nbsp;Tries&nbsp;to&nbsp;import&nbsp;a&nbsp;given&nbsp;name,&nbsp;and&nbsp;if&nbsp;fails,&nbsp;creates&nbsp;a&nbsp;temporary&nbsp;env&nbsp;and&nbsp;installs&nbsp;given&nbsp;packages&nbsp;and&nbsp;tries&nbsp;again.<br>
+&nbsp;<br>
+@see&nbsp;createEnv&nbsp;for&nbsp;most&nbsp;params.<br>
+&nbsp;<br>
+@param&nbsp;importName&nbsp;-&nbsp;Name&nbsp;of&nbsp;module&nbsp;to&nbsp;import<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.PipInstallFailed&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ImportError&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;import&nbsp;even&nbsp;after&nbsp;successful&nbsp;installation&nbsp;of&nbsp;the&nbsp;packages.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(Exception,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;None&nbsp;if&nbsp;no&nbsp;env&nbsp;was&nbsp;created,&nbsp;otherwise&nbsp;the&nbsp;return&nbsp;dict&nbsp;from&nbsp;the&nbsp;createEnv&nbsp;call.&nbsp;@see&nbsp;createEnv</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__all__</strong> = ('createEnv', 'createEnvIfCannotImport')</td></tr></table>
+</body></html>

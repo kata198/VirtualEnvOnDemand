@@ -1,0 +1,7 @@
+* 2.0.0 - Nov 17 2015
+- Split up module into a couple files
+- Split out the package installation from env creation, to support adding to
+existing envs
+- Add support for enabling automatically trying to install modules after
+failed import, by calling "VirtualEnvOnDemand.enableOnDemandImporter()"
+- Update docs accordingly
