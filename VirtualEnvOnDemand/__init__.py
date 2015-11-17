@@ -7,12 +7,12 @@
 
 from .exceptions import PipInstallFailed
 
-__all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'PipInstallFailed', '__version__', '__version_tuple__')
+__all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'installPackages', 'PipInstallFailed', '__version__', '__version_tuple__')
 
-__version__ = '2.0.0'
-__version_tuple__ = (2, 0, 0)
+__version__ = '2.0.1'
+__version_tuple__ = (2, 0, 1)
 
 from .CreateEnv import createEnv, createEnvIfCannotImport
 
 from VirtualEnvOnDemand.GlobalEnv import enableOnDemandImporter
-
+from VirtualEnvOnDemand.InstallPackages import installPackages
