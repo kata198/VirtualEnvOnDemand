@@ -15,14 +15,16 @@ globalOnDemandVirtualEnv = None
 isOnDemandImporterEnabled = False
 
 
-def enableOnDemandImporter():
+def enableOnDemandImporter(tmpDir=None):
     '''
         enableOnDemandImporter - Calling this method turns on the "on demand" importer. A temporary global env is created, and all failed imports will attempt an installation.
+
+           @param tmpDir <str/None> - Temporary directory to use. A subdirectory will be created within this. Defaults to tempdir.gettmpdir()
     '''
     global isOnDemandImporterEnabled, globalOnDemandVirtualEnv
     if isOnDemandImporterEnabled is True:
         return
-    globalOnDemandVirtualEnv = createEnv(None, stdout=None, stderr=None)
+    globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=tmpDir, stdout=None, stderr=None)
     sys.meta_path = [VirtualEnvOnDemandImporter()] + sys.meta_path
     isOnDemandImporterEnabled = True
 

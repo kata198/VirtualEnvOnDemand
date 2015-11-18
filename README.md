@@ -7,6 +7,15 @@ The primary means to accomplish this is to call "VirtualEnvOnDemand.enableOnDema
 
 You can also explicitly create environments and install packages into them (adding to current runtime). See documentation for more details.
 
+
+**Why?**
+
+There are a multitude of uses for this. You may use it for development, share scripts and updates with others without them having to modify their virtualenv or install global packages.
+You can use it for "lightweight" distributions, for example you may use third-party libs for testing, but they don't need to be in your global setup.py "requires", you can just import them
+on-demand when you run tests. Or make up your own use!
+
+
+
 **Documentation**
 
 Can be found at:

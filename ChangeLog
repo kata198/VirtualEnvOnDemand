@@ -1,3 +1,7 @@
+* 2.1.0 - Nov 18 2015
+- For auto-generated temporary requirements.txt file, use the virtualenv directory instead of parent temp directory to keep things cleaner and isolated
+- Allow specifying a temporary directory on the enableOnDemandImporter call.
+
 * 2.0.1 - Nov 17 2015
 - Split up module into a couple files
 - Split out the package installation from env creation, to support adding to

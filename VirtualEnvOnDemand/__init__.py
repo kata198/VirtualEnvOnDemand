@@ -9,8 +9,8 @@ from .exceptions import PipInstallFailed
 
 __all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'installPackages', 'PipInstallFailed', '__version__', '__version_tuple__')
 
-__version__ = '2.0.1'
-__version_tuple__ = (2, 0, 1)
+__version__ = '2.1.0'
+__version_tuple__ = (2, 1, 0)
 
 from .CreateEnv import createEnv, createEnvIfCannotImport
 

@@ -68,11 +68,8 @@ def installPackages(packages, venvDir, stdout=sys.stdout, stderr=sys.stderr):
     reqContents = generateRequirementsTxt(packages)
 
     if reqContents:
-        # Derive parent temp directory by the virtualenv directory
-        parentDirectory = os.path.dirname(venvDir)
-
         # Generate a temporary named file for the requirements.txt and feed into pip
-        with tempfile.NamedTemporaryFile(prefix='venv_req_', suffix='txt', mode='wt', dir=parentDirectory, delete=True) as reqFile:
+        with tempfile.NamedTemporaryFile(prefix='venv_req_', suffix='txt', mode='wt', dir=venvDir, delete=True) as reqFile:
             reqFile.write(reqContents)
             if reqContents[-1] != '\n':
                 reqFile.write('\n')
