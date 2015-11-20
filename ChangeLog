@@ -1,3 +1,14 @@
+* 3.0.0 - Nov 19 2015
+- Instead of returning a dictionary from CreateEnv, return a new
+VirtualEnvInfo object. This is backwards-compatible, as it implements
+__getitem__ and __setitem__ with the fields and thus can be used the same.
+- Add methods ensureImport and ensureImportGlobal (that work on a given
+virtualenv directory, or the global one created by enableOnDemandImporter,
+respectively). These can be used when the package name does not match the
+module name (like "biopython" package provides "Bio"), instead of creating a
+new virtualenv for each instance, and for appending to existing envs to
+prevent number that would be stacked under normal usage.
+
 * 2.1.0 - Nov 18 2015
 - For auto-generated temporary requirements.txt file, use the virtualenv directory instead of parent temp directory to keep things cleaner and isolated
 - Allow specifying a temporary directory on the enableOnDemandImporter call.

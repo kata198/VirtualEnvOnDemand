@@ -1,13 +1,12 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head><title>Python: package VirtualEnvOnDemand</title>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head><body bgcolor="#f0f0f8">
 
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>VirtualEnvOnDemand</strong></big></big> (version 2.1.0)</font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>VirtualEnvOnDemand</strong></big></big> (version 3.0.0)</font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a></font></td></tr></table>
     <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"<br>
@@ -21,10 +20,11 @@
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="VirtualEnvOnDemand.CreateEnv.html">CreateEnv</a><br>
-</td><td width="25%" valign=top><a href="VirtualEnvOnDemand.GlobalEnv.html">GlobalEnv</a><br>
+<a href="VirtualEnvOnDemand.GlobalEnv.html">GlobalEnv</a><br>
 </td><td width="25%" valign=top><a href="VirtualEnvOnDemand.InstallPackages.html">InstallPackages</a><br>
+<a href="VirtualEnvOnDemand.VirtualEnvInfo.html">VirtualEnvInfo</a><br>
 </td><td width="25%" valign=top><a href="VirtualEnvOnDemand.exceptions.html">exceptions</a><br>
-</td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -32,10 +32,16 @@
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+<dt><font face="helvetica, arial"><a href="builtins.html#Exception">builtins.Exception</a>(<a href="builtins.html#BaseException">builtins.BaseException</a>)
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="VirtualEnvOnDemand.exceptions.html#PipInstallFailed">VirtualEnvOnDemand.exceptions.PipInstallFailed</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="VirtualEnvOnDemand.VirtualEnvInfo.html#VirtualEnvInfo">VirtualEnvOnDemand.VirtualEnvInfo.VirtualEnvInfo</a>
 </font></dt></dl>
 </dd>
 </dl>
@@ -43,20 +49,20 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="PipInstallFailed">class <strong>PipInstallFailed</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="PipInstallFailed">class <strong>PipInstallFailed</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;<a href="exceptions.html#Exception">Exception</a>&nbsp;raised&nbsp;when&nbsp;pip&nbsp;fails&nbsp;to&nbsp;install&nbsp;a&nbsp;list&nbsp;of&nbsp;packages<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt><a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;<a href="builtins.html#Exception">Exception</a>&nbsp;raised&nbsp;when&nbsp;pip&nbsp;fails&nbsp;to&nbsp;install&nbsp;a&nbsp;list&nbsp;of&nbsp;packages<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="VirtualEnvOnDemand.exceptions.html#PipInstallFailed">PipInstallFailed</a></dd>
-<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
-<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
-<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="PipInstallFailed-__init__"><strong>__init__</strong></a>(self, returnCode<font color="#909090">=None</font>, reqFileContents<font color="#909090">=''</font>)</dt><dd><tt>Create&nbsp;a&nbsp;<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;exception,&nbsp;building&nbsp;a&nbsp;message&nbsp;from&nbsp;some&nbsp;pieces&nbsp;of&nbsp;information<br>
+<dl><dt><a name="PipInstallFailed-__init__"><strong>__init__</strong></a>(self, returnCode=None, reqFileContents='')</dt><dd><tt>Create&nbsp;a&nbsp;<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;exception,&nbsp;building&nbsp;a&nbsp;message&nbsp;from&nbsp;some&nbsp;pieces&nbsp;of&nbsp;information<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;returnCode&nbsp;&lt;int&gt;&nbsp;-&nbsp;Return&nbsp;code&nbsp;of&nbsp;subprocess,&nbsp;or&nbsp;None&nbsp;if&nbsp;undetermined<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;reqFileContents&nbsp;&lt;str&gt;&nbsp;-&nbsp;String&nbsp;of&nbsp;requirements&nbsp;file&nbsp;to&nbsp;reproduce&nbsp;error</tt></dd></dl>
@@ -67,40 +73,65 @@ Data descriptors defined here:<br>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
 <hr>
-Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
-<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#PipInstallFailed-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="PipInstallFailed-__new__"><strong>__new__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
 
 <hr>
-Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
-<dl><dt><a name="PipInstallFailed-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="PipInstallFailed-__delattr__"><strong>__delattr__</strong></a>(self, name, /)</dt><dd><tt>Implement&nbsp;delattr(self,&nbsp;name).</tt></dd></dl>
 
-<dl><dt><a name="PipInstallFailed-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
-
-<dl><dt><a name="PipInstallFailed-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
-
-<dl><dt><a name="PipInstallFailed-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
-&nbsp;<br>
-Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+<dl><dt><a name="PipInstallFailed-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
 
 <dl><dt><a name="PipInstallFailed-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
 
-<dl><dt><a name="PipInstallFailed-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+<dl><dt><a name="PipInstallFailed-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
 
-<dl><dt><a name="PipInstallFailed-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+<dl><dt><a name="PipInstallFailed-__setattr__"><strong>__setattr__</strong></a>(self, name, value, /)</dt><dd><tt>Implement&nbsp;setattr(self,&nbsp;name,&nbsp;value).</tt></dd></dl>
 
 <dl><dt><a name="PipInstallFailed-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
 
-<dl><dt><a name="PipInstallFailed-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#PipInstallFailed-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+<dl><dt><a name="PipInstallFailed-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
 
-<dl><dt><a name="PipInstallFailed-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+<dl><dt><a name="PipInstallFailed-with_traceback"><strong>with_traceback</strong></a>(...)</dt><dd><tt><a href="builtins.html#Exception">Exception</a>.<a href="#PipInstallFailed-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</tt></dd></dl>
 
 <hr>
-Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><tt>exception&nbsp;cause</tt></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><tt>exception&nbsp;context</tt></dd>
+</dl>
 <dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
 </dl>
 <dl><dt><strong>args</strong></dt>
 </dl>
-<dl><dt><strong>message</strong></dt>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="VirtualEnvInfo">class <strong>VirtualEnvInfo</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="VirtualEnvInfo-__getitem__"><strong>__getitem__</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="VirtualEnvInfo-__init__"><strong>__init__</strong></a>(self, virtualenvDirectory='', sitePackagesDirectory='', requirementsTxt='')</dt></dl>
+
+<dl><dt><a name="VirtualEnvInfo-__setitem__"><strong>__setitem__</strong></a>(self, name, value)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>requirementsTxt</strong></dt>
+</dl>
+<dl><dt><strong>sitePackagesDirectory</strong></dt>
+</dl>
+<dl><dt><strong>virtualenvDirectory</strong></dt>
 </dl>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -109,7 +140,7 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-createEnv"><strong>createEnv</strong></a>(packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=False</font>)</dt><dd><tt>createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br>
+<td width="100%"><dl><dt><a name="-createEnv"><strong>createEnv</strong></a>(packages, parentDirectory=None, stdout=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;, stderr=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;, deleteOnClose=False)</dt><dd><tt>createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this,&nbsp;for&nbsp;example,&nbsp;to&nbsp;"recover"&nbsp;from&nbsp;a&nbsp;failed&nbsp;import&nbsp;by&nbsp;installing&nbsp;the&nbsp;software&nbsp;on&nbsp;demand.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
@@ -124,7 +155,7 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;deleteOnClose&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(Default),&nbsp;this&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages&nbsp;will&nbsp;be&nbsp;erased&nbsp;after&nbsp;program&nbsp;terminates.&nbsp;Note,&nbsp;this&nbsp;cannot&nbsp;trap&nbsp;everything&nbsp;(e.x.&nbsp;SIGKILL).<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;following&nbsp;dict:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>,&nbsp;which&nbsp;can&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;dict&nbsp;with&nbsp;the&nbsp;following&nbsp;fields:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'virtualenvDirectory'&nbsp;&nbsp;&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;virtualenv&nbsp;directory<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sitePackagesDirectory'&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;site-packages&nbsp;directory&nbsp;within<br>
@@ -133,8 +164,8 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 &nbsp;<br>
 @raises&nbsp;-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="exceptions.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
- <dl><dt><a name="-createEnvIfCannotImport"><strong>createEnvIfCannotImport</strong></a>(importName, packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=True</font>)</dt><dd><tt>createEnvIfCannotImport&nbsp;-&nbsp;Tries&nbsp;to&nbsp;import&nbsp;a&nbsp;given&nbsp;name,&nbsp;and&nbsp;if&nbsp;fails,&nbsp;creates&nbsp;a&nbsp;temporary&nbsp;env&nbsp;and&nbsp;installs&nbsp;given&nbsp;packages&nbsp;and&nbsp;tries&nbsp;again.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="builtins.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
+ <dl><dt><a name="-createEnvIfCannotImport"><strong>createEnvIfCannotImport</strong></a>(importName, packages, parentDirectory=None, stdout=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;, stderr=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;, deleteOnClose=True)</dt><dd><tt>createEnvIfCannotImport&nbsp;-&nbsp;Tries&nbsp;to&nbsp;import&nbsp;a&nbsp;given&nbsp;name,&nbsp;and&nbsp;if&nbsp;fails,&nbsp;creates&nbsp;a&nbsp;temporary&nbsp;env&nbsp;and&nbsp;installs&nbsp;given&nbsp;packages&nbsp;and&nbsp;tries&nbsp;again.<br>
 &nbsp;<br>
 @see&nbsp;createEnv&nbsp;for&nbsp;most&nbsp;params.<br>
 &nbsp;<br>
@@ -143,13 +174,43 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 @raises&nbsp;-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ImportError&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;import&nbsp;even&nbsp;after&nbsp;successful&nbsp;installation&nbsp;of&nbsp;the&nbsp;packages.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="exceptions.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="builtins.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc<br>
 &nbsp;<br>
-@return&nbsp;-&nbsp;None&nbsp;if&nbsp;no&nbsp;env&nbsp;was&nbsp;created,&nbsp;otherwise&nbsp;the&nbsp;return&nbsp;dict&nbsp;from&nbsp;the&nbsp;createEnv&nbsp;call.&nbsp;@see&nbsp;createEnv</tt></dd></dl>
- <dl><dt><a name="-enableOnDemandImporter"><strong>enableOnDemandImporter</strong></a>(tmpDir<font color="#909090">=None</font>)</dt><dd><tt>enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.<br>
+@return&nbsp;-&nbsp;None&nbsp;if&nbsp;no&nbsp;env&nbsp;was&nbsp;created,&nbsp;otherwise&nbsp;the&nbsp;return&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;the&nbsp;createEnv&nbsp;call.&nbsp;@see&nbsp;createEnv</tt></dd></dl>
+ <dl><dt><a name="-enableOnDemandImporter"><strong>enableOnDemandImporter</strong></a>(tmpDir=None)</dt><dd><tt>enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;@param&nbsp;tmpDir&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;Temporary&nbsp;directory&nbsp;to&nbsp;use.&nbsp;A&nbsp;subdirectory&nbsp;will&nbsp;be&nbsp;created&nbsp;within&nbsp;this.&nbsp;Defaults&nbsp;to&nbsp;tempdir.gettmpdir()</tt></dd></dl>
- <dl><dt><a name="-installPackages"><strong>installPackages</strong></a>(packages, venvDir, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>)</dt><dd><tt>installPackages&nbsp;-&nbsp;Installs&nbsp;packages&nbsp;into&nbsp;a&nbsp;created&nbsp;virtual&nbsp;environment<br>
+ <dl><dt><a name="-ensureImport"><strong>ensureImport</strong></a>(importName, venvDir, packageName=None, stdout=None, stderr=None)</dt><dd><tt>ensureImport&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;provided&nbsp;virtualenv<br>
+&nbsp;<br>
+@param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br>
+@param&nbsp;venvDir&nbsp;&lt;str/<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;The&nbsp;path&nbsp;to&nbsp;a&nbsp;virtualenv,&nbsp;likely&nbsp;created&nbsp;by&nbsp;createEnv&nbsp;or&nbsp;the&nbsp;global&nbsp;env&nbsp;(fetched&nbsp;via&nbsp;<a href="#-getGlobalVirtualEnvInfo">getGlobalVirtualEnvInfo</a>()).<br>
+@param&nbsp;packageName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;If&nbsp;the&nbsp;package&nbsp;name&nbsp;differs&nbsp;from&nbsp;the&nbsp;import&nbsp;name&nbsp;(like&nbsp;biopython&nbsp;package&nbsp;provides&nbsp;"Bio"&nbsp;module),&nbsp;install&nbsp;this&nbsp;package&nbsp;if&nbsp;import&nbsp;fails.&nbsp;This&nbsp;may&nbsp;contain&nbsp;version&nbsp;info&nbsp;(like&nbsp;AdvancedHTMLParser&gt;6.0)<br>
+@param&nbsp;stdout&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stdout&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stdout&nbsp;is&nbsp;default.<br>
+@param&nbsp;stderr&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stderr&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stderr&nbsp;is&nbsp;default.<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;The&nbsp;imported&nbsp;module<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;ImportError&nbsp;if&nbsp;cannot&nbsp;import.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;With&nbsp;this&nbsp;method,&nbsp;<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;will&nbsp;be&nbsp;intercepted&nbsp;and&nbsp;ImportError&nbsp;thrown&nbsp;instead,&nbsp;as&nbsp;this&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;a&nbsp;drop-in&nbsp;replacement&nbsp;for&nbsp;"import"&nbsp;when&nbsp;the&nbsp;package&nbsp;name&nbsp;differs.</tt></dd></dl>
+ <dl><dt><a name="-ensureImportGlobal"><strong>ensureImportGlobal</strong></a>(importName, packageName=None, stdout=None, stderr=None)</dt><dd><tt>ensureImportGlobal&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;global&nbsp;virtualenv.&nbsp;This&nbsp;assumes&nbsp;that&nbsp;enableOnDemandImporter&nbsp;has&nbsp;already&nbsp;been&nbsp;called.<br>
+&nbsp;<br>
+@param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br>
+@param&nbsp;packageName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;If&nbsp;the&nbsp;package&nbsp;name&nbsp;differs&nbsp;from&nbsp;the&nbsp;import&nbsp;name&nbsp;(like&nbsp;biopython&nbsp;package&nbsp;provides&nbsp;"Bio"&nbsp;module),&nbsp;install&nbsp;this&nbsp;package&nbsp;if&nbsp;import&nbsp;fails.&nbsp;This&nbsp;may&nbsp;contain&nbsp;version&nbsp;info&nbsp;(like&nbsp;AdvancedHTMLParser&gt;6.0)<br>
+@param&nbsp;stdout&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stdout&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stdout&nbsp;is&nbsp;default.<br>
+@param&nbsp;stderr&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stderr&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stderr&nbsp;is&nbsp;default.<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;The&nbsp;imported&nbsp;module<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;ImportError&nbsp;if&nbsp;cannot&nbsp;import.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;With&nbsp;this&nbsp;method,&nbsp;<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;will&nbsp;be&nbsp;intercepted&nbsp;and&nbsp;ImportError&nbsp;thrown&nbsp;instead,&nbsp;as&nbsp;this&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;a&nbsp;drop-in&nbsp;replacement&nbsp;for&nbsp;"import"&nbsp;when&nbsp;the&nbsp;package&nbsp;name&nbsp;differs.</tt></dd></dl>
+ <dl><dt><a name="-getGlobalVirtualEnvInfo"><strong>getGlobalVirtualEnvInfo</strong></a>()</dt><dd><tt>getGlobalVirtualEnvInfo&nbsp;-&nbsp;Returns&nbsp;the&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;representing&nbsp;the&nbsp;global&nbsp;environment,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;setup.<br>
+&nbsp;<br>
+If&nbsp;not&nbsp;setup,&nbsp;call&nbsp;<a href="#-enableOnDemandImporter">enableOnDemandImporter</a>()&nbsp;to&nbsp;add&nbsp;the&nbsp;hook&nbsp;and&nbsp;create&nbsp;the&nbsp;"global"&nbsp;env.<br>
+&nbsp;<br>
+@return&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;representing&nbsp;global&nbsp;env,&nbsp;or&nbsp;None&nbsp;if&nbsp;enableOnDemandImporter&nbsp;has&nbsp;not&nbsp;been&nbsp;called.</tt></dd></dl>
+ <dl><dt><a name="-installPackages"><strong>installPackages</strong></a>(packages, venvDir, stdout=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;, stderr=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;)</dt><dd><tt>installPackages&nbsp;-&nbsp;Installs&nbsp;packages&nbsp;into&nbsp;a&nbsp;created&nbsp;virtual&nbsp;environment<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
 &nbsp;<br>
@@ -157,7 +218,7 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;venvDir&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;a&nbsp;created&nbsp;virtualenv&nbsp;directory.&nbsp;This&nbsp;should&nbsp;be&nbsp;the&nbsp;'virtualenvDirectory'&nbsp;key&nbsp;from&nbsp;the&nbsp;return&nbsp;of&nbsp;createEnv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;venvDir&nbsp;&lt;str/<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;a&nbsp;created&nbsp;virtualenv&nbsp;directory.&nbsp;This&nbsp;should&nbsp;be&nbsp;the&nbsp;'virtualenvDirectory'&nbsp;key&nbsp;from&nbsp;the&nbsp;return&nbsp;of&nbsp;createEnv,&nbsp;or&nbsp;just&nbsp;the&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;itself&nbsp;will&nbsp;work.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stdout&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stdout&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stdout.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stderr&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stderr&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stderr.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
 &nbsp;<br>
@@ -165,7 +226,7 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@raises&nbsp;-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="exceptions.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="builtins.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -173,7 +234,6 @@ Data descriptors inherited from <a href="exceptions.html#BaseException">exceptio
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>__all__</strong> = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'installPackages', 'PipInstallFailed', '__version__', '__version_tuple__')<br>
-<strong>__version__</strong> = '2.1.0'<br>
-<strong>__version_tuple__</strong> = (2, 1, 0)</td></tr></table>
+<td width="100%"><strong>__all__</strong> = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', '__version__', '__version_tuple__')<br>
+<strong>__version_tuple__</strong> = (3, 0, 0)</td></tr></table>
 </body></html>

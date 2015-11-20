@@ -6,9 +6,9 @@ import atexit
 import shutil
 import sys
 import tempfile
-import subprocess
 import virtualenv
 
+from .VirtualEnvInfo import VirtualEnvInfo
 from .InstallPackages import installPackages
 
 __all__ = ('createEnv', 'createEnvIfCannotImport')
@@ -30,7 +30,7 @@ def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stde
 
             @param deleteOnClose <bool> - If True (Default), this temporary environment and packages will be erased after program terminates. Note, this cannot trap everything (e.x. SIGKILL).
 
-            @return - On success, returns the following dict:
+            @return - On success, returns a VirtualEnvInfo object, which can be used as a dict with the following fields:
                 {
                     'virtualenvDirectory'   : Absolute path to the root virtualenv directory
                     'sitePackagesDirectory' : Absolute path to the site-packages directory within
@@ -73,11 +73,11 @@ def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stde
     sys.path = [venvSitePath] + sys.path
 
     # aaannnd return some meta information.
-    return {
-        'virtualenvDirectory'   : venvDir,
-        'sitePackagesDirectory' : venvSitePath,
-        'requirements.txt'      : reqContents,
-    }
+    return VirtualEnvInfo(
+        virtualenvDirectory=venvDir,
+        sitePackagesDirectory=venvSitePath,
+        requirementsTxt=reqContents,
+    )
 
 def createEnvIfCannotImport(importName, packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True):
     '''
@@ -92,7 +92,7 @@ def createEnvIfCannotImport(importName, packages, parentDirectory=None, stdout=s
             ImportError                                    -  if cannot import even after successful installation of the packages.
             Others (Exception, etc)                        -  If permissions problem to write to specified directory, etc
 
-        @return - None if no env was created, otherwise the return dict from the createEnv call. @see createEnv
+        @return - None if no env was created, otherwise the return VirtualEnvInfo object from the createEnv call. @see createEnv
     '''
     ret = None
 
@@ -104,6 +104,4 @@ def createEnvIfCannotImport(importName, packages, parentDirectory=None, stdout=s
         __import__(importName)
 
     return ret
-
-
 

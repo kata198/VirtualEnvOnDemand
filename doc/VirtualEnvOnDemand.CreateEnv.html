@@ -1,7 +1,6 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head><title>Python: module VirtualEnvOnDemand.CreateEnv</title>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head><body bgcolor="#f0f0f8">
 
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
@@ -20,10 +19,9 @@
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="atexit.html">atexit</a><br>
 <a href="shutil.html">shutil</a><br>
-</td><td width="25%" valign=top><a href="subprocess.html">subprocess</a><br>
-<a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top><a href="tempfile.html">tempfile</a><br>
-<a href="virtualenv.html">virtualenv</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="tempfile.html">tempfile</a><br>
+</td><td width="25%" valign=top><a href="virtualenv.html">virtualenv</a><br>
 </td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -31,7 +29,7 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-createEnv"><strong>createEnv</strong></a>(packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=False</font>)</dt><dd><tt>createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br>
+<td width="100%"><dl><dt><a name="-createEnv"><strong>createEnv</strong></a>(packages, parentDirectory=None, stdout=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;, stderr=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;, deleteOnClose=False)</dt><dd><tt>createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this,&nbsp;for&nbsp;example,&nbsp;to&nbsp;"recover"&nbsp;from&nbsp;a&nbsp;failed&nbsp;import&nbsp;by&nbsp;installing&nbsp;the&nbsp;software&nbsp;on&nbsp;demand.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
@@ -46,7 +44,7 @@
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;deleteOnClose&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(Default),&nbsp;this&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages&nbsp;will&nbsp;be&nbsp;erased&nbsp;after&nbsp;program&nbsp;terminates.&nbsp;Note,&nbsp;this&nbsp;cannot&nbsp;trap&nbsp;everything&nbsp;(e.x.&nbsp;SIGKILL).<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;On&nbsp;success,&nbsp;returns&nbsp;the&nbsp;following&nbsp;dict:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;VirtualEnvInfo&nbsp;object,&nbsp;which&nbsp;can&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;dict&nbsp;with&nbsp;the&nbsp;following&nbsp;fields:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'virtualenvDirectory'&nbsp;&nbsp;&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;virtualenv&nbsp;directory<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sitePackagesDirectory'&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;site-packages&nbsp;directory&nbsp;within<br>
@@ -56,7 +54,7 @@
 @raises&nbsp;-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.PipInstallFailed&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(Exception,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
- <dl><dt><a name="-createEnvIfCannotImport"><strong>createEnvIfCannotImport</strong></a>(importName, packages, parentDirectory<font color="#909090">=None</font>, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090">=True</font>)</dt><dd><tt>createEnvIfCannotImport&nbsp;-&nbsp;Tries&nbsp;to&nbsp;import&nbsp;a&nbsp;given&nbsp;name,&nbsp;and&nbsp;if&nbsp;fails,&nbsp;creates&nbsp;a&nbsp;temporary&nbsp;env&nbsp;and&nbsp;installs&nbsp;given&nbsp;packages&nbsp;and&nbsp;tries&nbsp;again.<br>
+ <dl><dt><a name="-createEnvIfCannotImport"><strong>createEnvIfCannotImport</strong></a>(importName, packages, parentDirectory=None, stdout=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;, stderr=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;, deleteOnClose=True)</dt><dd><tt>createEnvIfCannotImport&nbsp;-&nbsp;Tries&nbsp;to&nbsp;import&nbsp;a&nbsp;given&nbsp;name,&nbsp;and&nbsp;if&nbsp;fails,&nbsp;creates&nbsp;a&nbsp;temporary&nbsp;env&nbsp;and&nbsp;installs&nbsp;given&nbsp;packages&nbsp;and&nbsp;tries&nbsp;again.<br>
 &nbsp;<br>
 @see&nbsp;createEnv&nbsp;for&nbsp;most&nbsp;params.<br>
 &nbsp;<br>
@@ -67,7 +65,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;ImportError&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;import&nbsp;even&nbsp;after&nbsp;successful&nbsp;installation&nbsp;of&nbsp;the&nbsp;packages.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(Exception,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc<br>
 &nbsp;<br>
-@return&nbsp;-&nbsp;None&nbsp;if&nbsp;no&nbsp;env&nbsp;was&nbsp;created,&nbsp;otherwise&nbsp;the&nbsp;return&nbsp;dict&nbsp;from&nbsp;the&nbsp;createEnv&nbsp;call.&nbsp;@see&nbsp;createEnv</tt></dd></dl>
+@return&nbsp;-&nbsp;None&nbsp;if&nbsp;no&nbsp;env&nbsp;was&nbsp;created,&nbsp;otherwise&nbsp;the&nbsp;return&nbsp;VirtualEnvInfo&nbsp;object&nbsp;from&nbsp;the&nbsp;createEnv&nbsp;call.&nbsp;@see&nbsp;createEnv</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

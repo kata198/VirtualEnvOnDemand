@@ -15,7 +15,7 @@ if __name__ == '__main__':
     if dirName and os.getcwd() != dirName:
         os.chdir(dirName)
 
-    summary = 'Provides a simple means for an application, without restarting, to temporarily install and use its runtime requirements'
+    summary = 'Provides the ability for an application to install and use its runtime dependencies at import time'
 
     try:
         with open('README.rst', 'r') as f:
@@ -25,7 +25,7 @@ if __name__ == '__main__':
         long_description = summary
 
     setup(name='VirtualEnvOnDemand',
-            version='2.1.0',
+            version='3.0.0',
             packages=['VirtualEnvOnDemand'],
             author='Tim Savannah',
             author_email='kata198@gmail.com',

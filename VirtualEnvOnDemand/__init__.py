@@ -5,14 +5,16 @@
 # vim: ts=4 sw=4 expandtab
 
 
+
+__all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', '__version__', '__version_tuple__')
+
+__version__ = '3.0.0'
+__version_tuple__ = (3, 0, 0)
+
 from .exceptions import PipInstallFailed
-
-__all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'installPackages', 'PipInstallFailed', '__version__', '__version_tuple__')
-
-__version__ = '2.1.0'
-__version_tuple__ = (2, 1, 0)
+from .VirtualEnvInfo import VirtualEnvInfo
 
 from .CreateEnv import createEnv, createEnvIfCannotImport
 
-from VirtualEnvOnDemand.GlobalEnv import enableOnDemandImporter
-from VirtualEnvOnDemand.InstallPackages import installPackages
+from VirtualEnvOnDemand.InstallPackages import installPackages, ensureImport
+from VirtualEnvOnDemand.GlobalEnv import enableOnDemandImporter, getGlobalVirtualEnvInfo, ensureImportGlobal
