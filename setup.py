@@ -38,7 +38,7 @@ if __name__ == '__main__':
             long_description=long_description,
             license='LGPLv3',
             keywords=['virtualenv', 'on', 'demand', 'pip', 'install', 'import', 'runtime', 'ImportError', 'reload', 'module'],
-            classifiers=['Development Status :: 4 - Beta',
+            classifiers=['Development Status :: 5 - Production/Stable',
                          'Programming Language :: Python',
                          'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
                          'Programming Language :: Python :: 2',
