@@ -8,8 +8,8 @@
 
 __all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', '__version__', '__version_tuple__')
 
-__version__ = '3.0.0'
-__version_tuple__ = (3, 0, 0)
+__version__ = '3.0.1'
+__version_tuple__ = (3, 0, 1)
 
 from .exceptions import PipInstallFailed
 from .VirtualEnvInfo import VirtualEnvInfo

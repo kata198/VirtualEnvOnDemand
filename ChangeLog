@@ -1,3 +1,6 @@
+* 3.0.1 - Nov 20 2015
+- Oops, deleteOnClose was set to False for my debugging, forgot to switch back to True. This change means virtualenvs (like the global) are once again automatically cleaned up upon exit.
+
 * 3.0.0 - Nov 19 2015
 - Instead of returning a dictionary from CreateEnv, return a new
 VirtualEnvInfo object. This is backwards-compatible, as it implements

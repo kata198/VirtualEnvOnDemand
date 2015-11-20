@@ -13,7 +13,7 @@ from .InstallPackages import installPackages
 
 __all__ = ('createEnv', 'createEnvIfCannotImport')
 
-def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=False):
+def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True):
     '''
         createEnv - Creates a temporary virtual environment and installs the required modules for the current running application.
             You can use this, for example, to "recover" from a failed import by installing the software on demand.
