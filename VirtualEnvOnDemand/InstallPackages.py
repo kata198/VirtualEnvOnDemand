@@ -9,7 +9,7 @@ import subprocess
 import sys
 
 from .VirtualEnvInfo import VirtualEnvInfo
-from .exceptions import PipInstallFailed
+from .exceptions import PipInstallFailed, VirtualEnvDoesNotExist
 
 def installPackages(packages, venvDir, stdout=sys.stdout, stderr=sys.stderr):
     '''
@@ -29,13 +29,14 @@ def installPackages(packages, venvDir, stdout=sys.stdout, stderr=sys.stderr):
 
             @raises - 
                 VirtualEnvOnDemand.exceptions.PipInstallFailed -  if cannot install packages
+                VirtualEnvOnDemand.exceptions.VirtualEnvDoesNotExist - If given venvDir does not exist
                 Others (Exception, etc)                        -  If permissions problem to write to specified directory, etc
     '''
     if isinstance(venvDir, VirtualEnvInfo):
         venvDir = venvDir['virtualenvDirectory']
 
-    if not venvDir or not os.path.isdir(venvDir):
-        raise ValueError('Provided virtualenv directory "%s" is not present or not a directory.' %(str(venvDir),))
+    if not venvDir or not os.path.isdir(venvDir) or not os.path.isdir(venvDir + '/bin'):
+        raise VirtualEnvDoesNotExist('Provided virtualenv directory "%s" is not present, is not a directory, or has not been setup.' %(str(venvDir),))
 
     # Get packages
     reqContents = generateRequirementsTxt(packages)

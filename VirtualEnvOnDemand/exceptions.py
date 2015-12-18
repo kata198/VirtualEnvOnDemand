@@ -20,3 +20,9 @@ class PipInstallFailed(Exception):
 
     def _genMsg(self):
         return 'Failed to install pip modules (ret=%s) using this requirements file: \n"""\n%s\n"""\n\nCheck stdout/stderr logs.' %(str(self.returnCode), str(self.reqFileContents))
+
+
+class VirtualEnvDoesNotExist(Exception):
+    '''
+        VirtualEnvDoesNotExist - Exception raised when an attempt to install into a virtualenv directory that does not exist
+    '''

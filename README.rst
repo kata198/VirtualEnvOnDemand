@@ -21,6 +21,8 @@ on-demand when you run tests. Or make up your own use!
 
 The simpliest usage is to call *VirtualEnvOnDemand.enableOnDemandImporter()* which will add a hook to the "*import*" keyword, and if an import can't be resolved locally, it will use pip to try to install it. 
 
+The default (controlled by deferSetup flag to *enableOnDemandImporter*) is to not setup the global virtualenv until needed (like when an import fails local). This allows the on demand importer to be used without penality if all requires modules are present, but still gives the robustness to install those that aren't.
+
 Your existing pip.conf provides the options and index url that will be searched.
 
 This works fine and well, so long as modules have the same name as their package. When this is not the case, there are alternative functions.

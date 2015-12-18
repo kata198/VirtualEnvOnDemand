@@ -6,9 +6,12 @@
 
 import imp
 import sys
+import tempfile
 
 from .CreateEnv import createEnv
 from .InstallPackages import installPackages, ensureImport
+from .VirtualEnvInfo import VirtualEnvInfo
+from .exceptions import VirtualEnvDoesNotExist
 
 __all__ = ('globalOnDemandVirtualEnv', 'isOnDemandImporterEnabled', 'getGlobalVirtualEnvInfo', 'enableOnDemandImporter', 'ensureImportGlobal', 'VirtualEnvOnDemandImporter')
 
@@ -28,16 +31,22 @@ def getGlobalVirtualEnvInfo():
     '''
     return globalOnDemandVirtualEnv
 
-def enableOnDemandImporter(tmpDir=None):
+def enableOnDemandImporter(tmpDir=None, deferSetup=True):
     '''
         enableOnDemandImporter - Calling this method turns on the "on demand" importer. A temporary global env is created, and all failed imports will attempt an installation.
 
-           @param tmpDir <str/None> - Temporary directory to use. A subdirectory will be created within this. Defaults to tempdir.gettmpdir()
+           @param tmpDir <str/None> - Temporary directory to use. A subdirectory will be created within this. Defaults to tempfile.gettempdir()
+           @param deferSetup <bool> - If True (default), defers setup (which can take a couple seconds) until the first failed import or attempted install.
+                                        Setup takes a couple seconds. Use this to always enable on-demand importer, but give advantage if all modules are present.
+                                        If False, the ondemand virtualenv will be setup right-away.
     '''
     global isOnDemandImporterEnabled, globalOnDemandVirtualEnv
     if isOnDemandImporterEnabled is True:
         return
-    globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=tmpDir, stdout=None, stderr=None)
+    if deferSetup is False:
+        globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=tmpDir, stdout=None, stderr=None)
+    else:
+        globalOnDemandVirtualEnv = VirtualEnvInfo(deferredBuildIn=tmpDir or tempfile.gettempdir())
     sys.meta_path = [VirtualEnvOnDemandImporter()] + sys.meta_path
     isOnDemandImporterEnabled = True
 
@@ -56,11 +65,20 @@ def ensureImportGlobal(importName, packageName=None, stdout=None, stderr=None):
 
             NOTE: With this method, PipInstallFailed will be intercepted and ImportError thrown instead, as this is intended to be a drop-in replacement for "import" when the package name differs.
     '''
-    global isOnDemandImporterEnabled
+    global isOnDemandImporterEnabled, globalOnDemandVirtualEnv
     if isOnDemandImporterEnabled is False:
         raise ValueError('Must call enableOnDemandImporter() before using ensureImportGlobal')
 
-    return ensureImport(importName, getGlobalVirtualEnvInfo(), packageName, stdout, stderr)
+    try:
+        return ensureImport(importName, globalOnDemandVirtualEnv, packageName, stdout, stderr)
+    except VirtualEnvDoesNotExist as e:
+        if globalOnDemandVirtualEnv.deferredBuildIn:
+            globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=globalOnDemandVirtualEnv.deferredBuildIn, stdout=None, stderr=None)
+            return ensureImport(importName, globalOnDemandVirtualEnv, packageName, stdout, stderr)
+        else:
+            raise
+        
+        
 
 class VirtualEnvOnDemandImporter(object):
     '''
@@ -88,6 +106,12 @@ class VirtualEnvOnDemandImporter(object):
 
         # Not already installed and could not find, so try our magic.
         moduleName = fullname.split('.')[0]
+
+        global globalOnDemandVirtualEnv
+        if globalOnDemandVirtualEnv.deferredBuildIn:
+            # Virtualenv build was deferred, so go ahead and do it.
+            globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=globalOnDemandVirtualEnv.deferredBuildIn, stdout=None, stderr=None)
+            
         try:
             installPackages(moduleName, globalOnDemandVirtualEnv['virtualenvDirectory'], None, None)
         except:

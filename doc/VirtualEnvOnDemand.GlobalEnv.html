@@ -1,6 +1,7 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head><title>Python: module VirtualEnvOnDemand.GlobalEnv</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
 </head><body bgcolor="#f0f0f8">
 
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
@@ -8,7 +9,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="VirtualEnvOnDemand.html"><font color="#ffffff">VirtualEnvOnDemand</font></a>.GlobalEnv</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a><br></font></td></tr></table>
     <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"<br>
 #&nbsp;<br>
 #&nbsp;&nbsp;This&nbsp;file&nbsp;contains&nbsp;things&nbsp;related&nbsp;to&nbsp;the&nbsp;"global"&nbsp;env,&nbsp;used&nbsp;for&nbsp;auto-importing.</tt></p>
@@ -21,7 +22,8 @@
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="imp.html">imp</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top><a href="tempfile.html">tempfile</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -29,7 +31,7 @@
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="VirtualEnvOnDemand.GlobalEnv.html#VirtualEnvOnDemandImporter">VirtualEnvOnDemandImporter</a>
@@ -40,14 +42,14 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="VirtualEnvOnDemandImporter">class <strong>VirtualEnvOnDemandImporter</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="VirtualEnvOnDemandImporter">class <strong>VirtualEnvOnDemandImporter</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt><a href="#VirtualEnvOnDemandImporter">VirtualEnvOnDemandImporter</a>&nbsp;-&nbsp;The&nbsp;workhouse&nbsp;of&nbsp;auto-importing.&nbsp;Upon&nbsp;an&nbsp;import&nbsp;that&nbsp;wouldn't&nbsp;resolve,&nbsp;it&nbsp;will&nbsp;try&nbsp;to&nbsp;install&nbsp;the&nbsp;leading&nbsp;package&nbsp;name&nbsp;using&nbsp;pip.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Failure&nbsp;will&nbsp;still&nbsp;cause&nbsp;a&nbsp;"cannot&nbsp;import"&nbsp;error,&nbsp;but&nbsp;otherwise&nbsp;things&nbsp;will&nbsp;be&nbsp;installed&nbsp;on-demand.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="VirtualEnvOnDemandImporter-find_module"><strong>find_module</strong></a>(self, fullname, path=None)</dt></dl>
+<dl><dt><a name="VirtualEnvOnDemandImporter-find_module"><strong>find_module</strong></a>(self, fullname, path<font color="#909090">=None</font>)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -64,10 +66,13 @@ Data descriptors defined here:<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-enableOnDemandImporter"><strong>enableOnDemandImporter</strong></a>(tmpDir=None)</dt><dd><tt>enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.<br>
+<td width="100%"><dl><dt><a name="-enableOnDemandImporter"><strong>enableOnDemandImporter</strong></a>(tmpDir<font color="#909090">=None</font>, deferSetup<font color="#909090">=True</font>)</dt><dd><tt>enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;@param&nbsp;tmpDir&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;Temporary&nbsp;directory&nbsp;to&nbsp;use.&nbsp;A&nbsp;subdirectory&nbsp;will&nbsp;be&nbsp;created&nbsp;within&nbsp;this.&nbsp;Defaults&nbsp;to&nbsp;tempdir.gettmpdir()</tt></dd></dl>
- <dl><dt><a name="-ensureImportGlobal"><strong>ensureImportGlobal</strong></a>(importName, packageName=None, stdout=None, stderr=None)</dt><dd><tt>ensureImportGlobal&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;global&nbsp;virtualenv.&nbsp;This&nbsp;assumes&nbsp;that&nbsp;enableOnDemandImporter&nbsp;has&nbsp;already&nbsp;been&nbsp;called.<br>
+&nbsp;&nbsp;&nbsp;@param&nbsp;tmpDir&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;Temporary&nbsp;directory&nbsp;to&nbsp;use.&nbsp;A&nbsp;subdirectory&nbsp;will&nbsp;be&nbsp;created&nbsp;within&nbsp;this.&nbsp;Defaults&nbsp;to&nbsp;tempfile.gettempdir()<br>
+&nbsp;&nbsp;&nbsp;@param&nbsp;deferSetup&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(default),&nbsp;defers&nbsp;setup&nbsp;(which&nbsp;can&nbsp;take&nbsp;a&nbsp;couple&nbsp;seconds)&nbsp;until&nbsp;the&nbsp;first&nbsp;failed&nbsp;import&nbsp;or&nbsp;attempted&nbsp;install.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setup&nbsp;takes&nbsp;a&nbsp;couple&nbsp;seconds.&nbsp;Use&nbsp;this&nbsp;to&nbsp;always&nbsp;enable&nbsp;on-demand&nbsp;importer,&nbsp;but&nbsp;give&nbsp;advantage&nbsp;if&nbsp;all&nbsp;modules&nbsp;are&nbsp;present.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;False,&nbsp;the&nbsp;ondemand&nbsp;virtualenv&nbsp;will&nbsp;be&nbsp;setup&nbsp;right-away.</tt></dd></dl>
+ <dl><dt><a name="-ensureImportGlobal"><strong>ensureImportGlobal</strong></a>(importName, packageName<font color="#909090">=None</font>, stdout<font color="#909090">=None</font>, stderr<font color="#909090">=None</font>)</dt><dd><tt>ensureImportGlobal&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;global&nbsp;virtualenv.&nbsp;This&nbsp;assumes&nbsp;that&nbsp;enableOnDemandImporter&nbsp;has&nbsp;already&nbsp;been&nbsp;called.<br>
 &nbsp;<br>
 @param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br>
 @param&nbsp;packageName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;If&nbsp;the&nbsp;package&nbsp;name&nbsp;differs&nbsp;from&nbsp;the&nbsp;import&nbsp;name&nbsp;(like&nbsp;biopython&nbsp;package&nbsp;provides&nbsp;"Bio"&nbsp;module),&nbsp;install&nbsp;this&nbsp;package&nbsp;if&nbsp;import&nbsp;fails.&nbsp;This&nbsp;may&nbsp;contain&nbsp;version&nbsp;info&nbsp;(like&nbsp;AdvancedHTMLParser&gt;6.0)<br>
@@ -79,7 +84,7 @@ Data descriptors defined here:<br>
 @raises&nbsp;-&nbsp;ImportError&nbsp;if&nbsp;cannot&nbsp;import.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;With&nbsp;this&nbsp;method,&nbsp;PipInstallFailed&nbsp;will&nbsp;be&nbsp;intercepted&nbsp;and&nbsp;ImportError&nbsp;thrown&nbsp;instead,&nbsp;as&nbsp;this&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;a&nbsp;drop-in&nbsp;replacement&nbsp;for&nbsp;"import"&nbsp;when&nbsp;the&nbsp;package&nbsp;name&nbsp;differs.</tt></dd></dl>
- <dl><dt><a name="-getGlobalVirtualEnvInfo"><strong>getGlobalVirtualEnvInfo</strong></a>()</dt><dd><tt>getGlobalVirtualEnvInfo&nbsp;-&nbsp;Returns&nbsp;the&nbsp;VirtualEnvInfo&nbsp;<a href="builtins.html#object">object</a>&nbsp;representing&nbsp;the&nbsp;global&nbsp;environment,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;setup.<br>
+ <dl><dt><a name="-getGlobalVirtualEnvInfo"><strong>getGlobalVirtualEnvInfo</strong></a>()</dt><dd><tt>getGlobalVirtualEnvInfo&nbsp;-&nbsp;Returns&nbsp;the&nbsp;VirtualEnvInfo&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;representing&nbsp;the&nbsp;global&nbsp;environment,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;setup.<br>
 &nbsp;<br>
 If&nbsp;not&nbsp;setup,&nbsp;call&nbsp;<a href="#-enableOnDemandImporter">enableOnDemandImporter</a>()&nbsp;to&nbsp;add&nbsp;the&nbsp;hook&nbsp;and&nbsp;create&nbsp;the&nbsp;"global"&nbsp;env.<br>
 &nbsp;<br>
