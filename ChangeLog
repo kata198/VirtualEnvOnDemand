@@ -1,9 +1,12 @@
-* 4.0.0 - Dec 18 2015
+* 4.0.0 - Dec 18 201
 - Add a flag to enableOnDemandImporter, "deferSetup", which allows the global
 virtualenv setup to be deferred until the first local-failing import (or
 failing ensureImportGlobal). This allows the on demand importer to be used
 without penality if all requires modules are present, but still gives the
 robustness to install those that aren't.
+- Add default-on parameter to enableOnDemandImporter "noRetryFailedPackages".
+When this is true, packages that have failed to be found on pip or locally will be marked
+and not retried.
 
 * 3.0.1 - Nov 20 2015
 - Oops, deleteOnClose was set to False for my debugging, forgot to switch back to True. This change means virtualenvs (like the global) are once again automatically cleaned up upon exit.

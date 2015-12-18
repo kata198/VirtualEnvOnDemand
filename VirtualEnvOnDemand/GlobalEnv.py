@@ -19,6 +19,8 @@ global globalOnDemandVirtualEnv
 globalOnDemandVirtualEnv = None
 global isOnDemandImporterEnabled
 isOnDemandImporterEnabled = False
+global knownFailures
+knownFailures = set()
 
 
 def getGlobalVirtualEnvInfo():
@@ -31,7 +33,7 @@ def getGlobalVirtualEnvInfo():
     '''
     return globalOnDemandVirtualEnv
 
-def enableOnDemandImporter(tmpDir=None, deferSetup=True):
+def enableOnDemandImporter(tmpDir=None, deferSetup=True, noRetryFailedPackages=True):
     '''
         enableOnDemandImporter - Calling this method turns on the "on demand" importer. A temporary global env is created, and all failed imports will attempt an installation.
 
@@ -39,14 +41,20 @@ def enableOnDemandImporter(tmpDir=None, deferSetup=True):
            @param deferSetup <bool> - If True (default), defers setup (which can take a couple seconds) until the first failed import or attempted install.
                                         Setup takes a couple seconds. Use this to always enable on-demand importer, but give advantage if all modules are present.
                                         If False, the ondemand virtualenv will be setup right-away.
+           @param noRetryFailedPackages <bool> - If True (default), a package which fails to download will not be retried. This is a performance savings. This should generally always be True,
+                                                   unless you are using VirtualEnvOnDemand to have a running process written to work with an unreleased module to prevent a restart or something similar.
     '''
-    global isOnDemandImporterEnabled, globalOnDemandVirtualEnv
+    global isOnDemandImporterEnabled, globalOnDemandVirtualEnv, knownFailures
     if isOnDemandImporterEnabled is True:
         return
     if deferSetup is False:
         globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=tmpDir, stdout=None, stderr=None)
     else:
         globalOnDemandVirtualEnv = VirtualEnvInfo(deferredBuildIn=tmpDir or tempfile.gettempdir())
+
+    if noRetryFailedPackages is False:
+        knownFailures = None
+
     sys.meta_path = [VirtualEnvOnDemandImporter()] + sys.meta_path
     isOnDemandImporterEnabled = True
 
@@ -106,6 +114,10 @@ class VirtualEnvOnDemandImporter(object):
 
         # Not already installed and could not find, so try our magic.
         moduleName = fullname.split('.')[0]
+        if knownFailures and moduleName in knownFailures:
+            # We are tracking failures and already know this has failed
+            sys.stderr.write('Skipping %s because in known-failure list\n' %(moduleName,))
+            return None
 
         global globalOnDemandVirtualEnv
         if globalOnDemandVirtualEnv.deferredBuildIn:
@@ -118,5 +130,7 @@ class VirtualEnvOnDemandImporter(object):
 #            msg = 'VirtualEnvOnDemand: Unable to resolve and install package to satisfy %s.' %(moduleName,)
 #            sys.stderr.write(msg + '\n')
             pass
+        if knownFailures is not None:
+            knownFailures.add(moduleName)
 
         return None

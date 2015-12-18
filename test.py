@@ -8,14 +8,14 @@ from VirtualEnvOnDemand import enableOnDemandImporter
 enableOnDemandImporter()
 
 # The following imports are not available without external installation
-import IndexedRedis
+import SimpleHttpFetch
 from AdvancedHTMLParser.exceptions import *
 
 
 
 
 if __name__ == '__main__':
-    sys.stdout.write('IndexedRedis version: ' + IndexedRedis.__version__ + '\n')
+    sys.stdout.write('SimpleHttpFetch version: ' + SimpleHttpFetch.__version__ + '\n')
     import AdvancedHTMLParser
     sys.stdout.write('AdvancedHTMLParser version: ' + AdvancedHTMLParser.__version__ + '\n')
 
