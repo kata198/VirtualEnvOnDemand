@@ -1,5 +1,5 @@
-* 4.0.0 - Dec 18 201
-- Add a flag to enableOnDemandImporter, "deferSetup", which allows the global
+* 4.0.0 - Dec 18 2015
+- Add a flag to enableOnDemandImporter, "deferSetup", default true, which allows the global
 virtualenv setup to be deferred until the first local-failing import (or
 failing ensureImportGlobal). This allows the on demand importer to be used
 without penality if all requires modules are present, but still gives the
