@@ -1,3 +1,7 @@
+* 4.1.0 - Feb 10 2016
+- Fix global on demand importer not working when deferSetup=True on newer versions of pip/virtualenv.
+- Add toggleOnDemandImporter which can be used to toggle on/off the global on demand importer, after it has been setup.
+
 * 4.0.0 - Dec 18 2015
 - Add a flag to enableOnDemandImporter, "deferSetup", default true, which allows the global
 virtualenv setup to be deferred until the first local-failing import (or

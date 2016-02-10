@@ -3,7 +3,6 @@
 #  This file contains things related to the "global" env, used for auto-importing.
 
 # vim: ts=4 sw=4 expandtab
-
 import imp
 import sys
 import tempfile
@@ -13,7 +12,7 @@ from .InstallPackages import installPackages, ensureImport
 from .VirtualEnvInfo import VirtualEnvInfo
 from .exceptions import VirtualEnvDoesNotExist
 
-__all__ = ('globalOnDemandVirtualEnv', 'isOnDemandImporterEnabled', 'getGlobalVirtualEnvInfo', 'enableOnDemandImporter', 'ensureImportGlobal', 'VirtualEnvOnDemandImporter')
+__all__ = ('globalOnDemandVirtualEnv', 'isOnDemandImporterEnabled', 'getGlobalVirtualEnvInfo', 'enableOnDemandImporter', 'ensureImportGlobal', 'VirtualEnvOnDemandImporter', 'toggleOnDemandImporter')
 
 global globalOnDemandVirtualEnv
 globalOnDemandVirtualEnv = None
@@ -40,7 +39,7 @@ def enableOnDemandImporter(tmpDir=None, deferSetup=True, noRetryFailedPackages=T
            @param tmpDir <str/None> - Temporary directory to use. A subdirectory will be created within this. Defaults to tempfile.gettempdir()
            @param deferSetup <bool> - If True (default), defers setup (which can take a couple seconds) until the first failed import or attempted install.
                                         Setup takes a couple seconds. Use this to always enable on-demand importer, but give advantage if all modules are present.
-                                        If False, the ondemand virtualenv will be setup right-away.
+                                        If False, the ondemand virtualenv will be setup right-away. If you are using this in a multi-threaded environment, this should be set to False.
            @param noRetryFailedPackages <bool> - If True (default), a package which fails to download will not be retried. This is a performance savings. This should generally always be True,
                                                    unless you are using VirtualEnvOnDemand to have a running process written to work with an unreleased module to prevent a restart or something similar.
     '''
@@ -57,6 +56,46 @@ def enableOnDemandImporter(tmpDir=None, deferSetup=True, noRetryFailedPackages=T
 
     sys.meta_path = [VirtualEnvOnDemandImporter()] + sys.meta_path
     isOnDemandImporterEnabled = True
+
+
+def toggleOnDemandImporter(isActive):
+    '''
+        toggleOnDemandImporter - Toggle whether the on demand importer (import hook) is active.
+
+            If enableOnDemandImporter was not ever called, this has no effect. Otherwise, calling toggleOnDemandImporter(False) will temporarily disable the import hook, until toggleOnDemandImporter(True) is called.
+
+            @param isActive <bool> - To temporarily enable/disable the on-demand importer.
+
+            @return <bool> - True if a toggle occured, False if the global env has not been setup (by calling enableOnDemandImporter)
+    '''
+    global isOnDemandImporterEnabled
+
+    # If we have not called enableOnDemandImporter, ignore this.
+    if isOnDemandImporterEnabled is False:
+        return False
+
+    if isActive is True:
+        # We are toggling ON, check if we are already in sys.meta_path so we don't add twice.
+        foundIt = False
+        for mp in sys.meta_path:
+            if issubclass(mp.__class__, VirtualEnvOnDemandImporter):
+                foundIt = True
+                break
+        if not foundIt:
+            sys.meta_path = [VirtualEnvOnDemandImporter()] + sys.meta_path
+    else:
+        newMetaPath = []
+        for mp in sys.meta_path:
+            if issubclass(mp.__class__, VirtualEnvOnDemandImporter):
+                continue
+            newMetaPath.append(mp)
+        sys.meta_path = newMetaPath
+
+    return True
+        
+    
+        
+
 
 def ensureImportGlobal(importName, packageName=None, stdout=None, stderr=None):
     '''
@@ -81,7 +120,9 @@ def ensureImportGlobal(importName, packageName=None, stdout=None, stderr=None):
         return ensureImport(importName, globalOnDemandVirtualEnv, packageName, stdout, stderr)
     except VirtualEnvDoesNotExist as e:
         if globalOnDemandVirtualEnv.deferredBuildIn:
+            toggleOnDemandImporter(False)
             globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=globalOnDemandVirtualEnv.deferredBuildIn, stdout=None, stderr=None)
+            toggleOnDemandImporter(True)
             return ensureImport(importName, globalOnDemandVirtualEnv, packageName, stdout, stderr)
         else:
             raise
@@ -122,7 +163,12 @@ class VirtualEnvOnDemandImporter(object):
         global globalOnDemandVirtualEnv
         if globalOnDemandVirtualEnv.deferredBuildIn:
             # Virtualenv build was deferred, so go ahead and do it.
+
+            # We need to disable our custom importer while building the virtualenv
+            toggleOnDemandImporter(False)
             globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=globalOnDemandVirtualEnv.deferredBuildIn, stdout=None, stderr=None)
+            toggleOnDemandImporter(True)
+            
             
         try:
             installPackages(moduleName, globalOnDemandVirtualEnv['virtualenvDirectory'], None, None)
