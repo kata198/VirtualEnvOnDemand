@@ -1,7 +1,8 @@
-# Copyright (c) 2015 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
+# Copyright (c) 2015, 2016 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
 
 # vim: ts=4 sw=4 expandtab
 
+import os
 import atexit
 import shutil
 import sys
@@ -50,7 +51,7 @@ def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stde
 
     # Generate the site-packages path
     versionInfo = sys.version_info
-    venvSitePath = "%s/lib/python%d.%d/site-packages" %(venvDir, versionInfo.major, versionInfo.minor)
+    venvSitePath = os.sep.join(venvDir, 'lib', "python%d.%d" %(versionInfo.major, versionInfo.minor), "site-packages")
 
     # If we are to delete this env upon the app closing, 
     if deleteOnClose is True:

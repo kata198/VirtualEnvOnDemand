@@ -1,4 +1,4 @@
-# Copyright (c) 2015 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
+# Copyright (c) 2015, 2016 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
 #
 #  VirtualEnvOnDemand provides a simple means for an application, without restarting, to temporarily install and use its runtime requirements  
 
@@ -8,8 +8,8 @@
 
 __all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', 'toggleOnDemandImporter' )
 
-__version__ = '4.1.0'
-__version_tuple__ = (4, 1, 0)
+__version__ = '4.2.0'
+__version_tuple__ = (4, 2, 0)
 
 from .exceptions import PipInstallFailed
 from .VirtualEnvInfo import VirtualEnvInfo

@@ -18,14 +18,14 @@ if __name__ == '__main__':
     summary = 'Provides the ability for an application to install and use its runtime dependencies at import time'
 
     try:
-        with open('README.rst', 'r') as f:
+        with open('README.rst', 'rt') as f:
             long_description = f.read()
     except Exception as e:
         sys.stderr.write('Exception when reading long description: %s\n' %(str(e),))
         long_description = summary
 
     setup(name='VirtualEnvOnDemand',
-            version='4.1.0',
+            version='4.2.0',
             packages=['VirtualEnvOnDemand'],
             author='Tim Savannah',
             author_email='kata198@gmail.com',
@@ -37,7 +37,7 @@ if __name__ == '__main__':
             description=summary,
             long_description=long_description,
             license='LGPLv3',
-            keywords=['virtualenv', 'on', 'demand', 'pip', 'install', 'import', 'runtime', 'ImportError', 'reload', 'module'],
+            keywords=['virtualenv', 'on', 'demand', 'pip', 'install', 'import', 'runtime', 'ImportError', 'reload', 'module', 'package'],
             classifiers=['Development Status :: 5 - Production/Stable',
                          'Programming Language :: Python',
                          'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
@@ -48,6 +48,7 @@ if __name__ == '__main__':
                           'Programming Language :: Python :: 3',
                           'Programming Language :: Python :: 3.3',
                           'Programming Language :: Python :: 3.4',
+                          'Programming Language :: Python :: 3.5',
                           'Topic :: System :: Installation/Setup',
                           'Topic :: Software Development :: Libraries :: Python Modules',
             ]

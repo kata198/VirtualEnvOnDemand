@@ -1,4 +1,4 @@
-# Copyright (c) 2015 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
+# Copyright (c) 2015, 2016 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
 #
 #  Package installation methods
 
@@ -52,14 +52,14 @@ def installPackages(packages, venvDir, stdout=sys.stdout, stderr=sys.stderr):
             # If they chose to ignore output to one or more streams, setup a /dev/null stream
             devnull = None
             if stdout is None or stderr is None:
-                devnull = open('/dev/null', 'wt')
+                devnull = open(os.devnull, 'wt')
                 if stdout is None:
                     stdout = devnull
                 if stderr is None:
                     stderr = devnull
 
             # Install from generated requirements.txt
-            pipe = subprocess.Popen([venvDir + '/bin/pip', 'install', '-r', reqFile.name], shell=False, stdout=stdout, stderr=stderr)
+            pipe = subprocess.Popen([ os.sep.join([venvDir, 'bin', 'pip']), 'install', '-r', reqFile.name], shell=False, stdout=stdout, stderr=stderr)
             returnCode = pipe.wait()
 
             # Cleanup devnull stream if setup

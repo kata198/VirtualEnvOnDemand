@@ -1,3 +1,6 @@
+* 4.2.0 - Mar 31 2016
+- Use os.devnull and join on os.sep instead of explicitly using "/" and "/dev/null" to hopefully support windows as a platform.
+
 * 4.1.0 - Feb 10 2016
 - Fix global on demand importer not working when deferSetup=True on newer versions of pip/virtualenv.
 - Add toggleOnDemandImporter which can be used to toggle on/off the global on demand importer, after it has been setup.
