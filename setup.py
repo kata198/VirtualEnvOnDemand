@@ -25,7 +25,7 @@ if __name__ == '__main__':
         long_description = summary
 
     setup(name='VirtualEnvOnDemand',
-            version='4.2.1',
+            version='4.2.2',
             packages=['VirtualEnvOnDemand'],
             author='Tim Savannah',
             author_email='kata198@gmail.com',
