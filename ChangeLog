@@ -1,3 +1,6 @@
+* 4.2.1 - May 16 2016
+- Fix python3 doesn't like join without a list.
+
 * 4.2.0 - Mar 31 2016
 - Use os.devnull and join on os.sep instead of explicitly using "/" and "/dev/null" to hopefully support windows as a platform.
 
