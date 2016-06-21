@@ -2,6 +2,8 @@
 
 # vim: ts=4 sw=4 expandtab
 
+__all__ = ('PipInstallFailed', 'VirtualEnvDoesNotExist')
+
 class PipInstallFailed(Exception):
     '''
         PipInstallFailed - Exception raised when pip fails to install a list of packages

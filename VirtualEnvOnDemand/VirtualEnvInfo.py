@@ -3,6 +3,8 @@
 
 # vim: ts=4 sw=4 expandtab
 
+__all__ = ('VirtualEnvInfo', )
+
 
 class VirtualEnvInfo(object):
 

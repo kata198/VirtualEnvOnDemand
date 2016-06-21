@@ -11,6 +11,8 @@ import sys
 from .VirtualEnvInfo import VirtualEnvInfo
 from .exceptions import PipInstallFailed, VirtualEnvDoesNotExist
 
+__all__ = ('installPackages', 'ensureImport', 'generateRequirementsTxt')
+
 def installPackages(packages, venvDir, stdout=sys.stdout, stderr=sys.stderr):
     '''
         installPackages - Installs packages into a created virtual environment
