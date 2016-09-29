@@ -14,7 +14,7 @@ from .InstallPackages import installPackages
 
 __all__ = ('createEnv', 'createEnvIfCannotImport')
 
-def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True):
+def createEnv(packages=None, parentDirectory=None, name=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True):
     '''
         createEnv - Creates a temporary virtual environment and installs the required modules for the current running application.
             You can use this, for example, to "recover" from a failed import by installing the software on demand.
@@ -26,7 +26,11 @@ def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stde
                 Dict   - A dictionary of package names to versions. If no value is present, the latest will be fetched.
 
             @param parentDirectory <str> - Parent directory of the directory which will be created to hold the temporary environment and packages. Defaults to tempfile.tempdir
+
+            @param name <str> - If provided, will use this as the virtualenv name. Otherwise, a random name will be generated. This should not contain any directories, use #parentDirectory to specify the directory.
+
             @param stdout <iostream/None> - Stream to be used as stdout for installation. Default is sys.stdout. Use "None" to swallow output.
+
             @param stderr <iostream/None> - Stream to be used as stderr for installation. Default is sys.stderr. Use "None" to swallow output.
 
             @param deleteOnClose <bool> - If True (Default), this temporary environment and packages will be erased after program terminates. Note, this cannot trap everything (e.x. SIGKILL).
@@ -40,10 +44,23 @@ def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stde
 
         @raises - 
             VirtualEnvOnDemand.exceptions.PipInstallFailed -  if cannot install packages
+            ValueError - If parent directory does not exist.
             Others (Exception, etc)                        -  If permissions problem to write to specified directory, etc
     '''
+    if not os.path.isdir(parentDirectory):
+        raise ValueError('Provided parent directory "%s" does not exist.' %(parentDirectory,))
+
+    if name and os.sep in name:
+        raise ValueError('Provided name "%s" must not contain any directories.' %(name,))
+
+    parentDirectory = os.path.realpath(parentDirectory)
+
     # Create blank env
-    venvDir = tempfile.mkdtemp(prefix='venv_', dir=parentDirectory)
+    if name:
+        venvDir = os.sep.join(parentDirectory, name)
+    else:
+        venvDir = tempfile.mkdtemp(prefix='venv_', dir=parentDirectory)
+
     virtualenv.create_environment(venvDir, site_packages=True)
 
     # If they provided required packages, install them
@@ -77,7 +94,6 @@ def createEnv(packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stde
     return VirtualEnvInfo(
         virtualenvDirectory=venvDir,
         sitePackagesDirectory=venvSitePath,
-        requirementsTxt=reqContents,
     )
 
 def createEnvIfCannotImport(importName, packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True):

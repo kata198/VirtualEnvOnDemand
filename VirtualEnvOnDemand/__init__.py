@@ -6,13 +6,13 @@
 
 
 
-__all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', 'toggleOnDemandImporter' )
+__all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', 'toggleOnDemandImporter', 'getInfoFromVirtualEnv' )
 
 __version__ = '4.2.2'
 __version_tuple__ = (4, 2, 2)
 
 from .exceptions import PipInstallFailed
-from .VirtualEnvInfo import VirtualEnvInfo
+from .VirtualEnvInfo import VirtualEnvInfo, getInfoFromVirtualEnv
 
 from .CreateEnv import createEnv, createEnvIfCannotImport
 

@@ -9,7 +9,7 @@ import tempfile
 
 from .CreateEnv import createEnv
 from .InstallPackages import installPackages, ensureImport
-from .VirtualEnvInfo import VirtualEnvInfo
+from .VirtualEnvInfo import VirtualEnvInfo, VirtualEnvDeferredBuild
 from .exceptions import VirtualEnvDoesNotExist
 
 __all__ = ('globalOnDemandVirtualEnv', 'isOnDemandImporterEnabled', 'getGlobalVirtualEnvInfo', 'enableOnDemandImporter', 'ensureImportGlobal', 'VirtualEnvOnDemandImporter', 'toggleOnDemandImporter')
@@ -49,7 +49,7 @@ def enableOnDemandImporter(tmpDir=None, deferSetup=True, noRetryFailedPackages=T
     if deferSetup is False:
         globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=tmpDir, stdout=None, stderr=None)
     else:
-        globalOnDemandVirtualEnv = VirtualEnvInfo(deferredBuildIn=tmpDir or tempfile.gettempdir())
+        globalOnDemandVirtualEnv = VirtualEnvDeferredBuild(parentDirectory=tmpDir or tempfile.gettempdir())
 
     if noRetryFailedPackages is False:
         knownFailures = None
@@ -119,9 +119,9 @@ def ensureImportGlobal(importName, packageName=None, stdout=None, stderr=None):
     try:
         return ensureImport(importName, globalOnDemandVirtualEnv, packageName, stdout, stderr)
     except VirtualEnvDoesNotExist as e:
-        if globalOnDemandVirtualEnv.deferredBuildIn:
+        if isinstance(globalOnDemandVirtualEnv, VirtualEnvDeferredBuild):
             toggleOnDemandImporter(False)
-            globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=globalOnDemandVirtualEnv.deferredBuildIn, stdout=None, stderr=None)
+            globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=globalOnDemandVirtualEnv.virtualenvDirectory, stdout=None, stderr=None)
             toggleOnDemandImporter(True)
             return ensureImport(importName, globalOnDemandVirtualEnv, packageName, stdout, stderr)
         else:
@@ -161,12 +161,12 @@ class VirtualEnvOnDemandImporter(object):
             return None
 
         global globalOnDemandVirtualEnv
-        if globalOnDemandVirtualEnv.deferredBuildIn:
+        if isinstance(globalOnDemandVirtualEnv, VirtualEnvDeferredBuild):
             # Virtualenv build was deferred, so go ahead and do it.
 
             # We need to disable our custom importer while building the virtualenv
             toggleOnDemandImporter(False)
-            globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=globalOnDemandVirtualEnv.deferredBuildIn, stdout=None, stderr=None)
+            globalOnDemandVirtualEnv = createEnv(packages=None, parentDirectory=globalOnDemandVirtualEnv.virtualenvDirectory, stdout=None, stderr=None)
             toggleOnDemandImporter(True)
             
             
