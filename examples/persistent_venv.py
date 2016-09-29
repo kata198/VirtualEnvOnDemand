@@ -16,14 +16,14 @@ PACKAGE_LIST = ['IndexedRedis', ]
 
 if not os.path.isdir(VENV_PATH):
     print ( "Creating Env...")
-    virtualenvInfo = createEnv(packages=PACKAGE_LIST, parentDirectory=PARENT_DIR, name=VENV_NAME, deleteOnClose=False)
+    virtualenvInfo = createEnv(packages=PACKAGE_LIST, parentDirectory=PARENT_DIR, name=VENV_NAME, stdout=None, stderr=None, deleteOnClose=False)
 else:
     print ( "Using existing Env....")
     try:
         virtualenvInfo = getInfoFromVirtualEnv(VENV_PATH, validate=True)
-    except ValueError:
-        print ( "Cannot use virtualenv, recreating" )
-        virtualenvInfo = createEnv(packages=PACKAGE_LIST, parentDirectory=PARENT_DIR, name=VENV_NAME, deleteOnClose=False)
+    except ValueError as validationError:
+        print ( "Cannot use virtualenv, recreating. Reason: " + str(validationError) )
+        virtualenvInfo = createEnv(packages=PACKAGE_LIST, parentDirectory=PARENT_DIR, name=VENV_NAME, stdout=None, stderr=None, deleteOnClose=False)
 
 # Use "activateEnv" to just activate this env as-is
 activateEnv(virtualenvInfo)
