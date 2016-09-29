@@ -1,3 +1,19 @@
+* 5.0.0 - Sep 28 2016
+- Better support for persistent virtualenvs
+- Allow naming of virtualenvs through createEnv
+- Add getInfoFromVirtualEnv method to extract a VirtualEnvInfo object from a
+virtualenv
+- Update VirtualEnvInfo to fill-in missing information
+- Remove deferSetup from VirtualEnvInfo (used by deferSetup=True on
+enableOnDemandImporter)
+- Allow setting the global virtualenv
+- Add activateEnv method to activate a pre-existing virtualenv
+- Change how toggle works, such that you can call setGlobalVirtualEnv(myEnv,
+enableOnDemandImporter=True) to toggle a specific virtualenv for use
+- Code refactors, cleanups
+- Validate that a virtualenv is usable
+
+
 * 4.2.2 - May 16 2016
 - Fix python3 doesn't like join without a list.
 

@@ -40,6 +40,40 @@ This will raise "ImportError" if MyModule cannot be imported and MyPackage canno
 There is more advanced usage, wherein you can create and stack multiple virtualenvs and handle them directory or for certain imports instead of using the global hook. See the documentation link below, and "example\_explicit.py" in the source distribution for more information on that.
 
 
+**Creating Virtualenvs / Persistent Virtualenvs**
+
+You can use VirtualEnvOnDemand to create a virtualenv post-deployment, so you don't have to worry about transferring a virtualenv.
+
+Example:
+
+
+	if os.path.isdir('/tmp/MyEnv'):
+
+		myEnvInfo = VirtualEnvOnDemand.getInfoFromVirtualEnv('/tmp/MyEnv')
+
+	else:
+
+		myEnv = VirtualEnvOnDemand.createEnv(packages=['ExamplePackage'], parentDirectory='/tmp', name='MyEnv', deleteOnClose=False)
+
+
+to create an env in "/tmp" named "MyEnv", with "ExamplePackage" installed by default.
+
+Then, you can use:
+
+
+	VirtualEnvOnDemand.activateEnv(myEnv)
+
+
+to activate it (allow imports from this virtualenv).
+
+You can also use the on-demand functionality by calling:
+
+
+	VirtualEnvOnDemand.setGlobalVirtualEnv(myEnv, enableOnDemandImporter=True)
+
+
+which will exapand the env you created as-needed, when imports fail.
+
 **Documentation**
 
 Can be found at:

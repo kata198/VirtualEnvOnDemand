@@ -8,8 +8,8 @@
 
 __all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', 'toggleOnDemandImporter', 'getInfoFromVirtualEnv', 'activateEnv', 'setGlobalVirtualEnv', 'toggleDebug', )
 
-__version__ = '4.2.2'
-__version_tuple__ = (4, 2, 2)
+__version__ = '5.0.0'
+__version_tuple__ = (5, 0, 0)
 
 from .exceptions import PipInstallFailed
 from .VirtualEnvInfo import VirtualEnvInfo, getInfoFromVirtualEnv

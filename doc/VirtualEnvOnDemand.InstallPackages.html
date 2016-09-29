@@ -1,7 +1,6 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html><head><title>Python: module VirtualEnvOnDemand.InstallPackages</title>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head><body bgcolor="#f0f0f8">
 
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
@@ -10,7 +9,7 @@
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="VirtualEnvOnDemand.html"><font color="#ffffff">VirtualEnvOnDemand</font></a>.InstallPackages</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a><br></font></td></tr></table>
-    <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"<br>
+    <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015,&nbsp;2016&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"<br>
 #<br>
 #&nbsp;&nbsp;Package&nbsp;installation&nbsp;methods</tt></p>
 <p>
@@ -32,7 +31,7 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-ensureImport"><strong>ensureImport</strong></a>(importName, venvDir, packageName<font color="#909090">=None</font>, stdout<font color="#909090">=None</font>, stderr<font color="#909090">=None</font>)</dt><dd><tt>ensureImport&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;provided&nbsp;virtualenv<br>
+<td width="100%"><dl><dt><a name="-ensureImport"><strong>ensureImport</strong></a>(importName, venvDir, packageName=None, stdout=None, stderr=None)</dt><dd><tt>ensureImport&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;provided&nbsp;virtualenv<br>
 &nbsp;<br>
 @param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br>
 @param&nbsp;venvDir&nbsp;&lt;str/VirtualEnvInfo&gt;&nbsp;-&nbsp;The&nbsp;path&nbsp;to&nbsp;a&nbsp;virtualenv,&nbsp;likely&nbsp;created&nbsp;by&nbsp;createEnv&nbsp;or&nbsp;the&nbsp;global&nbsp;env&nbsp;(fetched&nbsp;via&nbsp;getGlobalVirtualEnvInfo()).<br>
@@ -54,7 +53,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;&lt;str&gt;&nbsp;-&nbsp;generated&nbsp;requirements.txt&nbsp;file&nbsp;contents</tt></dd></dl>
- <dl><dt><a name="-installPackages"><strong>installPackages</strong></a>(packages, venvDir, stdout<font color="#909090">=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090">=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>)</dt><dd><tt>installPackages&nbsp;-&nbsp;Installs&nbsp;packages&nbsp;into&nbsp;a&nbsp;created&nbsp;virtual&nbsp;environment<br>
+ <dl><dt><a name="-installPackages"><strong>installPackages</strong></a>(packages, venvDir, stdout=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;, stderr=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;)</dt><dd><tt>installPackages&nbsp;-&nbsp;Installs&nbsp;packages&nbsp;into&nbsp;a&nbsp;created&nbsp;virtual&nbsp;environment<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
 &nbsp;<br>
@@ -72,5 +71,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.PipInstallFailed&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.VirtualEnvDoesNotExist&nbsp;-&nbsp;If&nbsp;given&nbsp;venvDir&nbsp;does&nbsp;not&nbsp;exist<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(Exception,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
-</td></tr></table>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__all__</strong> = ('installPackages', 'ensureImport', 'generateRequirementsTxt')<br>
+<strong>__warningregistry__</strong> = {'version': 0, ("the imp module is deprecated in favour of import...e the module's documentation for alternative uses", &lt;class 'PendingDeprecationWarning'&gt;, 5): True}</td></tr></table>
 </body></html>
