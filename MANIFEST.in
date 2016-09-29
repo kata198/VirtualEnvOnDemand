@@ -9,3 +9,4 @@ include example.py
 include example_explicit.py
 recursive-include VirtualEnvOnDemand *.py
 recursive-include doc *.html
+recursive-include examples *.py

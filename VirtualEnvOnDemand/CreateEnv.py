@@ -9,12 +9,17 @@ import sys
 import tempfile
 import virtualenv
 
-from .VirtualEnvInfo import VirtualEnvInfo
+from .VirtualEnvInfo import VirtualEnvInfo, getInfoFromVirtualEnv
 from .InstallPackages import installPackages
+
+try:
+    from types import StringTypes
+except ImportError:
+    StringTypes = (str,)
 
 __all__ = ('createEnv', 'createEnvIfCannotImport')
 
-def createEnv(packages=None, parentDirectory=None, name=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True):
+def createEnv(packages=None, parentDirectory=None, name=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True, activateEnvironment=True):
     '''
         createEnv - Creates a temporary virtual environment and installs the required modules for the current running application.
             You can use this, for example, to "recover" from a failed import by installing the software on demand.
@@ -34,6 +39,8 @@ def createEnv(packages=None, parentDirectory=None, name=None, stdout=sys.stdout,
             @param stderr <iostream/None> - Stream to be used as stderr for installation. Default is sys.stderr. Use "None" to swallow output.
 
             @param deleteOnClose <bool> - If True (Default), this temporary environment and packages will be erased after program terminates. Note, this cannot trap everything (e.x. SIGKILL).
+
+            @param activateEnvironment <bool> Default True, If True, this virtualenv will immediately be activated (so you can import installed packages)
 
             @return - On success, returns a VirtualEnvInfo object, which can be used as a dict with the following fields:
                 {
@@ -57,7 +64,7 @@ def createEnv(packages=None, parentDirectory=None, name=None, stdout=sys.stdout,
 
     # Create blank env
     if name:
-        venvDir = os.sep.join(parentDirectory, name)
+        venvDir = os.sep.join([parentDirectory, name])
     else:
         venvDir = tempfile.mkdtemp(prefix='venv_', dir=parentDirectory)
 
@@ -87,14 +94,45 @@ def createEnv(packages=None, parentDirectory=None, name=None, stdout=sys.stdout,
 
         atexit.register(_cleanupFunc)
 
-    # Actually append the new site-packages dir to the runtime path so people can start importing!
-    sys.path = [venvSitePath] + sys.path
-
-    # aaannnd return some meta information.
-    return VirtualEnvInfo(
+    ret = VirtualEnvInfo(
         virtualenvDirectory=venvDir,
         sitePackagesDirectory=venvSitePath,
     )
+
+    # Actually append the new site-packages dir to the runtime path so people can start importing!
+    if activateEnvironment:
+        activateEnv(ret)
+
+    # aaannnd return some meta information.
+    return ret
+
+
+def activateEnv(venv):
+    '''
+        activateEnv - Activates a virtualenv (allows you to import installed modules).
+
+        @param venv <str/VirtualEnvInfo> - A path to the root of a virtualenv, or a VirtualEnvInfo.VirtualEnvInfo object (Like from VirtualEnvInfo.getInfoFromVirtualEnv)
+
+        @raises - TypeError - if venv is not correct type
+        @raises - ValueError - if venv is not a usable virtual environment.
+
+        @return <str> - The path of the site-packages directory which as added to the python import path.
+    '''
+    if isinstance(venv, VirtualEnvInfo):
+        info = venv
+    elif issubclass(venv, StringTypes):
+        info = getInfoFromVirtualEnv(venv)
+    else:
+        raise TypeError('Unknown type passed to activateEnv: %s. Should be VirtualEnvInfo or a string.' %(venv.__class__.__name__,))
+
+    info.validate()
+    if info.sitePackagesDirectory in sys.path:
+        # If already present, move to the front of the line
+        sys.path.remove(info.sitePackagesDirectory)
+
+    sys.path = [info.sitePackagesDirectory] + sys.path
+    return info.sitePackagesDirectory
+    
 
 def createEnvIfCannotImport(importName, packages, parentDirectory=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True):
     '''

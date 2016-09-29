@@ -7,12 +7,12 @@ import imp
 import sys
 import tempfile
 
-from .CreateEnv import createEnv
+from .CreateEnv import createEnv, activateEnv
 from .InstallPackages import installPackages, ensureImport
-from .VirtualEnvInfo import VirtualEnvInfo, VirtualEnvDeferredBuild
+from .VirtualEnvInfo import VirtualEnvInfo, VirtualEnvDeferredBuild, getInfoFromVirtualEnv
 from .exceptions import VirtualEnvDoesNotExist
 
-__all__ = ('globalOnDemandVirtualEnv', 'isOnDemandImporterEnabled', 'getGlobalVirtualEnvInfo', 'enableOnDemandImporter', 'ensureImportGlobal', 'VirtualEnvOnDemandImporter', 'toggleOnDemandImporter')
+__all__ = ('globalOnDemandVirtualEnv', 'isOnDemandImporterEnabled', 'getGlobalVirtualEnvInfo', 'enableOnDemandImporter', 'ensureImportGlobal', 'VirtualEnvOnDemandImporter', 'toggleOnDemandImporter', 'toggleDebug')
 
 global globalOnDemandVirtualEnv
 globalOnDemandVirtualEnv = None
@@ -21,6 +21,23 @@ isOnDemandImporterEnabled = False
 global knownFailures
 knownFailures = set()
 
+global debug
+debug = False
+
+def toggleDebug(isDebug):
+    '''
+        toggleDebug - Toggle debug messages. Default disabled.
+
+        @param isDebug <bool> - Whether to enable debug messages or disable them.
+
+        @return <bool> - The old state of debug
+    '''
+    global debug
+
+    oldValue = debug
+
+    debug = isDebug
+    return oldValue
 
 def getGlobalVirtualEnvInfo():
     '''
@@ -31,6 +48,28 @@ def getGlobalVirtualEnvInfo():
         @return VirtualEnvInfo representing global env, or None if enableOnDemandImporter has not been called.
     '''
     return globalOnDemandVirtualEnv
+
+def setGlobalVirtualEnv(venv, enableOnDemandImporter=True):
+    '''
+        setGlobalVirtualEnv - Sets the global virtualenv to be used by the on demand importer.
+
+        @param venv <str/VirtualEnvInfo> - Either the path to the root of the virtualenv, or a VirtualEnvInfo (like from getInfoFromVirtualEnv)
+        @param enableOnDemandImporter <bool> Default True - If True, will enable the on demand importer right away.
+
+        @return <VirtualEnvInfo> - The global env
+    '''
+    global globalOnDemandVirtualEnv
+    if not isinstance(venv, VirtualEnvInfo):
+        venv = getInfoFromVirtualEnv(venv)
+
+    globalOnDemandVirtualEnv = venv
+
+    activateEnv(venv)
+    if enableOnDemandImporter:
+        toggleOnDemandImporter(True)
+
+    return globalOnDemandVirtualEnv
+
 
 def enableOnDemandImporter(tmpDir=None, deferSetup=True, noRetryFailedPackages=True):
     '''
@@ -66,12 +105,18 @@ def toggleOnDemandImporter(isActive):
 
             @param isActive <bool> - To temporarily enable/disable the on-demand importer.
 
-            @return <bool> - True if a toggle occured, False if the global env has not been setup (by calling enableOnDemandImporter)
+            @return <bool> - True if a toggle occured, False if no state has changed.
+
+            @raises ValueError - If no global virtualenv has been set, either by enableOnDemandImporter or setGlobalVirtualEnv
     '''
     global isOnDemandImporterEnabled
 
-    # If we have not called enableOnDemandImporter, ignore this.
-    if isOnDemandImporterEnabled is False:
+    # Make sure we are setup
+    if not globalOnDemandVirtualEnv and isActive:
+        raise ValueError('toggleOnDemandImporter(True) called, but no globalOnDemandVirtualEnv was set! Call enableOnDemandImporter or setGlobalVirtualEnv first!')
+
+    # Check if we already have the desired state
+    if not isOnDemandImporterEnabled and not isActive:
         return False
 
     if isActive is True:
@@ -83,6 +128,8 @@ def toggleOnDemandImporter(isActive):
                 break
         if not foundIt:
             sys.meta_path = [VirtualEnvOnDemandImporter()] + sys.meta_path
+        else:
+            return False
     else:
         newMetaPath = []
         for mp in sys.meta_path:
@@ -157,7 +204,8 @@ class VirtualEnvOnDemandImporter(object):
         moduleName = fullname.split('.')[0]
         if knownFailures and moduleName in knownFailures:
             # We are tracking failures and already know this has failed
-            sys.stderr.write('Skipping %s because in known-failure list\n' %(moduleName,))
+            if debug is True:
+                sys.stderr.write('Skipping %s because in known-failure list\n' %(moduleName,))
             return None
 
         global globalOnDemandVirtualEnv
