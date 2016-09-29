@@ -1,3 +1,7 @@
+* 5.0.1 - Sep 28 2016
+- Update READMEs and examples
+- Minor fix in passing strings instead of VirtualEnvInfo to functions
+
 * 5.0.0 - Sep 28 2016
 - Better support for persistent virtualenvs
 - Allow naming of virtualenvs through createEnv
