@@ -7,7 +7,7 @@ VirtualEnvOnDemand provides a simple means for an application, without restartin
 
 The primary means to accomplish this is to call "VirtualEnvOnDemand.enableOnDemandImporter()" which will load the hook into the importer. If an import fails, it will attempt to fetch the corrosponding module and install into current runtime.
 
-You can also explicitly create environments and install packages into them (adding to current runtime). See documentation for more details.
+You can also explicitly create environments and install packages into them (adding to current runtime), persistent or temporary. See "Persistent Virtualenvs" section below, and documentation for more details.
 
 
 **Why?**
@@ -16,6 +16,7 @@ There are a multitude of uses for this. You may use it for development, share sc
 You can use it for "lightweight" distributions, for example you may use third-party libs for testing, but they don't need to be in your global setup.py "requires", you can just import them
 on-demand when you run tests. Or make up your own use!
 
+You can simplify code deployments, by having the virtualenv created post-deploy, instead of worrying about having to deploy a virtualenv.
 
 **Basic Usage**
 
@@ -101,3 +102,5 @@ The following example shows using "enableOnDemandImporter" to automatically fetc
 		import AdvancedHTMLParser
 		sys.stdout.write('AdvancedHTMLParser version: ' + AdvancedHTMLParser.__version__ + '\n')
 
+
+Additional examples can be found in the "examples" directory, https://github.com/kata198/VirtualEnvOnDemand/tree/master/examples
