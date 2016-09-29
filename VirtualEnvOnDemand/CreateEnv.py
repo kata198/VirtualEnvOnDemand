@@ -120,7 +120,7 @@ def activateEnv(venv):
     '''
     if isinstance(venv, VirtualEnvInfo):
         info = venv
-    elif issubclass(venv, StringTypes):
+    elif issubclass(venv.__class__, StringTypes):
         info = getInfoFromVirtualEnv(venv)
     else:
         raise TypeError('Unknown type passed to activateEnv: %s. Should be VirtualEnvInfo or a string.' %(venv.__class__.__name__,))
