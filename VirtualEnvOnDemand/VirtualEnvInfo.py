@@ -11,16 +11,15 @@ __all__ = ('VirtualEnvInfo', 'getInfoFromVirtualEnv')
 
 class VirtualEnvInfo(object):
 
-    __slots__ = ('virtualenvDirectory', 'sitePackagesDirectory', 'pythonBin')
+    __slots__ = ('virtualenvDirectory', 'sitePackagesDirectory')
 
 
-    def __init__(self, virtualenvDirectory, sitePackagesDirectory='', pythonBin=''):
+    def __init__(self, virtualenvDirectory, sitePackagesDirectory=''):
         '''
             @param virtualenvDirectory <str> - Path to the root of the virtualenv
             @param sitePackagesDirectory <str> - Path to the site packages directory (goes into PYTHONPATH)
-            @param pythonBin <str> - Path to python executable. Defaults to virtualenvDirectory/bin/python (using os-specific separators)
 
-            If virtualenvDirectory is provided, sitePackagesDirectory and pythonBin will be calculated with default expected values.
+            If virtualenvDirectory is provided, sitePackagesDirectory will be calculated with default expected values.
 
             This object should be considered read-only. If you need to modify values, you must create a new object.
 
@@ -37,11 +36,6 @@ class VirtualEnvInfo(object):
             sitePackagesDirectory = VirtualEnvInfo._getSitePackagesDirectory(virtualenvDirectory)
 
         self.sitePackagesDirectory = sitePackagesDirectory
-
-        if not pythonBin:
-            pythonBin = VirtualEnvInfo._getPythonBin(virtualenvDirectory)
-
-        self.pythonBin = pythonBin
 
 
     @staticmethod
@@ -74,8 +68,9 @@ class VirtualEnvInfo(object):
         if not os.path.isdir(self.virtualenvDirectory):
             raise ValueError('virtualenvDirectory "%s" does not seem to be a directory.' %(self.virtualenvDirectory,))
 
-        if not os.path.exists(self.pythonBin):
-            raise ValueError('Cannot find python executable at "%s"' %(self.pythonBin,))
+        pipPath = os.sep.join([self.virtualenvDirectory, 'bin', 'pip'])
+        if not os.path.exists(pipPath):
+            raise ValueError('Cannot find pip executable at "%s"' %(self.pipPath,))
 
         if not os.path.isdir(self.sitePackagesDirectory):
             raise ValueError('Cannot find site packages directory at "%s"' %(self.sitePackagesDirectory,))
@@ -91,7 +86,6 @@ class VirtualEnvDeferredBuild(VirtualEnvInfo):
     def __init__(self, parentDirectory):
         self.virtualenvDirectory = parentDirectory
         self.sitePackagesDirectory = None
-        self.pythonBin = None
 
 
 #   5.0 - Now read only.
