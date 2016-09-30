@@ -12,7 +12,7 @@ VENV_NAME = 'TestEnv'
 
 VENV_PATH = os.sep.join([PARENT_DIR, VENV_NAME])
 
-PACKAGE_LIST = ['IndexedRedis', ]
+PACKAGE_LIST = ['IndexedRedis', 'SimpleHttpFetch', 'AdvancedHTMLParser']
 
 if not os.path.isdir(VENV_PATH):
     print ( "Creating Env...")
