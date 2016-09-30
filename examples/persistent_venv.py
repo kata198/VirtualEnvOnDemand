@@ -58,12 +58,13 @@ def _do_setup():
                 print ( "Cannot use virtualenv, recreating. Reason: " + str(validationError) )
             virtualenvInfo = createEnv(packages=PACKAGE_LIST, parentDirectory=PARENT_DIR, name=VENV_NAME, stdout=None, stderr=None, deleteOnClose=False)
 
+    # If this flag is set, try to update packages, and install any new ones.
+    if DO_INSTALL_PACKAGES:
+        installPackages(PACKAGE_LIST, virtualenvInfo)
+
     # Use "activateEnv" to just activate this env as-is
     activateEnv(virtualenvInfo)
 
-    # If we have 
-    if DO_INSTALL_PACKAGES:
-        installPackages(PACKAGE_LIST, virtualenvInfo)
 
     ## use setGlobalVirtualEnv to use env as the global env, i.e. try to install packages upon failed imports
 
