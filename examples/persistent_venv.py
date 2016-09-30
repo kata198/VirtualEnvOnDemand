@@ -13,7 +13,6 @@ import sys
 from VirtualEnvOnDemand import createEnv, setGlobalVirtualEnv, getInfoFromVirtualEnv, activateEnv, installPackages
 
 # Global pointer to the persistent virtualenv
-global virtualenvInfo
 virtualenvInfo = None
 
 # Set to True to print what is going on, otherwise False
@@ -24,28 +23,37 @@ def _do_setup():
     '''
         _do_setup - Do the setup
     '''
-    global virtualenvInfo, DEBUG
+    global DEBUG
+
+    # PARENT_DIR - This is the directory wherein the virtualenv will be created
     PARENT_DIR = tempfile.gettempdir()
 
+    # VENV_NAME - This is the name of the virtualenv root folder
     VENV_NAME = 'TestEnv'
 
+    # VENV_PATH - The combination of PARENT_DIR and VENV_NAME
     VENV_PATH = os.sep.join([PARENT_DIR, VENV_NAME])
 
+    # PACKAGE_LIST - A list of packages to install. You can use pip modifiers, like '==' and '<'
     PACKAGE_LIST = ['IndexedRedis', 'SimpleHttpFetch', 'AdvancedHTMLParser', 'cachebust==1.1.0']
 
     # Set the following to "True" if you update packages within PACKAGE_LIST, to trigger an install/upgrade of any new or updated packages.
     DO_INSTALL_PACKAGES = False
 
+    # If there is no folder where our virtualenv should be, we must create it.
     if not os.path.isdir(VENV_PATH):
         if DEBUG:
             print ( "Creating Env...")
         virtualenvInfo = createEnv(packages=PACKAGE_LIST, parentDirectory=PARENT_DIR, name=VENV_NAME, stdout=None, stderr=None, deleteOnClose=False)
     else:
+        # Otherwise, validate that there is a virtualenv here, and that it is usable (validate).
         if DEBUG:
             print ( "Using existing Env....")
         try:
             virtualenvInfo = getInfoFromVirtualEnv(VENV_PATH, validate=True)
         except ValueError as validationError:
+            # This virtualenv is not usable. Maybe it is an empty directory, maybe something else. validationError will have the given reason.
+            #  so create a virtualenv at this location.
             if DEBUG:
                 print ( "Cannot use virtualenv, recreating. Reason: " + str(validationError) )
             virtualenvInfo = createEnv(packages=PACKAGE_LIST, parentDirectory=PARENT_DIR, name=VENV_NAME, stdout=None, stderr=None, deleteOnClose=False)
@@ -53,6 +61,7 @@ def _do_setup():
     # Use "activateEnv" to just activate this env as-is
     activateEnv(virtualenvInfo)
 
+    # If we have 
     if DO_INSTALL_PACKAGES:
         installPackages(PACKAGE_LIST, virtualenvInfo)
 
@@ -60,9 +69,11 @@ def _do_setup():
 
     #setGlobalVirtualEnv(virtualenvInfo, enableOnDemandImporter=True)
 
-    
+    return virtualenvInfo
 
-_do_setup()
+    
+# Call our setup function
+virtualenvInfo = _do_setup()
 
 
 
