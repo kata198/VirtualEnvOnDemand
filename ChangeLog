@@ -1,5 +1,6 @@
 * 5.0.2 - Sep 30 2016
 - Fix persistent_env example to actually install the packages used (since on-demand is disabled in this example)
+- Add lots of comments, etc to persistent_env to be a better demonstration
 
 
 * 5.0.1 - Sep 28 2016
