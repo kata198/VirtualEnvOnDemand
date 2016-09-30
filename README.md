@@ -62,6 +62,9 @@ You can also use the on-demand functionality by calling:
 which will exapand the env you created as-needed, when imports fail.
 
 
+Full example, with comments: https://github.com/kata198/VirtualEnvOnDemand/blob/master/examples/persistent_venv.py
+
+
 **Documentation**
 
 Can be found at:
