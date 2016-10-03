@@ -2,7 +2,7 @@
 '''
     persistent_venv - An example that shows how to create and manage a persistent virtualenv environment at deploy-time.
 
-        It is recommended that you put similar code into a "virtualenv.py" which you import from your executable, module, whatever.
+        It is recommended that you put similar code into a "myenv.py" which you import from your executable, module, whatever.
 '''
 
 
