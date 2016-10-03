@@ -61,7 +61,7 @@ def installPackages(packages, venvDir, stdout=sys.stdout, stderr=sys.stderr):
                     stderr = devnull
 
             # Install from generated requirements.txt
-            pipe = subprocess.Popen([ os.sep.join([venvDir, 'bin', 'pip']), 'install', '-r', reqFile.name], shell=False, stdout=stdout, stderr=stderr)
+            pipe = subprocess.Popen([ os.sep.join([venvDir, 'bin', 'pip']), 'install', '--upgrade', '-r', reqFile.name], shell=False, stdout=stdout, stderr=stderr)
             returnCode = pipe.wait()
 
             # Cleanup devnull stream if setup
