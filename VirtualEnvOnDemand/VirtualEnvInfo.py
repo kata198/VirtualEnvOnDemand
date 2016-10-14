@@ -70,7 +70,7 @@ class VirtualEnvInfo(object):
 
         pipPath = os.sep.join([self.virtualenvDirectory, 'bin', 'pip'])
         if not os.path.exists(pipPath):
-            raise ValueError('Cannot find pip executable at "%s"' %(self.pipPath,))
+            raise ValueError('Cannot find pip executable at "%s"' %(pipPath,))
 
         if not os.path.isdir(self.sitePackagesDirectory):
             raise ValueError('Cannot find site packages directory at "%s"' %(self.sitePackagesDirectory,))
