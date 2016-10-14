@@ -1,3 +1,6 @@
+* 5.0.4 - Oct 14 2016
+- Fix a typo in an error condition
+
 * 5.0.3 - Oct 03 2016
 - Always pass --upgrade to pip install
 
