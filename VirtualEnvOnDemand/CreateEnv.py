@@ -20,7 +20,7 @@ try:
 except ImportError:
     StringTypes = (str,)
 
-__all__ = ('createEnv', 'createEnvIfCannotImport')
+__all__ = ('activateEnv', 'createEnv', 'createEnvIfCannotImport')
 
 def createEnv(packages=None, parentDirectory=None, name=None, stdout=sys.stdout, stderr=sys.stderr, deleteOnClose=True, activateEnvironment=True):
     '''

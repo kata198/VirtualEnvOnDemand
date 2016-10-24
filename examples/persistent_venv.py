@@ -62,7 +62,11 @@ def _do_setup():
 
     # If this flag is set, try to update packages, and install any new ones.
     if DO_INSTALL_PACKAGES:
-        installPackages(PACKAGE_LIST, virtualenvInfo)
+        if DEBUG:
+            (useStdout, useStderr) = (sys.stdout, sys.stderr)
+        else:
+            (useStdout, useStderr) = (None, None)
+        installPackages(PACKAGE_LIST, virtualenvInfo, stdout=useStdout, stderr=useStderr)
 
     # Use "activateEnv" to just activate this env as-is
     activateEnv(virtualenvInfo)
