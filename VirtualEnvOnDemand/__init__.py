@@ -36,3 +36,5 @@ from .CreateEnv import createEnv, createEnvIfCannotImport, activateEnv
 
 from VirtualEnvOnDemand.InstallPackages import installPackages, ensureImport
 from VirtualEnvOnDemand.GlobalEnv import enableOnDemandImporter, getGlobalVirtualEnvInfo, ensureImportGlobal, toggleOnDemandImporter, setGlobalVirtualEnv, toggleDebug
+
+from .PersistentEnv import setupAndActivateEnv
