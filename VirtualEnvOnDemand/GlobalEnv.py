@@ -1,6 +1,8 @@
 # Copyright (c) 2015, 2016 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
-# 
-#  This file contains things related to the "global" env, used for auto-importing.
+'''
+    GlobalEnv - Methods/Classes related to the "global" env, 
+      i.e. the environment used for on-demand imports
+'''
 
 # vim: ts=4 sw=4 expandtab
 import imp

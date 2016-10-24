@@ -1,4 +1,7 @@
 # Copyright (c) 2015, 2016 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
+'''
+    VirtualEnvInfo - Classes/methods which describe a virtualenv
+'''
 
 
 # vim: ts=4 sw=4 expandtab

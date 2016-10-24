@@ -1,6 +1,10 @@
 # Copyright (c) 2015, 2016 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
-#
-#  Package installation methods
+'''
+    InstallPackages - Methods/Classes for installing packages into an existing env,
+      using pip
+'''
+
+# TODO: Maybe support setup.py installations, like from a source tarball?
 
 import imp
 import os

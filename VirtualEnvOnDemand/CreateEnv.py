@@ -1,4 +1,7 @@
 # Copyright (c) 2015, 2016 Timothy Savannah under terms of LGPLv3. You should have received a copy of this with this distribution as "LICENSE"
+'''
+    CreateEnv - Methods for creating a virtual environment
+'''
 
 # vim: ts=4 sw=4 expandtab
 
