@@ -45,6 +45,7 @@ def _do_setup():
         if DEBUG:
             print ( "Creating Env...")
         virtualenvInfo = createEnv(packages=PACKAGE_LIST, parentDirectory=PARENT_DIR, name=VENV_NAME, stdout=None, stderr=None, deleteOnClose=False)
+        DO_INSTALL_PACKAGES = False
     else:
         # Otherwise, validate that there is a virtualenv here, and that it is usable (validate).
         if DEBUG:
@@ -57,6 +58,7 @@ def _do_setup():
             if DEBUG:
                 print ( "Cannot use virtualenv, recreating. Reason: " + str(validationError) )
             virtualenvInfo = createEnv(packages=PACKAGE_LIST, parentDirectory=PARENT_DIR, name=VENV_NAME, stdout=None, stderr=None, deleteOnClose=False)
+            DO_INSTALL_PACKAGES = False
 
     # If this flag is set, try to update packages, and install any new ones.
     if DO_INSTALL_PACKAGES:
