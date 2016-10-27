@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 '''
-    persistent_venv - An example that shows how to create and manage a persistent virtualenv environment at deploy-time.
+    persistent_venv_old - An example that shows how to create and manage a persistent virtualenv environment at deploy-time.
 
+    NOTE: THIS IS THE OLD METHOD, you will likely want to use the more simple "setupAndActivateEnv" for your project.
+    
         It is recommended that you put similar code into a "myenv.py" which you import from your executable, module, whatever.
 '''
 
