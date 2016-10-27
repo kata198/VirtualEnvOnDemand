@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html ><head ><title >Python: module VirtualEnvOnDemand.PersistentEnv</title>
+<meta charset="utf-8" />
+</head><body bgcolor="#f0f0f8" >
+
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="heading" >
+<tr bgcolor="#7799ee" >
+<td valign="bottom" >&nbsp;<br />
+<font color="#ffffff" face="helvetica, arial" >&nbsp;<br /><big ><big ><strong ><a href="VirtualEnvOnDemand.html" ><font color="#ffffff" >VirtualEnvOnDemand</font></a>.PersistentEnv</strong></big></big></font></td><td align="right" valign="bottom" ><font color="#ffffff" face="helvetica, arial" ><a href="VirtualEnvOnDemand.html" >index</a></font></td></tr></table>
+    <p ><tt >PersistentEnv&nbsp;-&nbsp;"Helper"&nbsp;methods&nbsp;to&nbsp;manage&nbsp;a&nbsp;global&nbsp;persistent&nbsp;environment.<br />
+&nbsp;<br />
+&nbsp;&nbsp;For&nbsp;use&nbsp;in&nbsp;projects,&nbsp;deployments,&nbsp;etc.</tt></p>
+<p >
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
+<tr bgcolor="#aa55cc" >
+<td colspan="3" valign="bottom" >&nbsp;<br />
+<font color="#ffffff" face="helvetica, arial" ><big ><strong >Modules</strong></big></font></td></tr>
+    
+<tr ><td bgcolor="#aa55cc" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
+<td width="100%" ><table width="100%" summary="list" ><tr ><td width="25%" valign="top" ><a href="os.html" >os</a><br />
+</td><td width="25%" valign="top" ><a href="sys.html" >sys</a><br />
+</td><td width="25%" valign="top" ><a href="tempfile.html" >tempfile</a><br />
+</td><td width="25%" valign="top" ></td></tr></table></td></tr></table><p >
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
+<tr bgcolor="#eeaa77" >
+<td colspan="3" valign="bottom" >&nbsp;<br />
+<font color="#ffffff" face="helvetica, arial" ><big ><strong >Functions</strong></big></font></td></tr>
+    
+<tr ><td bgcolor="#eeaa77" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
+<td width="100%" ><dl ><dt ><a name="-setupAndActivateEnv" ><strong >setupAndActivateEnv</strong></a>(parentDirectory, name, packages, myVersion<font color="#909090" >=None</font>, forceInstallPackages<font color="#909090" >=False</font>, enableOnDemandImporter<font color="#909090" >=False</font>, printDebug<font color="#909090" >=False</font>)</dt><dd ><tt >setupAndActivateEnv&nbsp;-&nbsp;<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;parentDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;This&nbsp;is&nbsp;the&nbsp;directory&nbsp;wherein&nbsp;the&nbsp;virtualenv&nbsp;will&nbsp;be&nbsp;created<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;name&nbsp;&lt;str&gt;&nbsp;-&nbsp;This&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;virtualenv&nbsp;root&nbsp;folder<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;&lt;list/dict/str&gt;&nbsp;-&nbsp;A&nbsp;list&nbsp;of&nbsp;packages&nbsp;to&nbsp;install.&nbsp;You&nbsp;can&nbsp;use&nbsp;pip&nbsp;modifiers,&nbsp;like&nbsp;'=='&nbsp;and&nbsp;'&lt;'.&nbsp;May&nbsp;be&nbsp;any&nbsp;of&nbsp;the&nbsp;following:<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present&nbsp;(i.e.&nbsp;evaluates&nbsp;to&nbsp;False,&nbsp;like&nbsp;''&nbsp;or&nbsp;None),&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;if&nbsp;the&nbsp;virtualenv&nbsp;exists&nbsp;already,&nbsp;updates&nbsp;to&nbsp;this&nbsp;field&nbsp;will&nbsp;go&nbsp;unnoticed&nbsp;unless&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"myVersion"&nbsp;increases,&nbsp;or&nbsp;"forceInstallPackages"&nbsp;is&nbsp;set.&nbsp;@see&nbsp;#myVersion&nbsp;parameter&nbsp;below.<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;also&nbsp;use&nbsp;&nbsp;"&nbsp;VirtualEnvOnDemand.installPackages(&nbsp;packages,&nbsp;venvInfo&nbsp;)&nbsp;"&nbsp;&nbsp;to&nbsp;force&nbsp;install/update&nbsp;of&nbsp;#packages&nbsp;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;"venvInfo"&nbsp;is&nbsp;the&nbsp;return&nbsp;of&nbsp;this&nbsp;function.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@see&nbsp;#VirtualEnvOnDemand.InstallPackages.installPackages<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;myVersion&nbsp;&lt;str/int&gt;&nbsp;-&nbsp;Any&nbsp;sort&nbsp;of&nbsp;version&nbsp;string.&nbsp;You&nbsp;can&nbsp;use&nbsp;__version__&nbsp;from&nbsp;your&nbsp;module&nbsp;if&nbsp;you&nbsp;so&nbsp;please.&nbsp;Use&nbsp;None&nbsp;to&nbsp;disable.<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;defined,&nbsp;this&nbsp;represents&nbsp;your&nbsp;virtualenv's&nbsp;"version".<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;you&nbsp;are&nbsp;inheriting&nbsp;an&nbsp;existing&nbsp;virtualenv,&nbsp;and&nbsp;this&nbsp;method&nbsp;is&nbsp;passed&nbsp;a&nbsp;higher&nbsp;#myVersion&nbsp;than&nbsp;is&nbsp;currently&nbsp;marked&nbsp;in&nbsp;the<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtualenv&nbsp;directory,&nbsp;this&nbsp;method&nbsp;will&nbsp;attempt&nbsp;to&nbsp;install/update&nbsp;any&nbsp;packages&nbsp;as&nbsp;found&nbsp;in&nbsp;#packages.<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;forceInstallPackages&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;False&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;attempt&nbsp;to&nbsp;install/update&nbsp;any&nbsp;packages&nbsp;found&nbsp;in&nbsp;#packages&nbsp;every&nbsp;time.<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;production&nbsp;and&nbsp;deployed&nbsp;code,&nbsp;you&nbsp;will&nbsp;likely&nbsp;want&nbsp;to&nbsp;leave&nbsp;this&nbsp;as&nbsp;False,&nbsp;as&nbsp;it&nbsp;carries&nbsp;a&nbsp;performence&nbsp;penality&nbsp;with&nbsp;every&nbsp;script&nbsp;invocation<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;check&nbsp;for&nbsp;updates.&nbsp;Instead,&nbsp;bump&nbsp;the&nbsp;value&nbsp;of&nbsp;"myVersion"&nbsp;e.g.&nbsp;from&nbsp;"1.2.0"&nbsp;to&nbsp;"1.2.0.1"&nbsp;or&nbsp;similar,&nbsp;or&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;explicitly&nbsp;call&nbsp;#VirtualEnvOnDemand.InstallPackages.installPackages&nbsp;from&nbsp;an&nbsp;admin&nbsp;servlet,&nbsp;for&nbsp;example.<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;enableOnDemandImporter&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;False&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;use&nbsp;this&nbsp;env&nbsp;as&nbsp;the&nbsp;global&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@see&nbsp;#VirtualEnvOnDemand.GlobalEnv.enableOnDemandImporter<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;printDebug&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;False&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;print&nbsp;debug&nbsp;messages&nbsp;about&nbsp;what's&nbsp;going&nbsp;on&nbsp;to&nbsp;stderr.</tt></dd></dl>
+</td></tr></table><p >
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
+<tr bgcolor="#55aa55" >
+<td colspan="3" valign="bottom" >&nbsp;<br />
+<font color="#ffffff" face="helvetica, arial" ><big ><strong >Data</strong></big></font></td></tr>
+    
+<tr ><td bgcolor="#55aa55" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
+<td width="100%" ><strong >__all__</strong> = ('setupAndActivateEnv',)</td></tr></table>
+</p></p></p></body></html>

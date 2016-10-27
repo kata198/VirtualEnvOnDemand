@@ -1,117 +1,114 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: module VirtualEnvOnDemand.GlobalEnv</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body bgcolor="#f0f0f8">
+<html ><head ><title >Python: module VirtualEnvOnDemand.GlobalEnv</title>
+<meta charset="utf-8" />
+</head><body bgcolor="#f0f0f8" >
 
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
-<tr bgcolor="#7799ee">
-<td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="VirtualEnvOnDemand.html"><font color="#ffffff">VirtualEnvOnDemand</font></a>.GlobalEnv</strong></big></big></font></td
-><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href="VirtualEnvOnDemand.html">index</a><br></font></td></tr></table>
-    <p><tt>#&nbsp;Copyright&nbsp;(c)&nbsp;2015,&nbsp;2016&nbsp;Timothy&nbsp;Savannah&nbsp;under&nbsp;terms&nbsp;of&nbsp;LGPLv3.&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;with&nbsp;this&nbsp;distribution&nbsp;as&nbsp;"LICENSE"<br>
-#&nbsp;<br>
-#&nbsp;&nbsp;This&nbsp;file&nbsp;contains&nbsp;things&nbsp;related&nbsp;to&nbsp;the&nbsp;"global"&nbsp;env,&nbsp;used&nbsp;for&nbsp;auto-importing.</tt></p>
-<p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#aa55cc">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="heading" >
+<tr bgcolor="#7799ee" >
+<td valign="bottom" >&nbsp;<br />
+<font color="#ffffff" face="helvetica, arial" >&nbsp;<br /><big ><big ><strong ><a href="VirtualEnvOnDemand.html" ><font color="#ffffff" >VirtualEnvOnDemand</font></a>.GlobalEnv</strong></big></big></font></td><td align="right" valign="bottom" ><font color="#ffffff" face="helvetica, arial" ><a href="VirtualEnvOnDemand.html" >index</a></font></td></tr></table>
+    <p ><tt >GlobalEnv&nbsp;-&nbsp;Methods/Classes&nbsp;related&nbsp;to&nbsp;the&nbsp;"global"&nbsp;env,&nbsp;<br />
+&nbsp;&nbsp;i.e.&nbsp;the&nbsp;environment&nbsp;used&nbsp;for&nbsp;on-demand&nbsp;imports</tt></p>
+<p >
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
+<tr bgcolor="#aa55cc" >
+<td colspan="3" valign="bottom" >&nbsp;<br />
+<font color="#ffffff" face="helvetica, arial" ><big ><strong >Modules</strong></big></font></td></tr>
     
-<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="imp.html">imp</a><br>
-</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top><a href="tempfile.html">tempfile</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ee77aa">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+<tr ><td bgcolor="#aa55cc" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
+<td width="100%" ><table width="100%" summary="list" ><tr ><td width="25%" valign="top" ><a href="imp.html" >imp</a><br />
+</td><td width="25%" valign="top" ><a href="sys.html" >sys</a><br />
+</td><td width="25%" valign="top" ><a href="tempfile.html" >tempfile</a><br />
+</td><td width="25%" valign="top" ></td></tr></table></td></tr></table><p >
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
+<tr bgcolor="#ee77aa" >
+<td colspan="3" valign="bottom" >&nbsp;<br />
+<font color="#ffffff" face="helvetica, arial" ><big ><strong >Classes</strong></big></font></td></tr>
     
-<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="VirtualEnvOnDemand.GlobalEnv.html#VirtualEnvOnDemandImporter">VirtualEnvOnDemandImporter</a>
+<tr ><td bgcolor="#ee77aa" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
+<td width="100%" ><dl >
+<dt ><font face="helvetica, arial" ><a href="__builtin__.html#object" >__builtin__.object</a>
+</font></dt><dd >
+<dl >
+<dt ><font face="helvetica, arial" ><a href="VirtualEnvOnDemand.GlobalEnv.html#VirtualEnvOnDemandImporter" >VirtualEnvOnDemandImporter</a>
 </font></dt></dl>
 </dd>
 </dl>
- <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="VirtualEnvOnDemandImporter">class <strong>VirtualEnvOnDemandImporter</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+ <p >
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
+<tr bgcolor="#ffc8d8" >
+<td colspan="3" valign="bottom" >&nbsp;<br />
+<font color="#000000" face="helvetica, arial" ><a name="VirtualEnvOnDemandImporter" >class <strong >VirtualEnvOnDemandImporter</strong></a>(<a href="__builtin__.html#object" >__builtin__.object</a>)</font></td></tr>
     
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#VirtualEnvOnDemandImporter">VirtualEnvOnDemandImporter</a>&nbsp;-&nbsp;The&nbsp;workhouse&nbsp;of&nbsp;auto-importing.&nbsp;Upon&nbsp;an&nbsp;import&nbsp;that&nbsp;wouldn't&nbsp;resolve,&nbsp;it&nbsp;will&nbsp;try&nbsp;to&nbsp;install&nbsp;the&nbsp;leading&nbsp;package&nbsp;name&nbsp;using&nbsp;pip.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Failure&nbsp;will&nbsp;still&nbsp;cause&nbsp;a&nbsp;"cannot&nbsp;import"&nbsp;error,&nbsp;but&nbsp;otherwise&nbsp;things&nbsp;will&nbsp;be&nbsp;installed&nbsp;on-demand.<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="VirtualEnvOnDemandImporter-find_module"><strong>find_module</strong></a>(self, fullname, path=None)</dt></dl>
+<tr bgcolor="#ffc8d8" ><td rowspan="2" ><tt >&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan="2" ><tt ><a href="#VirtualEnvOnDemandImporter" >VirtualEnvOnDemandImporter</a>&nbsp;-&nbsp;The&nbsp;workhouse&nbsp;of&nbsp;auto-importing.&nbsp;Upon&nbsp;an&nbsp;import&nbsp;that&nbsp;wouldn't&nbsp;resolve,&nbsp;it&nbsp;will&nbsp;try&nbsp;to&nbsp;install&nbsp;the&nbsp;leading&nbsp;package&nbsp;name&nbsp;using&nbsp;pip.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Failure&nbsp;will&nbsp;still&nbsp;cause&nbsp;a&nbsp;"cannot&nbsp;import"&nbsp;error,&nbsp;but&nbsp;otherwise&nbsp;things&nbsp;will&nbsp;be&nbsp;installed&nbsp;on-demand.<br />&nbsp;</tt></td></tr>
+<tr ><td >&nbsp;</td>
+<td width="100%" >Methods defined here:<br />
+<dl ><dt ><a name="VirtualEnvOnDemandImporter-find_module" ><strong >find_module</strong></a>(self, fullname, path<font color="#909090" >=None</font>)</dt></dl>
 
-<hr>
-Data descriptors defined here:<br>
-<dl><dt><strong>__dict__</strong></dt>
-<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+<hr />
+Data descriptors defined here:<br />
+<dl ><dt ><strong >__dict__</strong></dt>
+<dd ><tt >dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
-<dl><dt><strong>__weakref__</strong></dt>
-<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+<dl ><dt ><strong >__weakref__</strong></dt>
+<dd ><tt >list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
-</td></tr></table></td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+</td></tr></table></p></td></tr></table><p >
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
+<tr bgcolor="#eeaa77" >
+<td colspan="3" valign="bottom" >&nbsp;<br />
+<font color="#ffffff" face="helvetica, arial" ><big ><strong >Functions</strong></big></font></td></tr>
     
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-enableOnDemandImporter"><strong>enableOnDemandImporter</strong></a>(tmpDir=None, deferSetup=True, noRetryFailedPackages=True)</dt><dd><tt>enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;@param&nbsp;tmpDir&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;Temporary&nbsp;directory&nbsp;to&nbsp;use.&nbsp;A&nbsp;subdirectory&nbsp;will&nbsp;be&nbsp;created&nbsp;within&nbsp;this.&nbsp;Defaults&nbsp;to&nbsp;tempfile.gettempdir()<br>
-&nbsp;&nbsp;&nbsp;@param&nbsp;deferSetup&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(default),&nbsp;defers&nbsp;setup&nbsp;(which&nbsp;can&nbsp;take&nbsp;a&nbsp;couple&nbsp;seconds)&nbsp;until&nbsp;the&nbsp;first&nbsp;failed&nbsp;import&nbsp;or&nbsp;attempted&nbsp;install.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setup&nbsp;takes&nbsp;a&nbsp;couple&nbsp;seconds.&nbsp;Use&nbsp;this&nbsp;to&nbsp;always&nbsp;enable&nbsp;on-demand&nbsp;importer,&nbsp;but&nbsp;give&nbsp;advantage&nbsp;if&nbsp;all&nbsp;modules&nbsp;are&nbsp;present.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;False,&nbsp;the&nbsp;ondemand&nbsp;virtualenv&nbsp;will&nbsp;be&nbsp;setup&nbsp;right-away.&nbsp;If&nbsp;you&nbsp;are&nbsp;using&nbsp;this&nbsp;in&nbsp;a&nbsp;multi-threaded&nbsp;environment,&nbsp;this&nbsp;should&nbsp;be&nbsp;set&nbsp;to&nbsp;False.<br>
-&nbsp;&nbsp;&nbsp;@param&nbsp;noRetryFailedPackages&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(default),&nbsp;a&nbsp;package&nbsp;which&nbsp;fails&nbsp;to&nbsp;download&nbsp;will&nbsp;not&nbsp;be&nbsp;retried.&nbsp;This&nbsp;is&nbsp;a&nbsp;performance&nbsp;savings.&nbsp;This&nbsp;should&nbsp;generally&nbsp;always&nbsp;be&nbsp;True,<br>
+<tr ><td bgcolor="#eeaa77" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
+<td width="100%" ><dl ><dt ><a name="-enableOnDemandImporter" ><strong >enableOnDemandImporter</strong></a>(tmpDir<font color="#909090" >=None</font>, deferSetup<font color="#909090" >=True</font>, noRetryFailedPackages<font color="#909090" >=True</font>)</dt><dd ><tt >enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;@param&nbsp;tmpDir&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;Temporary&nbsp;directory&nbsp;to&nbsp;use.&nbsp;A&nbsp;subdirectory&nbsp;will&nbsp;be&nbsp;created&nbsp;within&nbsp;this.&nbsp;Defaults&nbsp;to&nbsp;tempfile.gettempdir()<br />
+&nbsp;&nbsp;&nbsp;@param&nbsp;deferSetup&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(default),&nbsp;defers&nbsp;setup&nbsp;(which&nbsp;can&nbsp;take&nbsp;a&nbsp;couple&nbsp;seconds)&nbsp;until&nbsp;the&nbsp;first&nbsp;failed&nbsp;import&nbsp;or&nbsp;attempted&nbsp;install.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setup&nbsp;takes&nbsp;a&nbsp;couple&nbsp;seconds.&nbsp;Use&nbsp;this&nbsp;to&nbsp;always&nbsp;enable&nbsp;on-demand&nbsp;importer,&nbsp;but&nbsp;give&nbsp;advantage&nbsp;if&nbsp;all&nbsp;modules&nbsp;are&nbsp;present.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;False,&nbsp;the&nbsp;ondemand&nbsp;virtualenv&nbsp;will&nbsp;be&nbsp;setup&nbsp;right-away.&nbsp;If&nbsp;you&nbsp;are&nbsp;using&nbsp;this&nbsp;in&nbsp;a&nbsp;multi-threaded&nbsp;environment,&nbsp;this&nbsp;should&nbsp;be&nbsp;set&nbsp;to&nbsp;False.<br />
+&nbsp;&nbsp;&nbsp;@param&nbsp;noRetryFailedPackages&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(default),&nbsp;a&nbsp;package&nbsp;which&nbsp;fails&nbsp;to&nbsp;download&nbsp;will&nbsp;not&nbsp;be&nbsp;retried.&nbsp;This&nbsp;is&nbsp;a&nbsp;performance&nbsp;savings.&nbsp;This&nbsp;should&nbsp;generally&nbsp;always&nbsp;be&nbsp;True,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unless&nbsp;you&nbsp;are&nbsp;using&nbsp;VirtualEnvOnDemand&nbsp;to&nbsp;have&nbsp;a&nbsp;running&nbsp;process&nbsp;written&nbsp;to&nbsp;work&nbsp;with&nbsp;an&nbsp;unreleased&nbsp;module&nbsp;to&nbsp;prevent&nbsp;a&nbsp;restart&nbsp;or&nbsp;something&nbsp;similar.</tt></dd></dl>
- <dl><dt><a name="-ensureImportGlobal"><strong>ensureImportGlobal</strong></a>(importName, packageName=None, stdout=None, stderr=None)</dt><dd><tt>ensureImportGlobal&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;global&nbsp;virtualenv.&nbsp;This&nbsp;assumes&nbsp;that&nbsp;enableOnDemandImporter&nbsp;has&nbsp;already&nbsp;been&nbsp;called.<br>
-&nbsp;<br>
-@param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br>
-@param&nbsp;packageName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;If&nbsp;the&nbsp;package&nbsp;name&nbsp;differs&nbsp;from&nbsp;the&nbsp;import&nbsp;name&nbsp;(like&nbsp;biopython&nbsp;package&nbsp;provides&nbsp;"Bio"&nbsp;module),&nbsp;install&nbsp;this&nbsp;package&nbsp;if&nbsp;import&nbsp;fails.&nbsp;This&nbsp;may&nbsp;contain&nbsp;version&nbsp;info&nbsp;(like&nbsp;AdvancedHTMLParser&gt;6.0)<br>
-@param&nbsp;stdout&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stdout&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stdout&nbsp;is&nbsp;default.<br>
-@param&nbsp;stderr&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stderr&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stderr&nbsp;is&nbsp;default.<br>
-&nbsp;<br>
-@return&nbsp;-&nbsp;The&nbsp;imported&nbsp;module<br>
-&nbsp;<br>
-@raises&nbsp;-&nbsp;ImportError&nbsp;if&nbsp;cannot&nbsp;import.<br>
-&nbsp;<br>
+ <dl ><dt ><a name="-ensureImportGlobal" ><strong >ensureImportGlobal</strong></a>(importName, packageName<font color="#909090" >=None</font>, stdout<font color="#909090" >=None</font>, stderr<font color="#909090" >=None</font>)</dt><dd ><tt >ensureImportGlobal&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;global&nbsp;virtualenv.&nbsp;This&nbsp;assumes&nbsp;that&nbsp;enableOnDemandImporter&nbsp;has&nbsp;already&nbsp;been&nbsp;called.<br />
+&nbsp;<br />
+@param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br />
+@param&nbsp;packageName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;If&nbsp;the&nbsp;package&nbsp;name&nbsp;differs&nbsp;from&nbsp;the&nbsp;import&nbsp;name&nbsp;(like&nbsp;biopython&nbsp;package&nbsp;provides&nbsp;"Bio"&nbsp;module),&nbsp;install&nbsp;this&nbsp;package&nbsp;if&nbsp;import&nbsp;fails.&nbsp;This&nbsp;may&nbsp;contain&nbsp;version&nbsp;info&nbsp;(like&nbsp;AdvancedHTMLParser&gt;6.0)<br />
+@param&nbsp;stdout&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stdout&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stdout&nbsp;is&nbsp;default.<br />
+@param&nbsp;stderr&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stderr&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stderr&nbsp;is&nbsp;default.<br />
+&nbsp;<br />
+@return&nbsp;-&nbsp;The&nbsp;imported&nbsp;module<br />
+&nbsp;<br />
+@raises&nbsp;-&nbsp;ImportError&nbsp;if&nbsp;cannot&nbsp;import.<br />
+&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;With&nbsp;this&nbsp;method,&nbsp;PipInstallFailed&nbsp;will&nbsp;be&nbsp;intercepted&nbsp;and&nbsp;ImportError&nbsp;thrown&nbsp;instead,&nbsp;as&nbsp;this&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;a&nbsp;drop-in&nbsp;replacement&nbsp;for&nbsp;"import"&nbsp;when&nbsp;the&nbsp;package&nbsp;name&nbsp;differs.</tt></dd></dl>
- <dl><dt><a name="-getGlobalVirtualEnvInfo"><strong>getGlobalVirtualEnvInfo</strong></a>()</dt><dd><tt>getGlobalVirtualEnvInfo&nbsp;-&nbsp;Returns&nbsp;the&nbsp;VirtualEnvInfo&nbsp;<a href="builtins.html#object">object</a>&nbsp;representing&nbsp;the&nbsp;global&nbsp;environment,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;setup.<br>
-&nbsp;<br>
-If&nbsp;not&nbsp;setup,&nbsp;call&nbsp;<a href="#-enableOnDemandImporter">enableOnDemandImporter</a>()&nbsp;to&nbsp;add&nbsp;the&nbsp;hook&nbsp;and&nbsp;create&nbsp;the&nbsp;"global"&nbsp;env.<br>
-&nbsp;<br>
+ <dl ><dt ><a name="-getGlobalVirtualEnvInfo" ><strong >getGlobalVirtualEnvInfo</strong></a>()</dt><dd ><tt >getGlobalVirtualEnvInfo&nbsp;-&nbsp;Returns&nbsp;the&nbsp;VirtualEnvInfo&nbsp;<a href="__builtin__.html#object" >object</a>&nbsp;representing&nbsp;the&nbsp;global&nbsp;environment,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;setup.<br />
+&nbsp;<br />
+If&nbsp;not&nbsp;setup,&nbsp;call&nbsp;<a href="#-enableOnDemandImporter" >enableOnDemandImporter</a>()&nbsp;to&nbsp;add&nbsp;the&nbsp;hook&nbsp;and&nbsp;create&nbsp;the&nbsp;"global"&nbsp;env.<br />
+&nbsp;<br />
 @return&nbsp;VirtualEnvInfo&nbsp;representing&nbsp;global&nbsp;env,&nbsp;or&nbsp;None&nbsp;if&nbsp;enableOnDemandImporter&nbsp;has&nbsp;not&nbsp;been&nbsp;called.</tt></dd></dl>
- <dl><dt><a name="-toggleDebug"><strong>toggleDebug</strong></a>(isDebug)</dt><dd><tt>toggleDebug&nbsp;-&nbsp;Toggle&nbsp;debug&nbsp;messages.&nbsp;Default&nbsp;disabled.<br>
-&nbsp;<br>
-@param&nbsp;isDebug&nbsp;&lt;bool&gt;&nbsp;-&nbsp;Whether&nbsp;to&nbsp;enable&nbsp;debug&nbsp;messages&nbsp;or&nbsp;disable&nbsp;them.<br>
-&nbsp;<br>
+ <dl ><dt ><a name="-toggleDebug" ><strong >toggleDebug</strong></a>(isDebug)</dt><dd ><tt >toggleDebug&nbsp;-&nbsp;Toggle&nbsp;debug&nbsp;messages.&nbsp;Default&nbsp;disabled.<br />
+&nbsp;<br />
+@param&nbsp;isDebug&nbsp;&lt;bool&gt;&nbsp;-&nbsp;Whether&nbsp;to&nbsp;enable&nbsp;debug&nbsp;messages&nbsp;or&nbsp;disable&nbsp;them.<br />
+&nbsp;<br />
 @return&nbsp;&lt;bool&gt;&nbsp;-&nbsp;The&nbsp;old&nbsp;state&nbsp;of&nbsp;debug</tt></dd></dl>
- <dl><dt><a name="-toggleOnDemandImporter"><strong>toggleOnDemandImporter</strong></a>(isActive)</dt><dd><tt>toggleOnDemandImporter&nbsp;-&nbsp;Toggle&nbsp;whether&nbsp;the&nbsp;on&nbsp;demand&nbsp;importer&nbsp;(import&nbsp;hook)&nbsp;is&nbsp;active.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;enableOnDemandImporter&nbsp;was&nbsp;not&nbsp;ever&nbsp;called,&nbsp;this&nbsp;has&nbsp;no&nbsp;effect.&nbsp;Otherwise,&nbsp;calling&nbsp;<a href="#-toggleOnDemandImporter">toggleOnDemandImporter</a>(False)&nbsp;will&nbsp;temporarily&nbsp;disable&nbsp;the&nbsp;import&nbsp;hook,&nbsp;until&nbsp;<a href="#-toggleOnDemandImporter">toggleOnDemandImporter</a>(True)&nbsp;is&nbsp;called.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;isActive&nbsp;&lt;bool&gt;&nbsp;-&nbsp;To&nbsp;temporarily&nbsp;enable/disable&nbsp;the&nbsp;on-demand&nbsp;importer.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True&nbsp;if&nbsp;a&nbsp;toggle&nbsp;occured,&nbsp;False&nbsp;if&nbsp;no&nbsp;state&nbsp;has&nbsp;changed.<br>
-&nbsp;<br>
+ <dl ><dt ><a name="-toggleOnDemandImporter" ><strong >toggleOnDemandImporter</strong></a>(isActive)</dt><dd ><tt >toggleOnDemandImporter&nbsp;-&nbsp;Toggle&nbsp;whether&nbsp;the&nbsp;on&nbsp;demand&nbsp;importer&nbsp;(import&nbsp;hook)&nbsp;is&nbsp;active.<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;enableOnDemandImporter&nbsp;was&nbsp;not&nbsp;ever&nbsp;called,&nbsp;this&nbsp;has&nbsp;no&nbsp;effect.&nbsp;Otherwise,&nbsp;calling&nbsp;<a href="#-toggleOnDemandImporter" >toggleOnDemandImporter</a>(False)&nbsp;will&nbsp;temporarily&nbsp;disable&nbsp;the&nbsp;import&nbsp;hook,&nbsp;until&nbsp;<a href="#-toggleOnDemandImporter" >toggleOnDemandImporter</a>(True)&nbsp;is&nbsp;called.<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;isActive&nbsp;&lt;bool&gt;&nbsp;-&nbsp;To&nbsp;temporarily&nbsp;enable/disable&nbsp;the&nbsp;on-demand&nbsp;importer.<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True&nbsp;if&nbsp;a&nbsp;toggle&nbsp;occured,&nbsp;False&nbsp;if&nbsp;no&nbsp;state&nbsp;has&nbsp;changed.<br />
+&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;@raises&nbsp;ValueError&nbsp;-&nbsp;If&nbsp;no&nbsp;global&nbsp;virtualenv&nbsp;has&nbsp;been&nbsp;set,&nbsp;either&nbsp;by&nbsp;enableOnDemandImporter&nbsp;or&nbsp;setGlobalVirtualEnv</tt></dd></dl>
-</td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#55aa55">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+</td></tr></table><p >
+<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
+<tr bgcolor="#55aa55" >
+<td colspan="3" valign="bottom" >&nbsp;<br />
+<font color="#ffffff" face="helvetica, arial" ><big ><strong >Data</strong></big></font></td></tr>
     
-<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>__all__</strong> = ('globalOnDemandVirtualEnv', 'isOnDemandImporterEnabled', 'getGlobalVirtualEnvInfo', 'enableOnDemandImporter', 'ensureImportGlobal', 'VirtualEnvOnDemandImporter', 'toggleOnDemandImporter', 'toggleDebug')<br>
-<strong>globalOnDemandVirtualEnv</strong> = None<br>
-<strong>isOnDemandImporterEnabled</strong> = False</td></tr></table>
-</body></html>
+<tr ><td bgcolor="#55aa55" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
+<td width="100%" ><strong >__all__</strong> = ('globalOnDemandVirtualEnv', 'isOnDemandImporterEnabled', 'getGlobalVirtualEnvInfo', 'enableOnDemandImporter', 'ensureImportGlobal', 'VirtualEnvOnDemandImporter', 'toggleOnDemandImporter', 'toggleDebug')<br />
+<strong >globalOnDemandVirtualEnv</strong> = None<br />
+<strong >isOnDemandImporterEnabled</strong> = False</td></tr></table>
+</p></p></p></p></body></html>
