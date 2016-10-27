@@ -24,7 +24,7 @@
 
 
 
-__all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', 'toggleOnDemandImporter', 'getInfoFromVirtualEnv', 'activateEnv', 'setGlobalVirtualEnv', 'toggleDebug', )
+__all__ = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', 'toggleOnDemandImporter', 'getInfoFromVirtualEnv', 'activateEnv', 'setGlobalVirtualEnv', 'setupAndActivateEnv', 'toggleDebug', )
 
 __version__ = '5.1.0'
 __version_tuple__ = (5, 1, 0)
