@@ -1,3 +1,10 @@
+* 5.1.1 - Nov 3 2016
+- Remove debug line which was forcing "parentDirectory" in
+"setupAndActivateEnv" to always be forced to "/tmp" (well,
+tempfile.gettempdir()). If you tried to use a
+different parentDirectory, it would create and activate it in /tmp anyway.
+This has been fixed, and now you can use any arbitrary parent directory.
+
 * 5.1.0 - Oct 27 2016
 - Add a new method, setupAndActivateEnv, which performs all the management steps (formerly from copying-and-pasting the 'template'
 in examples/persistent_env) to having a project manage its own virtualenv and packages. It provides a simple interface driven both
