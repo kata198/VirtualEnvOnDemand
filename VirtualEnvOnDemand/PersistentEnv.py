@@ -6,7 +6,6 @@
 '''
 
 import os
-import tempfile
 import sys
 
 from .CreateEnv import createEnv, activateEnv
@@ -62,7 +61,6 @@ def setupAndActivateEnv(parentDirectory, name, packages, myVersion=None, forceIn
     '''
 
     virtualenvInfo = None
-    parentDirectory = tempfile.gettempdir()
 
     # venvPath - The combination of parentDirectory and name
     venvPath = os.sep.join([parentDirectory, name])
