@@ -198,16 +198,18 @@ class VirtualEnvInfo(object):
 
     # WINDOWS VS LINUX/UNIX COMPAT.
     #  Note, we treat cygwin like unix.
-    if platform.system().lower() == 'windows':
-        getBinDir = _getBinDirWindows
-        getSitePackagesDirectory = _getSitePackagesDirectoryWindows
-        getPythonBin = _getPythonBinWindows
-        getPipBin = _getPipBinWindows
-    else:
-        getBinDir = _getBinDirUnix
-        getSitePackagesDirectory = _getSitePackagesDirectoryUnix
-        getPythonBin = _getPythonBinUnix
-        getPipBin = _getPipBinUnix
+    if not sys.argv or not os.path.basename(sys.argv[0]).lower().startswith('pydoc'):
+        # Above conditional prevents pydoc from picking up the platform-specific version.
+        if platform.system().lower() == 'windows':
+            getBinDir = _getBinDirWindows
+            getSitePackagesDirectory = _getSitePackagesDirectoryWindows
+            getPythonBin = _getPythonBinWindows
+            getPipBin = _getPipBinWindows
+        else:
+            getBinDir = _getBinDirUnix
+            getSitePackagesDirectory = _getSitePackagesDirectoryUnix
+            getPythonBin = _getPythonBinUnix
+            getPipBin = _getPipBinUnix
         
 
     def __getitem__(self, name):
