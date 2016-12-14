@@ -7,6 +7,7 @@
 # vim: ts=4 sw=4 expandtab
 
 import os
+import platform
 import sys
 
 __all__ = ('VirtualEnvInfo', 'getInfoFromVirtualEnv')
@@ -36,20 +37,179 @@ class VirtualEnvInfo(object):
         self.virtualenvDirectory = virtualenvDirectory
 
         if not sitePackagesDirectory:
-            sitePackagesDirectory = VirtualEnvInfo._getSitePackagesDirectory(virtualenvDirectory)
+            sitePackagesDirectory = VirtualEnvInfo.getSitePackagesDirectory(virtualenvDirectory)
 
         self.sitePackagesDirectory = sitePackagesDirectory
 
 
     @staticmethod
-    def _getSitePackagesDirectory(virtualenvDirectory):
+    def _getSitePackagesDirectoryUnix(virtualenvDirectory):
+        '''
+            _getSitePackagesDirectoryUnix - Get the site packages directory on a UNIX system (linux, mac, sun, etc)
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "site-packages" directory of the virtualenv
+        '''
         versionInfo = sys.version_info
         return os.sep.join([virtualenvDirectory, 'lib', 'python%d.%d' %(versionInfo.major, versionInfo.minor), 'site-packages'])
 
     @staticmethod
-    def _getPythonBin(virtualenvDirectory):
-        return os.sep.join([virtualenvDirectory, 'bin', 'python'])
+    def _getSitePackagesDirectoryWindows(virtualenvDirectory):
+        '''
+            _getSitePackagesDirectoryWindows - Get the site packages directory on a Windows system
 
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "site-packages" directory of the virtualenv
+        '''
+        versionInfo = sys.version_info
+        return os.sep.join([virtualenvDirectory, 'Lib', 'site-packages'])
+
+
+    @staticmethod
+    def getSitePackagesDirectory(virtualenvDirectory):
+        '''
+            getSitePackagesDirectory - Get the site packages directory associated with a virtualenv.
+
+            NOTE: This is overridden on import with the platform-specific version.
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "site-packages" directory of the virtualenv
+        '''
+        raise NotImplementedError('getSitePackagesDirectory should have been overridden by platform-specific version.')
+
+
+    @staticmethod
+    def _getBinDirUnix(virtualenvDirectory):
+        '''
+            _getBinDirUnix - Gets the "bin" dir of a virtualenv on UNIX systems,
+                i.e. the directory that contains executables.
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "bin" directory of the virtualenv
+        '''
+
+        return os.sep.join([virtualenvDirectory, 'bin'])
+
+    @staticmethod
+    def _getBinDirWindows(virtualenvDirectory):
+        '''
+            _getBinDirWindows - Gets the "bin" dir of a virtualenv on Windows systems,
+                i.e. the directory that contains executables.
+                
+                Note this is named "Scripts" on windows, not "bin"
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "bin" directory of the virtualenv
+        '''
+        return os.sep.join([virtualenvDirectory, 'Scripts'])
+
+    @staticmethod
+    def getBinDir(virtualenvDirectory):
+        '''
+            getBinDir - Gets the "bin" dir of a virtualenv
+                i.e. the directory that contains executables.
+
+            NOTE: This is overridden on import with the platform-specific version.
+
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "bin" directory of the virtualenv
+        '''
+        raise NotImplementedError('getBinDir should have been overridden by platform-specific version.')
+
+
+    @staticmethod
+    def _getPythonBinUnix(virtualenvDirectory):
+        '''
+            _getPythonBinUnix - Get the path to the virtualenv python executable on a UNIX system
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "python" executable associated with the virtualenv
+        '''
+        return os.sep.join([VirtualEnvInfo.getBinDir(virtualenvDirectory), 'python'])
+
+    @staticmethod
+    def _getPythonBinWindows(virtualenvDirectory):
+        '''
+            _getPythonBinWindows - Get the path to the virtualenv python executable on a Windows system
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "python" executable associated with the virtualenv
+        '''
+        return os.sep.join([VirtualEnvInfo.getBinDir(virtualenvDirectory), 'python.exe'])
+
+    @staticmethod
+    def getPythonBin(virtualenvDirectory):
+        '''
+            getPythonBin - Get the path to the virtualenv python executable
+
+            NOTE: This is overridden on import with the platform-specific version.
+
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "python" executable associated with the virtualenv
+        '''
+        raise NotImplementedError('getPythonBin should have been overridden by platform-specific version.')
+
+    @staticmethod
+    def _getPipBinUnix(virtualenvDirectory):
+        '''
+            _getPipBinUnix - Get the path to the pip executable within a virtualenv on a UNIX system
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "pip" executable associated with the virtualenv
+        '''
+        return os.sep.join([VirtualEnvInfo.getBinDir(virtualenvDirectory), 'pip'])
+
+    @staticmethod
+    def _getPipBinWindows(virtualenvDirectory):
+        '''
+            _getPipBinUnix - Get the path to the pip executable within a virtualenv on a Windows system
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "pip" executable associated with the virtualenv
+        '''
+        return os.sep.join([VirtualEnvInfo.getBinDir(virtualenvDirectory), 'pip.exe'])
+
+    @staticmethod
+    def getPipBin(virtualenvDirectory):
+        '''
+            getPipBin - Get the path to the pip executable within a virtualenv
+
+            NOTE: This is overridden on import with the platform-specific version.
+
+
+            @param virtualenvDirectory <str> - The path to the root directory of the virtualenv
+
+            @return <str> - Path to the "pip" executable associated with the virtualenv
+        '''
+        raise NotImplementedError('getPipBin should have been overridden by platform-specific version.')
+
+
+    # WINDOWS VS LINUX/UNIX COMPAT.
+    #  Note, we treat cygwin like unix.
+    if platform.system().lower() == 'windows':
+        getBinDir = _getBinDirWindows
+        getSitePackagesDirectory = _getSitePackagesDirectoryWindows
+        getPythonBin = _getPythonBinWindows
+        getPipBin = _getPipBinWindows
+    else:
+        getBinDir = _getBinDirUnix
+        getSitePackagesDirectory = _getSitePackagesDirectoryUnix
+        getPythonBin = _getPythonBinUnix
+        getPipBin = _getPipBinUnix
+        
 
     def __getitem__(self, name):
         if name == 'virtualenvDirectory':
@@ -71,7 +231,7 @@ class VirtualEnvInfo(object):
         if not os.path.isdir(self.virtualenvDirectory):
             raise ValueError('virtualenvDirectory "%s" does not seem to be a directory.' %(self.virtualenvDirectory,))
 
-        pipPath = os.sep.join([self.virtualenvDirectory, 'bin', 'pip'])
+        pipPath = VirtualEnvInfo.getPipBin(self.virtualenvDirectory)
         if not os.path.exists(pipPath):
             raise ValueError('Cannot find pip executable at "%s"' %(pipPath,))
 
@@ -89,17 +249,6 @@ class VirtualEnvDeferredBuild(VirtualEnvInfo):
     def __init__(self, parentDirectory):
         self.virtualenvDirectory = parentDirectory
         self.sitePackagesDirectory = None
-
-
-#   5.0 - Now read only.
-#    def __setitem__(self, name, value):
-#        if name == 'virtualenvDirectory':
-#            self.virtualenvDirectory = value
-#        elif name == 'sitePackagesDirectory':
-#            self.sitePackagesDirectory = value
-#        else:
-#            raise KeyError('Unknown field: %s. Choices are: %s\n' %(str(name), str(VirtualEnvInfo.__slots__)))
-
 
 def getInfoFromVirtualEnv(venvPath, validate=True):
     '''

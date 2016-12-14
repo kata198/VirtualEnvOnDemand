@@ -78,7 +78,7 @@ def createEnv(packages=None, parentDirectory=None, name=None, stdout=sys.stdout,
 
     # Generate the site-packages path
     versionInfo = sys.version_info
-    venvSitePath = os.sep.join([venvDir, 'lib', "python%d.%d" %(versionInfo.major, versionInfo.minor), "site-packages"])
+    venvSitePath = VirtualEnvInfo.getSitePackagesDirectory(venvDir)
 
     # If we are to delete this env upon the app closing, 
     if deleteOnClose is True:

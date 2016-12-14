@@ -41,7 +41,7 @@ def installPackages(packages, venvDir, stdout=sys.stdout, stderr=sys.stderr):
     if isinstance(venvDir, VirtualEnvInfo):
         venvDir = venvDir['virtualenvDirectory']
 
-    if not venvDir or not os.path.isdir(venvDir) or not os.path.isdir(venvDir + '/bin'):
+    if not venvDir or not os.path.isdir(venvDir) or not os.path.isdir(VirtualEnvInfo.getBinDir(venvDir)):
         raise VirtualEnvDoesNotExist('Provided virtualenv directory "%s" is not present, is not a directory, or has not been setup.' %(str(venvDir),))
 
     # Get packages
@@ -49,31 +49,41 @@ def installPackages(packages, venvDir, stdout=sys.stdout, stderr=sys.stderr):
 
     if reqContents:
         # Generate a temporary named file for the requirements.txt and feed into pip
-        with tempfile.NamedTemporaryFile(prefix='venv_req_', suffix='txt', mode='wt', dir=venvDir, delete=True) as reqFile:
-            reqFile.write(reqContents)
-            if reqContents[-1] != '\n':
-                reqFile.write('\n')
-            reqFile.flush()
-            
-            # If they chose to ignore output to one or more streams, setup a /dev/null stream
-            devnull = None
-            if stdout is None or stderr is None:
-                devnull = open(os.devnull, 'wt')
-                if stdout is None:
-                    stdout = devnull
-                if stderr is None:
-                    stderr = devnull
+        #  Note -- windows will NOT allow pip to read an open file handle held by another process.
+        #   so we have to create, close, and manually remove later.
+        reqFile = tempfile.NamedTemporaryFile(prefix='venv_req_', suffix='txt', mode='wt', dir=venvDir, delete=False)
+        reqFilename = reqFile.name
+        reqFile.write(reqContents)
+        if reqContents[-1] != '\n':
+            reqFile.write('\n')
+        reqFile.flush()
+        reqFile.close()
+        
+        # If they chose to ignore output to one or more streams, setup a /dev/null stream
+        devnull = None
+        if stdout is None or stderr is None:
+            devnull = open(os.devnull, 'wt')
+            if stdout is None:
+                stdout = devnull
+            if stderr is None:
+                stderr = devnull
 
-            # Install from generated requirements.txt
-            pipe = subprocess.Popen([ os.sep.join([venvDir, 'bin', 'pip']), 'install', '--upgrade', '-r', reqFile.name], shell=False, stdout=stdout, stderr=stderr)
-            returnCode = pipe.wait()
+        # Install from generated requirements.txt
+        pipe = subprocess.Popen([ VirtualEnvInfo.getPipBin(venvDir), 'install', '--upgrade', '-r', reqFile.name], shell=False, stdout=stdout, stderr=stderr)
+        returnCode = pipe.wait()
 
-            # Cleanup devnull stream if setup
-            if devnull is not None:
-                devnull.close()
+        # Cleanup our temp requirements.txt
+        try:
+            os.remove(reqFilename)
+        except:
+            pass
 
-            if returnCode != 0:
-                raise PipInstallFailed(returnCode, reqContents)
+        # Cleanup devnull stream if setup
+        if devnull is not None:
+            devnull.close()
+
+        if returnCode != 0:
+            raise PipInstallFailed(returnCode, reqContents)
 
     return reqContents
 
