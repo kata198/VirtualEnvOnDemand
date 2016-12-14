@@ -1,3 +1,28 @@
+* 6.0.0 - Dec 14 2016
+Updates to make native windows compatible, and also retain native unix
+and cygwin compatibility.
+
+- Expand VirtualEnvInfo to contain functions specific to windows vs
+unix/linux/cygwin/mac for resolving all paths. On import the current
+platform is detected, and function pointers are updated to the version
+representing the running platform.
+
+Apparently, virtualenv uses different paths in the created environments on windows vs linux for some
+reason.....
+
+- Use the VirtualEnvInfo functions in all places that any executable /
+directory is accessed, to maintain platform-independence across the
+board.
+
+- Windows will not allow another process to read from a file that
+currently has an open write handle from another process, so change the
+way we do the requirements.txt such that we close the handle and
+manually handle removal.
+
+Thanks to github user "elypma" for reporting the issues which lead to me
+performing these updates.
+
+
 * 5.1.1 - Nov 3 2016
 - Remove debug line which was forcing "parentDirectory" in
 "setupAndActivateEnv" to always be forced to "/tmp" (well,
