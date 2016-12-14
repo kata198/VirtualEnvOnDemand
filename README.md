@@ -21,6 +21,16 @@ It also allows you to easily share scripts/applications with others, without req
 installed on their system. They also do not need to know how to create virtualenvs, rely on them being active, etc.
 
 
+Cross-platform
+--------------
+
+VirtualEnvOnDemand (since version 6.0.0) is now compatible across Windows, Unix/Linux/Mac, and Cygwin.
+
+So by using VirtualEnvOnDemand, you can assure that your package requirements/installations are cross-platform,
+
+and require no special code on Windows vs Linux.
+
+
 Managing Virtualenvs / Persistent Virtualenvs
 ---------------------------------------------
 

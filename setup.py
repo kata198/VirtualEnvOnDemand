@@ -6,6 +6,7 @@
 #vim: set ts=4 sw=4 expandtab
 
 import os
+import sys
 from setuptools import setup
 
 
@@ -43,14 +44,19 @@ if __name__ == '__main__':
                          'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
                          'Programming Language :: Python :: 2',
                           'Programming Language :: Python :: 2',
-                          'Programming Language :: Python :: 2.6',
                           'Programming Language :: Python :: 2.7',
                           'Programming Language :: Python :: 3',
                           'Programming Language :: Python :: 3.3',
                           'Programming Language :: Python :: 3.4',
                           'Programming Language :: Python :: 3.5',
+                          'Programming Language :: Python :: 3.6',
                           'Topic :: System :: Installation/Setup',
                           'Topic :: Software Development :: Libraries :: Python Modules',
+                          'Operating System :: Microsoft :: Windows',
+                          'Operating System :: POSIX',
+                          'Operating System :: Unix',
+                          'Operating System :: MacOS',
+                          'Operating System :: OS Independent',
             ]
     )
 

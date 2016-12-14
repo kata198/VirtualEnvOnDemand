@@ -20,6 +20,18 @@ a virtualenv with your program.
 It also allows you to easily share scripts/applications with others, without requiring them to have any dependencies (other than virtualenv)
 installed on their system. They also do not need to know how to create virtualenvs, rely on them being active, etc.
 
+
+Cross-platform
+--------------
+
+VirtualEnvOnDemand (since version 6.0.0) is now compatible across Windows, Unix/Linux/Mac, and Cygwin.
+
+So by using VirtualEnvOnDemand, you can assure that your package requirements/installations are cross-platform,
+
+and require no special code on Windows vs Linux.
+
+
+
 Managing Virtualenvs / Persistent Virtualenvs
 ---------------------------------------------
 
@@ -228,6 +240,7 @@ For example:
 There are many other methods and useful features, please check out the full documentation for further info (link below, in "Full Documentation" section).
 }
 
+
 On-Demand Importing
 -------------------
 
@@ -281,6 +294,7 @@ The following example shows using "enableOnDemandImporter" to automatically fetc
 		sys.stdout.write('IndexedRedis version: ' + IndexedRedis.__version__ + '\n')
 		import AdvancedHTMLParser
 		sys.stdout.write('AdvancedHTMLParser version: ' + AdvancedHTMLParser.__version__ + '\n')
+
 
 
 **Full Documentation / Pydoc**
