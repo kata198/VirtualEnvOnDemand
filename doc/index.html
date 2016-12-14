@@ -1,306 +1,382 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html ><head ><title >Python: package VirtualEnvOnDemand</title>
-<meta charset="utf-8" />
-</head><body bgcolor="#f0f0f8" >
+<html><head><title>Python: package VirtualEnvOnDemand</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
 
-<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="heading" >
-<tr bgcolor="#7799ee" >
-<td valign="bottom" >&nbsp;<br />
-<font color="#ffffff" face="helvetica, arial" >&nbsp;<br /><big ><big ><strong >VirtualEnvOnDemand</strong></big></big> (version 5.1.1)</font></td><td align="right" valign="bottom" ><font color="#ffffff" face="helvetica, arial" ><a href="VirtualEnvOnDemand.html" >index</a></font></td></tr></table>
-    <p ><tt >VirtualEnvOnDemand&nbsp;contains&nbsp;two&nbsp;primary&nbsp;parts:<br />
-&nbsp;<br />
-&nbsp;*&nbsp;Managing&nbsp;Environments&nbsp;*<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand&nbsp;provides&nbsp;a&nbsp;simple&nbsp;means&nbsp;for&nbsp;an&nbsp;application&nbsp;or&nbsp;series&nbsp;of&nbsp;applications&nbsp;to&nbsp;create&nbsp;a&nbsp;persistent&nbsp;OR&nbsp;temporary<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;environment&nbsp;(virtualenv),&nbsp;install&nbsp;packages&nbsp;within&nbsp;that&nbsp;environment,&nbsp;activate&nbsp;it,&nbsp;etc.<br />
-&nbsp;<br />
-&nbsp;*&nbsp;On-Demand&nbsp;importing&nbsp;*<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand&nbsp;also&nbsp;provides&nbsp;an&nbsp;"on&nbsp;demand"&nbsp;importer,&nbsp;which&nbsp;allows&nbsp;you&nbsp;to&nbsp;automatically&nbsp;install&nbsp;providing&nbsp;packages<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;imports&nbsp;fail<br />
-&nbsp;<br />
-Using&nbsp;VirtualEnvOnDemand&nbsp;allows&nbsp;you&nbsp;to&nbsp;be&nbsp;explicit&nbsp;and&nbsp;pythonify&nbsp;your&nbsp;virtualenv&nbsp;deployment&nbsp;and&nbsp;required&nbsp;packages,<br />
-&nbsp;and&nbsp;not&nbsp;rely&nbsp;on&nbsp;a&nbsp;"black&nbsp;box"&nbsp;of&nbsp;the&nbsp;target&nbsp;system&nbsp;to&nbsp;provide&nbsp;your&nbsp;deps,&nbsp;nor&nbsp;are&nbsp;you&nbsp;forced&nbsp;to&nbsp;couple&nbsp;creating/transferring&nbsp;<br />
-&nbsp;a&nbsp;virtualenv&nbsp;with&nbsp;your&nbsp;program.<br />
-&nbsp;<br />
-It&nbsp;also&nbsp;allows&nbsp;you&nbsp;to&nbsp;easily&nbsp;share&nbsp;scripts/applications&nbsp;with&nbsp;others,&nbsp;without&nbsp;requiring&nbsp;them&nbsp;to&nbsp;have&nbsp;any&nbsp;dependencies&nbsp;(other&nbsp;than&nbsp;virtualenv)<br />
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>VirtualEnvOnDemand</strong></big></big> (version 6.0.0)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/media/projects/VirtualEnvOnDemand/VirtualEnvOnDemand/__init__.py">/home/media/projects/VirtualEnvOnDemand/VirtualEnvOnDemand/__init__.py</a></font></td></tr></table>
+    <p><tt>VirtualEnvOnDemand&nbsp;contains&nbsp;two&nbsp;primary&nbsp;parts:<br>
+&nbsp;<br>
+&nbsp;*&nbsp;Managing&nbsp;Environments&nbsp;*<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand&nbsp;provides&nbsp;a&nbsp;simple&nbsp;means&nbsp;for&nbsp;an&nbsp;application&nbsp;or&nbsp;series&nbsp;of&nbsp;applications&nbsp;to&nbsp;create&nbsp;a&nbsp;persistent&nbsp;OR&nbsp;temporary<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;environment&nbsp;(virtualenv),&nbsp;install&nbsp;packages&nbsp;within&nbsp;that&nbsp;environment,&nbsp;activate&nbsp;it,&nbsp;etc.<br>
+&nbsp;<br>
+&nbsp;*&nbsp;On-Demand&nbsp;importing&nbsp;*<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand&nbsp;also&nbsp;provides&nbsp;an&nbsp;"on&nbsp;demand"&nbsp;importer,&nbsp;which&nbsp;allows&nbsp;you&nbsp;to&nbsp;automatically&nbsp;install&nbsp;providing&nbsp;packages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;imports&nbsp;fail<br>
+&nbsp;<br>
+Using&nbsp;VirtualEnvOnDemand&nbsp;allows&nbsp;you&nbsp;to&nbsp;be&nbsp;explicit&nbsp;and&nbsp;pythonify&nbsp;your&nbsp;virtualenv&nbsp;deployment&nbsp;and&nbsp;required&nbsp;packages,<br>
+&nbsp;and&nbsp;not&nbsp;rely&nbsp;on&nbsp;a&nbsp;"black&nbsp;box"&nbsp;of&nbsp;the&nbsp;target&nbsp;system&nbsp;to&nbsp;provide&nbsp;your&nbsp;deps,&nbsp;nor&nbsp;are&nbsp;you&nbsp;forced&nbsp;to&nbsp;couple&nbsp;creating/transferring&nbsp;<br>
+&nbsp;a&nbsp;virtualenv&nbsp;with&nbsp;your&nbsp;program.<br>
+&nbsp;<br>
+It&nbsp;also&nbsp;allows&nbsp;you&nbsp;to&nbsp;easily&nbsp;share&nbsp;scripts/applications&nbsp;with&nbsp;others,&nbsp;without&nbsp;requiring&nbsp;them&nbsp;to&nbsp;have&nbsp;any&nbsp;dependencies&nbsp;(other&nbsp;than&nbsp;virtualenv)<br>
 &nbsp;installed&nbsp;on&nbsp;their&nbsp;system.&nbsp;They&nbsp;also&nbsp;do&nbsp;not&nbsp;need&nbsp;to&nbsp;know&nbsp;how&nbsp;to&nbsp;create&nbsp;virtualenvs,&nbsp;rely&nbsp;on&nbsp;them&nbsp;being&nbsp;active,&nbsp;etc.</tt></p>
-<p >
-<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
-<tr bgcolor="#aa55cc" >
-<td colspan="3" valign="bottom" >&nbsp;<br />
-<font color="#ffffff" face="helvetica, arial" ><big ><strong >Package Contents</strong></big></font></td></tr>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
     
-<tr ><td bgcolor="#aa55cc" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
-<td width="100%" ><table width="100%" summary="list" ><tr ><td width="25%" valign="top" ><a href="VirtualEnvOnDemand.CreateEnv.html" >CreateEnv</a><br />
-<a href="VirtualEnvOnDemand.GlobalEnv.html" >GlobalEnv</a><br />
-</td><td width="25%" valign="top" ><a href="VirtualEnvOnDemand.InstallPackages.html" >InstallPackages</a><br />
-<a href="VirtualEnvOnDemand.PersistentEnv.html" >PersistentEnv</a><br />
-</td><td width="25%" valign="top" ><a href="VirtualEnvOnDemand.VirtualEnvInfo.html" >VirtualEnvInfo</a><br />
-<a href="VirtualEnvOnDemand.exceptions.html" >exceptions</a><br />
-</td><td width="25%" valign="top" ><a href="VirtualEnvOnDemand.utils.html" >utils</a><br />
-</td></tr></table></td></tr></table><p >
-<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
-<tr bgcolor="#ee77aa" >
-<td colspan="3" valign="bottom" >&nbsp;<br />
-<font color="#ffffff" face="helvetica, arial" ><big ><strong >Classes</strong></big></font></td></tr>
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="VirtualEnvOnDemand.CreateEnv.html">CreateEnv</a><br>
+<a href="VirtualEnvOnDemand.GlobalEnv.html">GlobalEnv</a><br>
+</td><td width="25%" valign=top><a href="VirtualEnvOnDemand.InstallPackages.html">InstallPackages</a><br>
+<a href="VirtualEnvOnDemand.PersistentEnv.html">PersistentEnv</a><br>
+</td><td width="25%" valign=top><a href="VirtualEnvOnDemand.VirtualEnvInfo.html">VirtualEnvInfo</a><br>
+<a href="VirtualEnvOnDemand.exceptions.html">exceptions</a><br>
+</td><td width="25%" valign=top><a href="VirtualEnvOnDemand.utils.html">utils</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
     
-<tr ><td bgcolor="#ee77aa" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
-<td width="100%" ><dl >
-<dt ><font face="helvetica, arial" ><a href="__builtin__.html#object" >__builtin__.object</a>
-</font></dt><dd >
-<dl >
-<dt ><font face="helvetica, arial" ><a href="VirtualEnvOnDemand.VirtualEnvInfo.html#VirtualEnvInfo" >VirtualEnvOnDemand.VirtualEnvInfo.VirtualEnvInfo</a>
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#Exception">builtins.Exception</a>(<a href="builtins.html#BaseException">builtins.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="VirtualEnvOnDemand.exceptions.html#PipInstallFailed">VirtualEnvOnDemand.exceptions.PipInstallFailed</a>
 </font></dt></dl>
 </dd>
-<dt ><font face="helvetica, arial" ><a href="exceptions.html#Exception" >exceptions.Exception</a>(<a href="exceptions.html#BaseException" >exceptions.BaseException</a>)
-</font></dt><dd >
-<dl >
-<dt ><font face="helvetica, arial" ><a href="VirtualEnvOnDemand.exceptions.html#PipInstallFailed" >VirtualEnvOnDemand.exceptions.PipInstallFailed</a>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="VirtualEnvOnDemand.VirtualEnvInfo.html#VirtualEnvInfo">VirtualEnvOnDemand.VirtualEnvInfo.VirtualEnvInfo</a>
 </font></dt></dl>
 </dd>
 </dl>
- <p >
-<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
-<tr bgcolor="#ffc8d8" >
-<td colspan="3" valign="bottom" >&nbsp;<br />
-<font color="#000000" face="helvetica, arial" ><a name="PipInstallFailed" >class <strong >PipInstallFailed</strong></a>(<a href="exceptions.html#Exception" >exceptions.Exception</a>)</font></td></tr>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PipInstallFailed">class <strong>PipInstallFailed</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</font></td></tr>
     
-<tr bgcolor="#ffc8d8" ><td rowspan="2" ><tt >&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan="2" ><tt ><a href="#PipInstallFailed" >PipInstallFailed</a>&nbsp;-&nbsp;<a href="exceptions.html#Exception" >Exception</a>&nbsp;raised&nbsp;when&nbsp;pip&nbsp;fails&nbsp;to&nbsp;install&nbsp;a&nbsp;list&nbsp;of&nbsp;packages<br />&nbsp;</tt></td></tr>
-<tr ><td >&nbsp;</td>
-<td width="100%" ><dl ><dt >Method resolution order:</dt>
-<dd ><a href="VirtualEnvOnDemand.exceptions.html#PipInstallFailed" >PipInstallFailed</a></dd>
-<dd ><a href="exceptions.html#Exception" >exceptions.Exception</a></dd>
-<dd ><a href="exceptions.html#BaseException" >exceptions.BaseException</a></dd>
-<dd ><a href="__builtin__.html#object" >__builtin__.object</a></dd>
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;<a href="builtins.html#Exception">Exception</a>&nbsp;raised&nbsp;when&nbsp;pip&nbsp;fails&nbsp;to&nbsp;install&nbsp;a&nbsp;list&nbsp;of&nbsp;packages<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="VirtualEnvOnDemand.exceptions.html#PipInstallFailed">PipInstallFailed</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
-<hr />
-Methods defined here:<br />
-<dl ><dt ><a name="PipInstallFailed-__init__" ><strong >__init__</strong></a>(self, returnCode<font color="#909090" >=None</font>, reqFileContents<font color="#909090" >=''</font>)</dt><dd ><tt >Create&nbsp;a&nbsp;<a href="#PipInstallFailed" >PipInstallFailed</a>&nbsp;exception,&nbsp;building&nbsp;a&nbsp;message&nbsp;from&nbsp;some&nbsp;pieces&nbsp;of&nbsp;information<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;returnCode&nbsp;&lt;int&gt;&nbsp;-&nbsp;Return&nbsp;code&nbsp;of&nbsp;subprocess,&nbsp;or&nbsp;None&nbsp;if&nbsp;undetermined<br />
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PipInstallFailed-__init__"><strong>__init__</strong></a>(self, returnCode=None, reqFileContents='')</dt><dd><tt>Create&nbsp;a&nbsp;<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;exception,&nbsp;building&nbsp;a&nbsp;message&nbsp;from&nbsp;some&nbsp;pieces&nbsp;of&nbsp;information<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;returnCode&nbsp;&lt;int&gt;&nbsp;-&nbsp;Return&nbsp;code&nbsp;of&nbsp;subprocess,&nbsp;or&nbsp;None&nbsp;if&nbsp;undetermined<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;reqFileContents&nbsp;&lt;str&gt;&nbsp;-&nbsp;String&nbsp;of&nbsp;requirements&nbsp;file&nbsp;to&nbsp;reproduce&nbsp;error</tt></dd></dl>
 
-<hr />
-Data descriptors defined here:<br />
-<dl ><dt ><strong >__weakref__</strong></dt>
-<dd ><tt >list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
-<hr />
-Data and other attributes inherited from <a href="exceptions.html#Exception" >exceptions.Exception</a>:<br />
-<dl ><dt ><strong >__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd ><tt >T.<a href="#PipInstallFailed-__new__" >__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object" >object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dd></dt></dl>
+<hr>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="PipInstallFailed-__new__"><strong>__new__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
 
-<hr />
-Methods inherited from <a href="exceptions.html#BaseException" >exceptions.BaseException</a>:<br />
-<dl ><dt ><a name="PipInstallFailed-__delattr__" ><strong >__delattr__</strong></a>(...)</dt><dd ><tt >x.<a href="#PipInstallFailed-__delattr__" >__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="PipInstallFailed-__delattr__"><strong>__delattr__</strong></a>(self, name, /)</dt><dd><tt>Implement&nbsp;delattr(self,&nbsp;name).</tt></dd></dl>
 
-<dl ><dt ><a name="PipInstallFailed-__getattribute__" ><strong >__getattribute__</strong></a>(...)</dt><dd ><tt >x.<a href="#PipInstallFailed-__getattribute__" >__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+<dl><dt><a name="PipInstallFailed-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
 
-<dl ><dt ><a name="PipInstallFailed-__getitem__" ><strong >__getitem__</strong></a>(...)</dt><dd ><tt >x.<a href="#PipInstallFailed-__getitem__" >__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+<dl><dt><a name="PipInstallFailed-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>helper&nbsp;for&nbsp;pickle</tt></dd></dl>
 
-<dl ><dt ><a name="PipInstallFailed-__getslice__" ><strong >__getslice__</strong></a>(...)</dt><dd ><tt >x.<a href="#PipInstallFailed-__getslice__" >__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br />
-&nbsp;<br />
-Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+<dl><dt><a name="PipInstallFailed-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
 
-<dl ><dt ><a name="PipInstallFailed-__reduce__" ><strong >__reduce__</strong></a>(...)</dt></dl>
+<dl><dt><a name="PipInstallFailed-__setattr__"><strong>__setattr__</strong></a>(self, name, value, /)</dt><dd><tt>Implement&nbsp;setattr(self,&nbsp;name,&nbsp;value).</tt></dd></dl>
 
-<dl ><dt ><a name="PipInstallFailed-__repr__" ><strong >__repr__</strong></a>(...)</dt><dd ><tt >x.<a href="#PipInstallFailed-__repr__" >__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+<dl><dt><a name="PipInstallFailed-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
 
-<dl ><dt ><a name="PipInstallFailed-__setattr__" ><strong >__setattr__</strong></a>(...)</dt><dd ><tt >x.<a href="#PipInstallFailed-__setattr__" >__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+<dl><dt><a name="PipInstallFailed-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
 
-<dl ><dt ><a name="PipInstallFailed-__setstate__" ><strong >__setstate__</strong></a>(...)</dt></dl>
+<dl><dt><a name="PipInstallFailed-with_traceback"><strong>with_traceback</strong></a>(...)</dt><dd><tt><a href="builtins.html#Exception">Exception</a>.<a href="#PipInstallFailed-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</tt></dd></dl>
 
-<dl ><dt ><a name="PipInstallFailed-__str__" ><strong >__str__</strong></a>(...)</dt><dd ><tt >x.<a href="#PipInstallFailed-__str__" >__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
-
-<dl ><dt ><a name="PipInstallFailed-__unicode__" ><strong >__unicode__</strong></a>(...)</dt></dl>
-
-<hr />
-Data descriptors inherited from <a href="exceptions.html#BaseException" >exceptions.BaseException</a>:<br />
-<dl ><dt ><strong >__dict__</strong></dt>
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><tt>exception&nbsp;cause</tt></dd>
 </dl>
-<dl ><dt ><strong >args</strong></dt>
+<dl><dt><strong>__context__</strong></dt>
+<dd><tt>exception&nbsp;context</tt></dd>
 </dl>
-<dl ><dt ><strong >message</strong></dt>
+<dl><dt><strong>__dict__</strong></dt>
 </dl>
-</td></tr></table> <p >
-<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
-<tr bgcolor="#ffc8d8" >
-<td colspan="3" valign="bottom" >&nbsp;<br />
-<font color="#000000" face="helvetica, arial" ><a name="VirtualEnvInfo" >class <strong >VirtualEnvInfo</strong></a>(<a href="__builtin__.html#object" >__builtin__.object</a>)</font></td></tr>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="VirtualEnvInfo">class <strong>VirtualEnvInfo</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
     
-<tr ><td bgcolor="#ffc8d8" ><tt >&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
-<td width="100%" >Methods defined here:<br />
-<dl ><dt ><a name="VirtualEnvInfo-__getitem__" ><strong >__getitem__</strong></a>(self, name)</dt></dl>
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="VirtualEnvInfo-__getitem__"><strong>__getitem__</strong></a>(self, name)</dt></dl>
 
-<dl ><dt ><a name="VirtualEnvInfo-__init__" ><strong >__init__</strong></a>(self, virtualenvDirectory, sitePackagesDirectory<font color="#909090" >=''</font>)</dt><dd ><tt >@param&nbsp;virtualenvDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;virtualenv<br />
-@param&nbsp;sitePackagesDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;the&nbsp;site&nbsp;packages&nbsp;directory&nbsp;(goes&nbsp;into&nbsp;PYTHONPATH)<br />
-&nbsp;<br />
-If&nbsp;virtualenvDirectory&nbsp;is&nbsp;provided,&nbsp;sitePackagesDirectory&nbsp;will&nbsp;be&nbsp;calculated&nbsp;with&nbsp;default&nbsp;expected&nbsp;values.<br />
-&nbsp;<br />
-This&nbsp;<a href="__builtin__.html#object" >object</a>&nbsp;should&nbsp;be&nbsp;considered&nbsp;read-only.&nbsp;If&nbsp;you&nbsp;need&nbsp;to&nbsp;modify&nbsp;values,&nbsp;you&nbsp;must&nbsp;create&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object" >object</a>.</tt></dd></dl>
+<dl><dt><a name="VirtualEnvInfo-__init__"><strong>__init__</strong></a>(self, virtualenvDirectory, sitePackagesDirectory='')</dt><dd><tt>@param&nbsp;virtualenvDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;virtualenv<br>
+@param&nbsp;sitePackagesDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;the&nbsp;site&nbsp;packages&nbsp;directory&nbsp;(goes&nbsp;into&nbsp;PYTHONPATH)<br>
+&nbsp;<br>
+If&nbsp;virtualenvDirectory&nbsp;is&nbsp;provided,&nbsp;sitePackagesDirectory&nbsp;will&nbsp;be&nbsp;calculated&nbsp;with&nbsp;default&nbsp;expected&nbsp;values.<br>
+&nbsp;<br>
+This&nbsp;<a href="builtins.html#object">object</a>&nbsp;should&nbsp;be&nbsp;considered&nbsp;read-only.&nbsp;If&nbsp;you&nbsp;need&nbsp;to&nbsp;modify&nbsp;values,&nbsp;you&nbsp;must&nbsp;create&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
 
-<dl ><dt ><a name="VirtualEnvInfo-validate" ><strong >validate</strong></a>(self)</dt><dd ><tt >validate&nbsp;-&nbsp;Validate&nbsp;that&nbsp;the&nbsp;virtualenv&nbsp;exists&nbsp;in&nbsp;the&nbsp;expected&nbsp;way.<br />
-&nbsp;<br />
-@raises&nbsp;ValueError&nbsp;-&nbsp;With&nbsp;message&nbsp;indicating&nbsp;the&nbsp;reason&nbsp;for&nbsp;failure<br />
-&nbsp;<br />
+<dl><dt><a name="VirtualEnvInfo-validate"><strong>validate</strong></a>(self)</dt><dd><tt>validate&nbsp;-&nbsp;Validate&nbsp;that&nbsp;the&nbsp;virtualenv&nbsp;exists&nbsp;in&nbsp;the&nbsp;expected&nbsp;way.<br>
+&nbsp;<br>
+@raises&nbsp;ValueError&nbsp;-&nbsp;With&nbsp;message&nbsp;indicating&nbsp;the&nbsp;reason&nbsp;for&nbsp;failure<br>
+&nbsp;<br>
 @return&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True</tt></dd></dl>
 
-<hr />
-Data descriptors defined here:<br />
-<dl ><dt ><strong >sitePackagesDirectory</strong></dt>
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="VirtualEnvInfo-getBinDir"><strong>getBinDir</strong></a>(virtualenvDirectory)</dt><dd><tt>getBinDir&nbsp;-&nbsp;Gets&nbsp;the&nbsp;"bin"&nbsp;dir&nbsp;of&nbsp;a&nbsp;virtualenv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;the&nbsp;directory&nbsp;that&nbsp;contains&nbsp;executables.<br>
+&nbsp;<br>
+NOTE:&nbsp;This&nbsp;is&nbsp;overridden&nbsp;on&nbsp;import&nbsp;with&nbsp;the&nbsp;platform-specific&nbsp;version.<br>
+&nbsp;<br>
+&nbsp;<br>
+@param&nbsp;virtualenvDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;directory&nbsp;of&nbsp;the&nbsp;virtualenv<br>
+&nbsp;<br>
+@return&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;the&nbsp;"bin"&nbsp;directory&nbsp;of&nbsp;the&nbsp;virtualenv</tt></dd></dl>
+
+<dl><dt><a name="VirtualEnvInfo-getPipBin"><strong>getPipBin</strong></a>(virtualenvDirectory)</dt><dd><tt>getPipBin&nbsp;-&nbsp;Get&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;pip&nbsp;executable&nbsp;within&nbsp;a&nbsp;virtualenv<br>
+&nbsp;<br>
+NOTE:&nbsp;This&nbsp;is&nbsp;overridden&nbsp;on&nbsp;import&nbsp;with&nbsp;the&nbsp;platform-specific&nbsp;version.<br>
+&nbsp;<br>
+&nbsp;<br>
+@param&nbsp;virtualenvDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;directory&nbsp;of&nbsp;the&nbsp;virtualenv<br>
+&nbsp;<br>
+@return&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;the&nbsp;"pip"&nbsp;executable&nbsp;associated&nbsp;with&nbsp;the&nbsp;virtualenv</tt></dd></dl>
+
+<dl><dt><a name="VirtualEnvInfo-getPythonBin"><strong>getPythonBin</strong></a>(virtualenvDirectory)</dt><dd><tt>getPythonBin&nbsp;-&nbsp;Get&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;virtualenv&nbsp;python&nbsp;executable<br>
+&nbsp;<br>
+NOTE:&nbsp;This&nbsp;is&nbsp;overridden&nbsp;on&nbsp;import&nbsp;with&nbsp;the&nbsp;platform-specific&nbsp;version.<br>
+&nbsp;<br>
+&nbsp;<br>
+@param&nbsp;virtualenvDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;directory&nbsp;of&nbsp;the&nbsp;virtualenv<br>
+&nbsp;<br>
+@return&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;the&nbsp;"python"&nbsp;executable&nbsp;associated&nbsp;with&nbsp;the&nbsp;virtualenv</tt></dd></dl>
+
+<dl><dt><a name="VirtualEnvInfo-getSitePackagesDirectory"><strong>getSitePackagesDirectory</strong></a>(virtualenvDirectory)</dt><dd><tt>getSitePackagesDirectory&nbsp;-&nbsp;Get&nbsp;the&nbsp;site&nbsp;packages&nbsp;directory&nbsp;associated&nbsp;with&nbsp;a&nbsp;virtualenv.<br>
+&nbsp;<br>
+NOTE:&nbsp;This&nbsp;is&nbsp;overridden&nbsp;on&nbsp;import&nbsp;with&nbsp;the&nbsp;platform-specific&nbsp;version.<br>
+&nbsp;<br>
+@param&nbsp;virtualenvDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;directory&nbsp;of&nbsp;the&nbsp;virtualenv<br>
+&nbsp;<br>
+@return&nbsp;&lt;str&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;the&nbsp;"site-packages"&nbsp;directory&nbsp;of&nbsp;the&nbsp;virtualenv</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>sitePackagesDirectory</strong></dt>
 </dl>
-<dl ><dt ><strong >virtualenvDirectory</strong></dt>
+<dl><dt><strong>virtualenvDirectory</strong></dt>
 </dl>
-</td></tr></table></p></p></td></tr></table><p >
-<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
-<tr bgcolor="#eeaa77" >
-<td colspan="3" valign="bottom" >&nbsp;<br />
-<font color="#ffffff" face="helvetica, arial" ><big ><strong >Functions</strong></big></font></td></tr>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
-<tr ><td bgcolor="#eeaa77" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
-<td width="100%" ><dl ><dt ><a name="-activateEnv" ><strong >activateEnv</strong></a>(venv)</dt><dd ><tt >activateEnv&nbsp;-&nbsp;Activates&nbsp;a&nbsp;virtualenv&nbsp;(allows&nbsp;you&nbsp;to&nbsp;import&nbsp;installed&nbsp;modules).<br />
-&nbsp;<br />
-@param&nbsp;venv&nbsp;&lt;str/<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;A&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;a&nbsp;virtualenv,&nbsp;or&nbsp;a&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>.<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&nbsp;<a href="__builtin__.html#object" >object</a>&nbsp;(Like&nbsp;from&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>.getInfoFromVirtualEnv)<br />
-&nbsp;<br />
-@raises&nbsp;-&nbsp;TypeError&nbsp;-&nbsp;if&nbsp;venv&nbsp;is&nbsp;not&nbsp;correct&nbsp;type<br />
-@raises&nbsp;-&nbsp;ValueError&nbsp;-&nbsp;if&nbsp;venv&nbsp;is&nbsp;not&nbsp;a&nbsp;usable&nbsp;virtual&nbsp;environment.<br />
-&nbsp;<br />
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-activateEnv"><strong>activateEnv</strong></a>(venv)</dt><dd><tt>activateEnv&nbsp;-&nbsp;Activates&nbsp;a&nbsp;virtualenv&nbsp;(allows&nbsp;you&nbsp;to&nbsp;import&nbsp;installed&nbsp;modules).<br>
+&nbsp;<br>
+@param&nbsp;venv&nbsp;&lt;str/<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;A&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;a&nbsp;virtualenv,&nbsp;or&nbsp;a&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>.<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;(Like&nbsp;from&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>.getInfoFromVirtualEnv)<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;TypeError&nbsp;-&nbsp;if&nbsp;venv&nbsp;is&nbsp;not&nbsp;correct&nbsp;type<br>
+@raises&nbsp;-&nbsp;ValueError&nbsp;-&nbsp;if&nbsp;venv&nbsp;is&nbsp;not&nbsp;a&nbsp;usable&nbsp;virtual&nbsp;environment.<br>
+&nbsp;<br>
 @return&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;path&nbsp;of&nbsp;the&nbsp;site-packages&nbsp;directory&nbsp;which&nbsp;as&nbsp;added&nbsp;to&nbsp;the&nbsp;python&nbsp;import&nbsp;path.</tt></dd></dl>
- <dl ><dt ><a name="-createEnv" ><strong >createEnv</strong></a>(packages<font color="#909090" >=None</font>, parentDirectory<font color="#909090" >=None</font>, name<font color="#909090" >=None</font>, stdout<font color="#909090" >=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090" >=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090" >=True</font>, activateEnvironment<font color="#909090" >=True</font>)</dt><dd ><tt >createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this,&nbsp;for&nbsp;example,&nbsp;to&nbsp;"recover"&nbsp;from&nbsp;a&nbsp;failed&nbsp;import&nbsp;by&nbsp;installing&nbsp;the&nbsp;software&nbsp;on&nbsp;demand.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;parentDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;Parent&nbsp;directory&nbsp;of&nbsp;the&nbsp;directory&nbsp;which&nbsp;will&nbsp;be&nbsp;created&nbsp;to&nbsp;hold&nbsp;the&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages.&nbsp;Defaults&nbsp;to&nbsp;tempfile.tempdir<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;name&nbsp;&lt;str&gt;&nbsp;-&nbsp;If&nbsp;provided,&nbsp;will&nbsp;use&nbsp;this&nbsp;as&nbsp;the&nbsp;virtualenv&nbsp;name.&nbsp;Otherwise,&nbsp;a&nbsp;random&nbsp;name&nbsp;will&nbsp;be&nbsp;generated.&nbsp;This&nbsp;should&nbsp;not&nbsp;contain&nbsp;any&nbsp;directories,&nbsp;use&nbsp;#parentDirectory&nbsp;to&nbsp;specify&nbsp;the&nbsp;directory.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stdout&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stdout&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stdout.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stderr&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stderr&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stderr.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;deleteOnClose&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(Default),&nbsp;this&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages&nbsp;will&nbsp;be&nbsp;erased&nbsp;after&nbsp;program&nbsp;terminates.&nbsp;Note,&nbsp;this&nbsp;cannot&nbsp;trap&nbsp;everything&nbsp;(e.x.&nbsp;SIGKILL).<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;activateEnvironment&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;True,&nbsp;If&nbsp;True,&nbsp;this&nbsp;virtualenv&nbsp;will&nbsp;immediately&nbsp;be&nbsp;activated&nbsp;(so&nbsp;you&nbsp;can&nbsp;import&nbsp;installed&nbsp;packages)<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&nbsp;<a href="__builtin__.html#object" >object</a>,&nbsp;which&nbsp;can&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;dict&nbsp;with&nbsp;the&nbsp;following&nbsp;fields:<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'virtualenvDirectory'&nbsp;&nbsp;&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;virtualenv&nbsp;directory<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sitePackagesDirectory'&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;site-packages&nbsp;directory&nbsp;within<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'requirements.txt'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Full&nbsp;generated&nbsp;requirements.txt&nbsp;file&nbsp;used&nbsp;for&nbsp;pip&nbsp;installation<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;<br />
-@raises&nbsp;-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed" >PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br />
-&nbsp;&nbsp;&nbsp;&nbsp;ValueError&nbsp;-&nbsp;If&nbsp;parent&nbsp;directory&nbsp;does&nbsp;not&nbsp;exist.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="exceptions.html#Exception" >Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
- <dl ><dt ><a name="-createEnvIfCannotImport" ><strong >createEnvIfCannotImport</strong></a>(importName, packages, parentDirectory<font color="#909090" >=None</font>, stdout<font color="#909090" >=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090" >=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>, deleteOnClose<font color="#909090" >=True</font>)</dt><dd ><tt >createEnvIfCannotImport&nbsp;-&nbsp;Tries&nbsp;to&nbsp;import&nbsp;a&nbsp;given&nbsp;name,&nbsp;and&nbsp;if&nbsp;fails,&nbsp;creates&nbsp;a&nbsp;temporary&nbsp;env&nbsp;and&nbsp;installs&nbsp;given&nbsp;packages&nbsp;and&nbsp;tries&nbsp;again.<br />
-&nbsp;<br />
-@see&nbsp;createEnv&nbsp;for&nbsp;most&nbsp;params.<br />
-&nbsp;<br />
-@param&nbsp;importName&nbsp;-&nbsp;Name&nbsp;of&nbsp;module&nbsp;to&nbsp;import<br />
-&nbsp;<br />
-@raises&nbsp;-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed" >PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br />
-&nbsp;&nbsp;&nbsp;&nbsp;ImportError&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;import&nbsp;even&nbsp;after&nbsp;successful&nbsp;installation&nbsp;of&nbsp;the&nbsp;packages.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="exceptions.html#Exception" >Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc<br />
-&nbsp;<br />
-@return&nbsp;-&nbsp;None&nbsp;if&nbsp;no&nbsp;env&nbsp;was&nbsp;created,&nbsp;otherwise&nbsp;the&nbsp;return&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&nbsp;<a href="__builtin__.html#object" >object</a>&nbsp;from&nbsp;the&nbsp;createEnv&nbsp;call.&nbsp;@see&nbsp;createEnv</tt></dd></dl>
- <dl ><dt ><a name="-enableOnDemandImporter" ><strong >enableOnDemandImporter</strong></a>(tmpDir<font color="#909090" >=None</font>, deferSetup<font color="#909090" >=True</font>, noRetryFailedPackages<font color="#909090" >=True</font>)</dt><dd ><tt >enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;@param&nbsp;tmpDir&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;Temporary&nbsp;directory&nbsp;to&nbsp;use.&nbsp;A&nbsp;subdirectory&nbsp;will&nbsp;be&nbsp;created&nbsp;within&nbsp;this.&nbsp;Defaults&nbsp;to&nbsp;tempfile.gettempdir()<br />
-&nbsp;&nbsp;&nbsp;@param&nbsp;deferSetup&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(default),&nbsp;defers&nbsp;setup&nbsp;(which&nbsp;can&nbsp;take&nbsp;a&nbsp;couple&nbsp;seconds)&nbsp;until&nbsp;the&nbsp;first&nbsp;failed&nbsp;import&nbsp;or&nbsp;attempted&nbsp;install.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setup&nbsp;takes&nbsp;a&nbsp;couple&nbsp;seconds.&nbsp;Use&nbsp;this&nbsp;to&nbsp;always&nbsp;enable&nbsp;on-demand&nbsp;importer,&nbsp;but&nbsp;give&nbsp;advantage&nbsp;if&nbsp;all&nbsp;modules&nbsp;are&nbsp;present.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;False,&nbsp;the&nbsp;ondemand&nbsp;virtualenv&nbsp;will&nbsp;be&nbsp;setup&nbsp;right-away.&nbsp;If&nbsp;you&nbsp;are&nbsp;using&nbsp;this&nbsp;in&nbsp;a&nbsp;multi-threaded&nbsp;environment,&nbsp;this&nbsp;should&nbsp;be&nbsp;set&nbsp;to&nbsp;False.<br />
-&nbsp;&nbsp;&nbsp;@param&nbsp;noRetryFailedPackages&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(default),&nbsp;a&nbsp;package&nbsp;which&nbsp;fails&nbsp;to&nbsp;download&nbsp;will&nbsp;not&nbsp;be&nbsp;retried.&nbsp;This&nbsp;is&nbsp;a&nbsp;performance&nbsp;savings.&nbsp;This&nbsp;should&nbsp;generally&nbsp;always&nbsp;be&nbsp;True,<br />
+ <dl><dt><a name="-createEnv"><strong>createEnv</strong></a>(packages=None, parentDirectory=None, name=None, stdout=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;, stderr=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;, deleteOnClose=True, activateEnvironment=True)</dt><dd><tt>createEnv&nbsp;-&nbsp;Creates&nbsp;a&nbsp;temporary&nbsp;virtual&nbsp;environment&nbsp;and&nbsp;installs&nbsp;the&nbsp;required&nbsp;modules&nbsp;for&nbsp;the&nbsp;current&nbsp;running&nbsp;application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this,&nbsp;for&nbsp;example,&nbsp;to&nbsp;"recover"&nbsp;from&nbsp;a&nbsp;failed&nbsp;import&nbsp;by&nbsp;installing&nbsp;the&nbsp;software&nbsp;on&nbsp;demand.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;parentDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;Parent&nbsp;directory&nbsp;of&nbsp;the&nbsp;directory&nbsp;which&nbsp;will&nbsp;be&nbsp;created&nbsp;to&nbsp;hold&nbsp;the&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages.&nbsp;Defaults&nbsp;to&nbsp;tempfile.tempdir<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;name&nbsp;&lt;str&gt;&nbsp;-&nbsp;If&nbsp;provided,&nbsp;will&nbsp;use&nbsp;this&nbsp;as&nbsp;the&nbsp;virtualenv&nbsp;name.&nbsp;Otherwise,&nbsp;a&nbsp;random&nbsp;name&nbsp;will&nbsp;be&nbsp;generated.&nbsp;This&nbsp;should&nbsp;not&nbsp;contain&nbsp;any&nbsp;directories,&nbsp;use&nbsp;#parentDirectory&nbsp;to&nbsp;specify&nbsp;the&nbsp;directory.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stdout&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stdout&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stdout.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stderr&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stderr&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stderr.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;deleteOnClose&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(Default),&nbsp;this&nbsp;temporary&nbsp;environment&nbsp;and&nbsp;packages&nbsp;will&nbsp;be&nbsp;erased&nbsp;after&nbsp;program&nbsp;terminates.&nbsp;Note,&nbsp;this&nbsp;cannot&nbsp;trap&nbsp;everything&nbsp;(e.x.&nbsp;SIGKILL).<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;activateEnvironment&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;True,&nbsp;If&nbsp;True,&nbsp;this&nbsp;virtualenv&nbsp;will&nbsp;immediately&nbsp;be&nbsp;activated&nbsp;(so&nbsp;you&nbsp;can&nbsp;import&nbsp;installed&nbsp;packages)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;On&nbsp;success,&nbsp;returns&nbsp;a&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>,&nbsp;which&nbsp;can&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;dict&nbsp;with&nbsp;the&nbsp;following&nbsp;fields:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'virtualenvDirectory'&nbsp;&nbsp;&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;virtualenv&nbsp;directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sitePackagesDirectory'&nbsp;:&nbsp;Absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;site-packages&nbsp;directory&nbsp;within<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'requirements.txt'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Full&nbsp;generated&nbsp;requirements.txt&nbsp;file&nbsp;used&nbsp;for&nbsp;pip&nbsp;installation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ValueError&nbsp;-&nbsp;If&nbsp;parent&nbsp;directory&nbsp;does&nbsp;not&nbsp;exist.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="builtins.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
+ <dl><dt><a name="-createEnvIfCannotImport"><strong>createEnvIfCannotImport</strong></a>(importName, packages, parentDirectory=None, stdout=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;, stderr=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;, deleteOnClose=True)</dt><dd><tt>createEnvIfCannotImport&nbsp;-&nbsp;Tries&nbsp;to&nbsp;import&nbsp;a&nbsp;given&nbsp;name,&nbsp;and&nbsp;if&nbsp;fails,&nbsp;creates&nbsp;a&nbsp;temporary&nbsp;env&nbsp;and&nbsp;installs&nbsp;given&nbsp;packages&nbsp;and&nbsp;tries&nbsp;again.<br>
+&nbsp;<br>
+@see&nbsp;createEnv&nbsp;for&nbsp;most&nbsp;params.<br>
+&nbsp;<br>
+@param&nbsp;importName&nbsp;-&nbsp;Name&nbsp;of&nbsp;module&nbsp;to&nbsp;import<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ImportError&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;import&nbsp;even&nbsp;after&nbsp;successful&nbsp;installation&nbsp;of&nbsp;the&nbsp;packages.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="builtins.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;None&nbsp;if&nbsp;no&nbsp;env&nbsp;was&nbsp;created,&nbsp;otherwise&nbsp;the&nbsp;return&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;the&nbsp;createEnv&nbsp;call.&nbsp;@see&nbsp;createEnv</tt></dd></dl>
+ <dl><dt><a name="-enableOnDemandImporter"><strong>enableOnDemandImporter</strong></a>(tmpDir=None, deferSetup=True, noRetryFailedPackages=True)</dt><dd><tt>enableOnDemandImporter&nbsp;-&nbsp;Calling&nbsp;this&nbsp;method&nbsp;turns&nbsp;on&nbsp;the&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;A&nbsp;temporary&nbsp;global&nbsp;env&nbsp;is&nbsp;created,&nbsp;and&nbsp;all&nbsp;failed&nbsp;imports&nbsp;will&nbsp;attempt&nbsp;an&nbsp;installation.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;@param&nbsp;tmpDir&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;Temporary&nbsp;directory&nbsp;to&nbsp;use.&nbsp;A&nbsp;subdirectory&nbsp;will&nbsp;be&nbsp;created&nbsp;within&nbsp;this.&nbsp;Defaults&nbsp;to&nbsp;tempfile.gettempdir()<br>
+&nbsp;&nbsp;&nbsp;@param&nbsp;deferSetup&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(default),&nbsp;defers&nbsp;setup&nbsp;(which&nbsp;can&nbsp;take&nbsp;a&nbsp;couple&nbsp;seconds)&nbsp;until&nbsp;the&nbsp;first&nbsp;failed&nbsp;import&nbsp;or&nbsp;attempted&nbsp;install.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setup&nbsp;takes&nbsp;a&nbsp;couple&nbsp;seconds.&nbsp;Use&nbsp;this&nbsp;to&nbsp;always&nbsp;enable&nbsp;on-demand&nbsp;importer,&nbsp;but&nbsp;give&nbsp;advantage&nbsp;if&nbsp;all&nbsp;modules&nbsp;are&nbsp;present.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;False,&nbsp;the&nbsp;ondemand&nbsp;virtualenv&nbsp;will&nbsp;be&nbsp;setup&nbsp;right-away.&nbsp;If&nbsp;you&nbsp;are&nbsp;using&nbsp;this&nbsp;in&nbsp;a&nbsp;multi-threaded&nbsp;environment,&nbsp;this&nbsp;should&nbsp;be&nbsp;set&nbsp;to&nbsp;False.<br>
+&nbsp;&nbsp;&nbsp;@param&nbsp;noRetryFailedPackages&nbsp;&lt;bool&gt;&nbsp;-&nbsp;If&nbsp;True&nbsp;(default),&nbsp;a&nbsp;package&nbsp;which&nbsp;fails&nbsp;to&nbsp;download&nbsp;will&nbsp;not&nbsp;be&nbsp;retried.&nbsp;This&nbsp;is&nbsp;a&nbsp;performance&nbsp;savings.&nbsp;This&nbsp;should&nbsp;generally&nbsp;always&nbsp;be&nbsp;True,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unless&nbsp;you&nbsp;are&nbsp;using&nbsp;VirtualEnvOnDemand&nbsp;to&nbsp;have&nbsp;a&nbsp;running&nbsp;process&nbsp;written&nbsp;to&nbsp;work&nbsp;with&nbsp;an&nbsp;unreleased&nbsp;module&nbsp;to&nbsp;prevent&nbsp;a&nbsp;restart&nbsp;or&nbsp;something&nbsp;similar.</tt></dd></dl>
- <dl ><dt ><a name="-ensureImport" ><strong >ensureImport</strong></a>(importName, venvDir, packageName<font color="#909090" >=None</font>, stdout<font color="#909090" >=None</font>, stderr<font color="#909090" >=None</font>)</dt><dd ><tt >ensureImport&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;provided&nbsp;virtualenv<br />
-&nbsp;<br />
-@param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br />
-@param&nbsp;venvDir&nbsp;&lt;str/<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;The&nbsp;path&nbsp;to&nbsp;a&nbsp;virtualenv,&nbsp;likely&nbsp;created&nbsp;by&nbsp;createEnv&nbsp;or&nbsp;the&nbsp;global&nbsp;env&nbsp;(fetched&nbsp;via&nbsp;<a href="#-getGlobalVirtualEnvInfo" >getGlobalVirtualEnvInfo</a>()).<br />
-@param&nbsp;packageName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;If&nbsp;the&nbsp;package&nbsp;name&nbsp;differs&nbsp;from&nbsp;the&nbsp;import&nbsp;name&nbsp;(like&nbsp;biopython&nbsp;package&nbsp;provides&nbsp;"Bio"&nbsp;module),&nbsp;install&nbsp;this&nbsp;package&nbsp;if&nbsp;import&nbsp;fails.&nbsp;This&nbsp;may&nbsp;contain&nbsp;version&nbsp;info&nbsp;(like&nbsp;AdvancedHTMLParser&gt;6.0)<br />
-@param&nbsp;stdout&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stdout&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stdout&nbsp;is&nbsp;default.<br />
-@param&nbsp;stderr&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stderr&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stderr&nbsp;is&nbsp;default.<br />
-&nbsp;<br />
-@return&nbsp;-&nbsp;The&nbsp;imported&nbsp;module<br />
-&nbsp;<br />
-@raises&nbsp;-&nbsp;ImportError&nbsp;if&nbsp;cannot&nbsp;import.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;With&nbsp;this&nbsp;method,&nbsp;<a href="#PipInstallFailed" >PipInstallFailed</a>&nbsp;will&nbsp;be&nbsp;intercepted&nbsp;and&nbsp;ImportError&nbsp;thrown&nbsp;instead,&nbsp;as&nbsp;this&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;a&nbsp;drop-in&nbsp;replacement&nbsp;for&nbsp;"import"&nbsp;when&nbsp;the&nbsp;package&nbsp;name&nbsp;differs.</tt></dd></dl>
- <dl ><dt ><a name="-ensureImportGlobal" ><strong >ensureImportGlobal</strong></a>(importName, packageName<font color="#909090" >=None</font>, stdout<font color="#909090" >=None</font>, stderr<font color="#909090" >=None</font>)</dt><dd ><tt >ensureImportGlobal&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;global&nbsp;virtualenv.&nbsp;This&nbsp;assumes&nbsp;that&nbsp;enableOnDemandImporter&nbsp;has&nbsp;already&nbsp;been&nbsp;called.<br />
-&nbsp;<br />
-@param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br />
-@param&nbsp;packageName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;If&nbsp;the&nbsp;package&nbsp;name&nbsp;differs&nbsp;from&nbsp;the&nbsp;import&nbsp;name&nbsp;(like&nbsp;biopython&nbsp;package&nbsp;provides&nbsp;"Bio"&nbsp;module),&nbsp;install&nbsp;this&nbsp;package&nbsp;if&nbsp;import&nbsp;fails.&nbsp;This&nbsp;may&nbsp;contain&nbsp;version&nbsp;info&nbsp;(like&nbsp;AdvancedHTMLParser&gt;6.0)<br />
-@param&nbsp;stdout&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stdout&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stdout&nbsp;is&nbsp;default.<br />
-@param&nbsp;stderr&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stderr&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stderr&nbsp;is&nbsp;default.<br />
-&nbsp;<br />
-@return&nbsp;-&nbsp;The&nbsp;imported&nbsp;module<br />
-&nbsp;<br />
-@raises&nbsp;-&nbsp;ImportError&nbsp;if&nbsp;cannot&nbsp;import.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;With&nbsp;this&nbsp;method,&nbsp;<a href="#PipInstallFailed" >PipInstallFailed</a>&nbsp;will&nbsp;be&nbsp;intercepted&nbsp;and&nbsp;ImportError&nbsp;thrown&nbsp;instead,&nbsp;as&nbsp;this&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;a&nbsp;drop-in&nbsp;replacement&nbsp;for&nbsp;"import"&nbsp;when&nbsp;the&nbsp;package&nbsp;name&nbsp;differs.</tt></dd></dl>
- <dl ><dt ><a name="-getGlobalVirtualEnvInfo" ><strong >getGlobalVirtualEnvInfo</strong></a>()</dt><dd ><tt >getGlobalVirtualEnvInfo&nbsp;-&nbsp;Returns&nbsp;the&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&nbsp;<a href="__builtin__.html#object" >object</a>&nbsp;representing&nbsp;the&nbsp;global&nbsp;environment,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;setup.<br />
-&nbsp;<br />
-If&nbsp;not&nbsp;setup,&nbsp;call&nbsp;<a href="#-enableOnDemandImporter" >enableOnDemandImporter</a>()&nbsp;to&nbsp;add&nbsp;the&nbsp;hook&nbsp;and&nbsp;create&nbsp;the&nbsp;"global"&nbsp;env.<br />
-&nbsp;<br />
-@return&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&nbsp;representing&nbsp;global&nbsp;env,&nbsp;or&nbsp;None&nbsp;if&nbsp;enableOnDemandImporter&nbsp;has&nbsp;not&nbsp;been&nbsp;called.</tt></dd></dl>
- <dl ><dt ><a name="-getInfoFromVirtualEnv" ><strong >getInfoFromVirtualEnv</strong></a>(venvPath, validate<font color="#909090" >=True</font>)</dt><dd ><tt >getInfoFromVirtualEnv&nbsp;-&nbsp;Gets&nbsp;a&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&nbsp;<a href="__builtin__.html#object" >object</a>&nbsp;from&nbsp;a&nbsp;given&nbsp;path.<br />
-&nbsp;<br />
-@param&nbsp;venvPath&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;root&nbsp;of&nbsp;a&nbsp;virtualenv<br />
-@param&nbsp;validate&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;True&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;validate&nbsp;that&nbsp;the&nbsp;virtualenv&nbsp;is&nbsp;usable.<br />
-&nbsp;<br />
-@raises&nbsp;-&nbsp;if&nbsp;validate&nbsp;is&nbsp;True,&nbsp;@see&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>.validate</tt></dd></dl>
- <dl ><dt ><a name="-installPackages" ><strong >installPackages</strong></a>(packages, venvDir, stdout<font color="#909090" >=&lt;open file '&lt;stdout&gt;', mode 'w'&gt;</font>, stderr<font color="#909090" >=&lt;open file '&lt;stderr&gt;', mode 'w'&gt;</font>)</dt><dd ><tt >installPackages&nbsp;-&nbsp;Installs&nbsp;packages&nbsp;into&nbsp;a&nbsp;created&nbsp;virtual&nbsp;environment<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;venvDir&nbsp;&lt;str/<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;a&nbsp;created&nbsp;virtualenv&nbsp;directory.&nbsp;This&nbsp;should&nbsp;be&nbsp;the&nbsp;'virtualenvDirectory'&nbsp;key&nbsp;from&nbsp;the&nbsp;return&nbsp;of&nbsp;createEnv,&nbsp;or&nbsp;just&nbsp;the&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&nbsp;<a href="__builtin__.html#object" >object</a>&nbsp;itself&nbsp;will&nbsp;work.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stdout&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stdout&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stdout.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stderr&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stderr&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stderr.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;The&nbsp;generated&nbsp;requirements.txt&nbsp;used&nbsp;to&nbsp;install&nbsp;packages.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@raises&nbsp;-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed" >PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.VirtualEnvDoesNotExist&nbsp;-&nbsp;If&nbsp;given&nbsp;venvDir&nbsp;does&nbsp;not&nbsp;exist<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="exceptions.html#Exception" >Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
- <dl ><dt ><a name="-setGlobalVirtualEnv" ><strong >setGlobalVirtualEnv</strong></a>(venv, enableOnDemandImporter<font color="#909090" >=True</font>)</dt><dd ><tt >setGlobalVirtualEnv&nbsp;-&nbsp;Sets&nbsp;the&nbsp;global&nbsp;virtualenv&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;the&nbsp;on&nbsp;demand&nbsp;importer.<br />
-&nbsp;<br />
-@param&nbsp;venv&nbsp;&lt;str/<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;Either&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;virtualenv,&nbsp;or&nbsp;a&nbsp;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&nbsp;(like&nbsp;from&nbsp;getInfoFromVirtualEnv)<br />
-@param&nbsp;enableOnDemandImporter&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;True&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;enable&nbsp;the&nbsp;on&nbsp;demand&nbsp;importer&nbsp;right&nbsp;away.<br />
-&nbsp;<br />
-@return&nbsp;&lt;<a href="#VirtualEnvInfo" >VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;The&nbsp;global&nbsp;env</tt></dd></dl>
- <dl ><dt ><a name="-toggleDebug" ><strong >toggleDebug</strong></a>(isDebug)</dt><dd ><tt >toggleDebug&nbsp;-&nbsp;Toggle&nbsp;debug&nbsp;messages.&nbsp;Default&nbsp;disabled.<br />
-&nbsp;<br />
-@param&nbsp;isDebug&nbsp;&lt;bool&gt;&nbsp;-&nbsp;Whether&nbsp;to&nbsp;enable&nbsp;debug&nbsp;messages&nbsp;or&nbsp;disable&nbsp;them.<br />
-&nbsp;<br />
+ <dl><dt><a name="-ensureImport"><strong>ensureImport</strong></a>(importName, venvDir, packageName=None, stdout=None, stderr=None)</dt><dd><tt>ensureImport&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;provided&nbsp;virtualenv<br>
+&nbsp;<br>
+@param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br>
+@param&nbsp;venvDir&nbsp;&lt;str/<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;The&nbsp;path&nbsp;to&nbsp;a&nbsp;virtualenv,&nbsp;likely&nbsp;created&nbsp;by&nbsp;createEnv&nbsp;or&nbsp;the&nbsp;global&nbsp;env&nbsp;(fetched&nbsp;via&nbsp;<a href="#-getGlobalVirtualEnvInfo">getGlobalVirtualEnvInfo</a>()).<br>
+@param&nbsp;packageName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;If&nbsp;the&nbsp;package&nbsp;name&nbsp;differs&nbsp;from&nbsp;the&nbsp;import&nbsp;name&nbsp;(like&nbsp;biopython&nbsp;package&nbsp;provides&nbsp;"Bio"&nbsp;module),&nbsp;install&nbsp;this&nbsp;package&nbsp;if&nbsp;import&nbsp;fails.&nbsp;This&nbsp;may&nbsp;contain&nbsp;version&nbsp;info&nbsp;(like&nbsp;AdvancedHTMLParser&gt;6.0)<br>
+@param&nbsp;stdout&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stdout&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stdout&nbsp;is&nbsp;default.<br>
+@param&nbsp;stderr&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stderr&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stderr&nbsp;is&nbsp;default.<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;The&nbsp;imported&nbsp;module<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;ImportError&nbsp;if&nbsp;cannot&nbsp;import.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;With&nbsp;this&nbsp;method,&nbsp;<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;will&nbsp;be&nbsp;intercepted&nbsp;and&nbsp;ImportError&nbsp;thrown&nbsp;instead,&nbsp;as&nbsp;this&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;a&nbsp;drop-in&nbsp;replacement&nbsp;for&nbsp;"import"&nbsp;when&nbsp;the&nbsp;package&nbsp;name&nbsp;differs.</tt></dd></dl>
+ <dl><dt><a name="-ensureImportGlobal"><strong>ensureImportGlobal</strong></a>(importName, packageName=None, stdout=None, stderr=None)</dt><dd><tt>ensureImportGlobal&nbsp;-&nbsp;Try&nbsp;to&nbsp;import&nbsp;a&nbsp;module,&nbsp;and&nbsp;upon&nbsp;failure&nbsp;to&nbsp;import&nbsp;try&nbsp;to&nbsp;install&nbsp;package&nbsp;into&nbsp;global&nbsp;virtualenv.&nbsp;This&nbsp;assumes&nbsp;that&nbsp;enableOnDemandImporter&nbsp;has&nbsp;already&nbsp;been&nbsp;called.<br>
+&nbsp;<br>
+@param&nbsp;importName&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;module&nbsp;to&nbsp;import<br>
+@param&nbsp;packageName&nbsp;&lt;str/None&gt;&nbsp;-&nbsp;If&nbsp;the&nbsp;package&nbsp;name&nbsp;differs&nbsp;from&nbsp;the&nbsp;import&nbsp;name&nbsp;(like&nbsp;biopython&nbsp;package&nbsp;provides&nbsp;"Bio"&nbsp;module),&nbsp;install&nbsp;this&nbsp;package&nbsp;if&nbsp;import&nbsp;fails.&nbsp;This&nbsp;may&nbsp;contain&nbsp;version&nbsp;info&nbsp;(like&nbsp;AdvancedHTMLParser&gt;6.0)<br>
+@param&nbsp;stdout&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stdout&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stdout&nbsp;is&nbsp;default.<br>
+@param&nbsp;stderr&nbsp;&lt;stream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;use&nbsp;for&nbsp;stderr&nbsp;as&nbsp;package&nbsp;info,&nbsp;or&nbsp;None&nbsp;to&nbsp;silence.&nbsp;Default&nbsp;None.&nbsp;NOTE:&nbsp;This&nbsp;differs&nbsp;from&nbsp;elsewhere&nbsp;where&nbsp;sys.stderr&nbsp;is&nbsp;default.<br>
+&nbsp;<br>
+@return&nbsp;-&nbsp;The&nbsp;imported&nbsp;module<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;ImportError&nbsp;if&nbsp;cannot&nbsp;import.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;With&nbsp;this&nbsp;method,&nbsp;<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;will&nbsp;be&nbsp;intercepted&nbsp;and&nbsp;ImportError&nbsp;thrown&nbsp;instead,&nbsp;as&nbsp;this&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;a&nbsp;drop-in&nbsp;replacement&nbsp;for&nbsp;"import"&nbsp;when&nbsp;the&nbsp;package&nbsp;name&nbsp;differs.</tt></dd></dl>
+ <dl><dt><a name="-getGlobalVirtualEnvInfo"><strong>getGlobalVirtualEnvInfo</strong></a>()</dt><dd><tt>getGlobalVirtualEnvInfo&nbsp;-&nbsp;Returns&nbsp;the&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;representing&nbsp;the&nbsp;global&nbsp;environment,&nbsp;or&nbsp;None&nbsp;if&nbsp;not&nbsp;setup.<br>
+&nbsp;<br>
+If&nbsp;not&nbsp;setup,&nbsp;call&nbsp;<a href="#-enableOnDemandImporter">enableOnDemandImporter</a>()&nbsp;to&nbsp;add&nbsp;the&nbsp;hook&nbsp;and&nbsp;create&nbsp;the&nbsp;"global"&nbsp;env.<br>
+&nbsp;<br>
+@return&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;representing&nbsp;global&nbsp;env,&nbsp;or&nbsp;None&nbsp;if&nbsp;enableOnDemandImporter&nbsp;has&nbsp;not&nbsp;been&nbsp;called.</tt></dd></dl>
+ <dl><dt><a name="-getInfoFromVirtualEnv"><strong>getInfoFromVirtualEnv</strong></a>(venvPath, validate=True)</dt><dd><tt>getInfoFromVirtualEnv&nbsp;-&nbsp;Gets&nbsp;a&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;from&nbsp;a&nbsp;given&nbsp;path.<br>
+&nbsp;<br>
+@param&nbsp;venvPath&nbsp;&lt;str&gt;&nbsp;-&nbsp;The&nbsp;root&nbsp;of&nbsp;a&nbsp;virtualenv<br>
+@param&nbsp;validate&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;True&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;validate&nbsp;that&nbsp;the&nbsp;virtualenv&nbsp;is&nbsp;usable.<br>
+&nbsp;<br>
+@raises&nbsp;-&nbsp;if&nbsp;validate&nbsp;is&nbsp;True,&nbsp;@see&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>.validate</tt></dd></dl>
+ <dl><dt><a name="-installPackages"><strong>installPackages</strong></a>(packages, venvDir, stdout=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;, stderr=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;)</dt><dd><tt>installPackages&nbsp;-&nbsp;Installs&nbsp;packages&nbsp;into&nbsp;a&nbsp;created&nbsp;virtual&nbsp;environment<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;-&nbsp;Describes&nbsp;the&nbsp;required&nbsp;packages.&nbsp;Takes&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;forms:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present,&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;venvDir&nbsp;&lt;str/<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;Path&nbsp;to&nbsp;a&nbsp;created&nbsp;virtualenv&nbsp;directory.&nbsp;This&nbsp;should&nbsp;be&nbsp;the&nbsp;'virtualenvDirectory'&nbsp;key&nbsp;from&nbsp;the&nbsp;return&nbsp;of&nbsp;createEnv,&nbsp;or&nbsp;just&nbsp;the&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;<a href="builtins.html#object">object</a>&nbsp;itself&nbsp;will&nbsp;work.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stdout&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stdout&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stdout.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;stderr&nbsp;&lt;iostream/None&gt;&nbsp;-&nbsp;Stream&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;stderr&nbsp;for&nbsp;installation.&nbsp;Default&nbsp;is&nbsp;sys.stderr.&nbsp;Use&nbsp;"None"&nbsp;to&nbsp;swallow&nbsp;output.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;-&nbsp;The&nbsp;generated&nbsp;requirements.txt&nbsp;used&nbsp;to&nbsp;install&nbsp;packages.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@raises&nbsp;-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.<a href="#PipInstallFailed">PipInstallFailed</a>&nbsp;-&nbsp;&nbsp;if&nbsp;cannot&nbsp;install&nbsp;packages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VirtualEnvOnDemand.exceptions.VirtualEnvDoesNotExist&nbsp;-&nbsp;If&nbsp;given&nbsp;venvDir&nbsp;does&nbsp;not&nbsp;exist<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Others&nbsp;(<a href="builtins.html#Exception">Exception</a>,&nbsp;etc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;If&nbsp;permissions&nbsp;problem&nbsp;to&nbsp;write&nbsp;to&nbsp;specified&nbsp;directory,&nbsp;etc</tt></dd></dl>
+ <dl><dt><a name="-setGlobalVirtualEnv"><strong>setGlobalVirtualEnv</strong></a>(venv, enableOnDemandImporter=True)</dt><dd><tt>setGlobalVirtualEnv&nbsp;-&nbsp;Sets&nbsp;the&nbsp;global&nbsp;virtualenv&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;the&nbsp;on&nbsp;demand&nbsp;importer.<br>
+&nbsp;<br>
+@param&nbsp;venv&nbsp;&lt;str/<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;Either&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;root&nbsp;of&nbsp;the&nbsp;virtualenv,&nbsp;or&nbsp;a&nbsp;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&nbsp;(like&nbsp;from&nbsp;getInfoFromVirtualEnv)<br>
+@param&nbsp;enableOnDemandImporter&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;True&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;enable&nbsp;the&nbsp;on&nbsp;demand&nbsp;importer&nbsp;right&nbsp;away.<br>
+&nbsp;<br>
+@return&nbsp;&lt;<a href="#VirtualEnvInfo">VirtualEnvInfo</a>&gt;&nbsp;-&nbsp;The&nbsp;global&nbsp;env</tt></dd></dl>
+ <dl><dt><a name="-setupAndActivateEnv"><strong>setupAndActivateEnv</strong></a>(parentDirectory, name, packages, myVersion=None, forceInstallPackages=False, enableOnDemandImporter=False, printDebug=False)</dt><dd><tt>setupAndActivateEnv&nbsp;-&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;parentDirectory&nbsp;&lt;str&gt;&nbsp;-&nbsp;This&nbsp;is&nbsp;the&nbsp;directory&nbsp;wherein&nbsp;the&nbsp;virtualenv&nbsp;will&nbsp;be&nbsp;created<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;name&nbsp;&lt;str&gt;&nbsp;-&nbsp;This&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;virtualenv&nbsp;root&nbsp;folder<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;packages&nbsp;&lt;list/dict/str&gt;&nbsp;-&nbsp;A&nbsp;list&nbsp;of&nbsp;packages&nbsp;to&nbsp;install.&nbsp;You&nbsp;can&nbsp;use&nbsp;pip&nbsp;modifiers,&nbsp;like&nbsp;'=='&nbsp;and&nbsp;'&lt;'.&nbsp;May&nbsp;be&nbsp;any&nbsp;of&nbsp;the&nbsp;following:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;list/tuple/set&nbsp;of&nbsp;package&nbsp;names&nbsp;(optionally&nbsp;including&nbsp;version&nbsp;requirements,&nbsp;e.x.&nbsp;MyPkg==1.2.3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dict&nbsp;&nbsp;&nbsp;-&nbsp;A&nbsp;dictionary&nbsp;of&nbsp;package&nbsp;names&nbsp;to&nbsp;versions.&nbsp;If&nbsp;no&nbsp;value&nbsp;is&nbsp;present&nbsp;(i.e.&nbsp;evaluates&nbsp;to&nbsp;False,&nbsp;like&nbsp;''&nbsp;or&nbsp;None),&nbsp;the&nbsp;latest&nbsp;will&nbsp;be&nbsp;fetched.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;-&nbsp;Directly&nbsp;becomes&nbsp;contents&nbsp;of&nbsp;requirements.txt&nbsp;file&nbsp;to&nbsp;be&nbsp;ingested&nbsp;by&nbsp;pip<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;if&nbsp;the&nbsp;virtualenv&nbsp;exists&nbsp;already,&nbsp;updates&nbsp;to&nbsp;this&nbsp;field&nbsp;will&nbsp;go&nbsp;unnoticed&nbsp;unless&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"myVersion"&nbsp;increases,&nbsp;or&nbsp;"forceInstallPackages"&nbsp;is&nbsp;set.&nbsp;@see&nbsp;#myVersion&nbsp;parameter&nbsp;below.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;can&nbsp;also&nbsp;use&nbsp;&nbsp;"&nbsp;VirtualEnvOnDemand.<a href="#-installPackages">installPackages</a>(&nbsp;packages,&nbsp;venvInfo&nbsp;)&nbsp;"&nbsp;&nbsp;to&nbsp;force&nbsp;install/update&nbsp;of&nbsp;#packages&nbsp;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;"venvInfo"&nbsp;is&nbsp;the&nbsp;return&nbsp;of&nbsp;this&nbsp;function.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@see&nbsp;#VirtualEnvOnDemand.InstallPackages.installPackages<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;myVersion&nbsp;&lt;str/int&gt;&nbsp;-&nbsp;Any&nbsp;sort&nbsp;of&nbsp;version&nbsp;string.&nbsp;You&nbsp;can&nbsp;use&nbsp;__version__&nbsp;from&nbsp;your&nbsp;module&nbsp;if&nbsp;you&nbsp;so&nbsp;please.&nbsp;Use&nbsp;None&nbsp;to&nbsp;disable.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;defined,&nbsp;this&nbsp;represents&nbsp;your&nbsp;virtualenv's&nbsp;"version".<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;you&nbsp;are&nbsp;inheriting&nbsp;an&nbsp;existing&nbsp;virtualenv,&nbsp;and&nbsp;this&nbsp;method&nbsp;is&nbsp;passed&nbsp;a&nbsp;higher&nbsp;#myVersion&nbsp;than&nbsp;is&nbsp;currently&nbsp;marked&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtualenv&nbsp;directory,&nbsp;this&nbsp;method&nbsp;will&nbsp;attempt&nbsp;to&nbsp;install/update&nbsp;any&nbsp;packages&nbsp;as&nbsp;found&nbsp;in&nbsp;#packages.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;forceInstallPackages&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;False&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;attempt&nbsp;to&nbsp;install/update&nbsp;any&nbsp;packages&nbsp;found&nbsp;in&nbsp;#packages&nbsp;every&nbsp;time.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;production&nbsp;and&nbsp;deployed&nbsp;code,&nbsp;you&nbsp;will&nbsp;likely&nbsp;want&nbsp;to&nbsp;leave&nbsp;this&nbsp;as&nbsp;False,&nbsp;as&nbsp;it&nbsp;carries&nbsp;a&nbsp;performence&nbsp;penality&nbsp;with&nbsp;every&nbsp;script&nbsp;invocation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;check&nbsp;for&nbsp;updates.&nbsp;Instead,&nbsp;bump&nbsp;the&nbsp;value&nbsp;of&nbsp;"myVersion"&nbsp;e.g.&nbsp;from&nbsp;"1.2.0"&nbsp;to&nbsp;"1.2.0.1"&nbsp;or&nbsp;similar,&nbsp;or&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;explicitly&nbsp;call&nbsp;#VirtualEnvOnDemand.InstallPackages.installPackages&nbsp;from&nbsp;an&nbsp;admin&nbsp;servlet,&nbsp;for&nbsp;example.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;enableOnDemandImporter&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;False&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;use&nbsp;this&nbsp;env&nbsp;as&nbsp;the&nbsp;global&nbsp;"on&nbsp;demand"&nbsp;importer.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@see&nbsp;#VirtualEnvOnDemand.GlobalEnv.enableOnDemandImporter<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;printDebug&nbsp;&lt;bool&gt;&nbsp;Default&nbsp;False&nbsp;-&nbsp;If&nbsp;True,&nbsp;will&nbsp;print&nbsp;debug&nbsp;messages&nbsp;about&nbsp;what's&nbsp;going&nbsp;on&nbsp;to&nbsp;stderr.</tt></dd></dl>
+ <dl><dt><a name="-toggleDebug"><strong>toggleDebug</strong></a>(isDebug)</dt><dd><tt>toggleDebug&nbsp;-&nbsp;Toggle&nbsp;debug&nbsp;messages.&nbsp;Default&nbsp;disabled.<br>
+&nbsp;<br>
+@param&nbsp;isDebug&nbsp;&lt;bool&gt;&nbsp;-&nbsp;Whether&nbsp;to&nbsp;enable&nbsp;debug&nbsp;messages&nbsp;or&nbsp;disable&nbsp;them.<br>
+&nbsp;<br>
 @return&nbsp;&lt;bool&gt;&nbsp;-&nbsp;The&nbsp;old&nbsp;state&nbsp;of&nbsp;debug</tt></dd></dl>
- <dl ><dt ><a name="-toggleOnDemandImporter" ><strong >toggleOnDemandImporter</strong></a>(isActive)</dt><dd ><tt >toggleOnDemandImporter&nbsp;-&nbsp;Toggle&nbsp;whether&nbsp;the&nbsp;on&nbsp;demand&nbsp;importer&nbsp;(import&nbsp;hook)&nbsp;is&nbsp;active.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;enableOnDemandImporter&nbsp;was&nbsp;not&nbsp;ever&nbsp;called,&nbsp;this&nbsp;has&nbsp;no&nbsp;effect.&nbsp;Otherwise,&nbsp;calling&nbsp;<a href="#-toggleOnDemandImporter" >toggleOnDemandImporter</a>(False)&nbsp;will&nbsp;temporarily&nbsp;disable&nbsp;the&nbsp;import&nbsp;hook,&nbsp;until&nbsp;<a href="#-toggleOnDemandImporter" >toggleOnDemandImporter</a>(True)&nbsp;is&nbsp;called.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;isActive&nbsp;&lt;bool&gt;&nbsp;-&nbsp;To&nbsp;temporarily&nbsp;enable/disable&nbsp;the&nbsp;on-demand&nbsp;importer.<br />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True&nbsp;if&nbsp;a&nbsp;toggle&nbsp;occured,&nbsp;False&nbsp;if&nbsp;no&nbsp;state&nbsp;has&nbsp;changed.<br />
-&nbsp;<br />
+ <dl><dt><a name="-toggleOnDemandImporter"><strong>toggleOnDemandImporter</strong></a>(isActive)</dt><dd><tt>toggleOnDemandImporter&nbsp;-&nbsp;Toggle&nbsp;whether&nbsp;the&nbsp;on&nbsp;demand&nbsp;importer&nbsp;(import&nbsp;hook)&nbsp;is&nbsp;active.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;enableOnDemandImporter&nbsp;was&nbsp;not&nbsp;ever&nbsp;called,&nbsp;this&nbsp;has&nbsp;no&nbsp;effect.&nbsp;Otherwise,&nbsp;calling&nbsp;<a href="#-toggleOnDemandImporter">toggleOnDemandImporter</a>(False)&nbsp;will&nbsp;temporarily&nbsp;disable&nbsp;the&nbsp;import&nbsp;hook,&nbsp;until&nbsp;<a href="#-toggleOnDemandImporter">toggleOnDemandImporter</a>(True)&nbsp;is&nbsp;called.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@param&nbsp;isActive&nbsp;&lt;bool&gt;&nbsp;-&nbsp;To&nbsp;temporarily&nbsp;enable/disable&nbsp;the&nbsp;on-demand&nbsp;importer.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@return&nbsp;&lt;bool&gt;&nbsp;-&nbsp;True&nbsp;if&nbsp;a&nbsp;toggle&nbsp;occured,&nbsp;False&nbsp;if&nbsp;no&nbsp;state&nbsp;has&nbsp;changed.<br>
+&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;@raises&nbsp;ValueError&nbsp;-&nbsp;If&nbsp;no&nbsp;global&nbsp;virtualenv&nbsp;has&nbsp;been&nbsp;set,&nbsp;either&nbsp;by&nbsp;enableOnDemandImporter&nbsp;or&nbsp;setGlobalVirtualEnv</tt></dd></dl>
-</td></tr></table><p >
-<table cellpadding="2" width="100%" border="0" cellspacing="0" summary="section" >
-<tr bgcolor="#55aa55" >
-<td colspan="3" valign="bottom" >&nbsp;<br />
-<font color="#ffffff" face="helvetica, arial" ><big ><strong >Data</strong></big></font></td></tr>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
-<tr ><td bgcolor="#55aa55" ><tt >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td >&nbsp;</td>
-<td width="100%" ><strong >__all__</strong> = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', 'toggleOnDemandImporter', 'getInfoFromVirtualEnv', 'activateEnv', 'setGlobalVirtualEnv', 'toggleDebug')<br />
-<strong >__version__</strong> = '5.1.1'<br />
-<strong >__version_tuple__</strong> = (5, 1, 1)</td></tr></table>
-</p></p></p></p></body></html>
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__all__</strong> = ('createEnv', 'createEnvIfCannotImport', 'enableOnDemandImporter', 'getGlobalVirtualEnvInfo', 'installPackages', 'ensureImport', 'ensureImportGlobal', 'PipInstallFailed', 'VirtualEnvInfo', 'toggleOnDemandImporter', 'getInfoFromVirtualEnv', 'activateEnv', 'setGlobalVirtualEnv', 'setupAndActivateEnv', 'toggleDebug')<br>
+<strong>__version_tuple__</strong> = (6, 0, 0)</td></tr></table>
+</body></html>
