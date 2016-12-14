@@ -74,10 +74,9 @@ def createEnv(packages=None, parentDirectory=None, name=None, stdout=sys.stdout,
     virtualenv.create_environment(venvDir, site_packages=True)
 
     # If they provided required packages, install them
-    reqContents = installPackages(packages, venvDir, stdout, stderr)
+    installPackages(packages, venvDir, stdout, stderr)
 
     # Generate the site-packages path
-    versionInfo = sys.version_info
     venvSitePath = VirtualEnvInfo.getSitePackagesDirectory(venvDir)
 
     # If we are to delete this env upon the app closing, 

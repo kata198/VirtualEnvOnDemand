@@ -22,6 +22,8 @@ manually handle removal.
 Thanks to github user "elypma" for reporting the issues which lead to me
 performing these updates.
 
+- Some minor code cleanups / updates
+
 
 * 5.1.1 - Nov 3 2016
 - Remove debug line which was forcing "parentDirectory" in

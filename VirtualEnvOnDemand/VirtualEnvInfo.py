@@ -63,7 +63,6 @@ class VirtualEnvInfo(object):
 
             @return <str> - Path to the "site-packages" directory of the virtualenv
         '''
-        versionInfo = sys.version_info
         return os.sep.join([virtualenvDirectory, 'Lib', 'site-packages'])
 
 
