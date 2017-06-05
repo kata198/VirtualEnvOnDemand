@@ -16,7 +16,7 @@ if __name__ == '__main__':
     if dirName and os.getcwd() != dirName:
         os.chdir(dirName)
 
-    summary = 'Easily create and use virtualenvs and provides the ability for an application to install and use its runtime dependencies at import time'
+    summary = 'Easily create and use virtualenvs via script and provides the ability for an application to install and use its runtime dependencies on first import'
 
     try:
         with open('README.rst', 'rt') as f:
